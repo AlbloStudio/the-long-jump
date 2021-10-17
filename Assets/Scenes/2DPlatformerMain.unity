@@ -387,6 +387,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1276672072, guid: e7fcecc826687024e9b52ec763b14088, type: 3}
+      propertyPath: groundCheck
+      value: 
+      objectReference: {fileID: 1430960872}
+    - target: {fileID: 1276672072, guid: e7fcecc826687024e9b52ec763b14088, type: 3}
+      propertyPath: whatIsGround.m_Bits
+      value: 3221233463
+      objectReference: {fileID: 0}
     - target: {fileID: 1116900248984994, guid: e7fcecc826687024e9b52ec763b14088, type: 3}
       propertyPath: m_Name
       value: Player
@@ -537,6 +545,12 @@ Transform:
 --- !u!4 &1276672077 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4566797654940672, guid: e7fcecc826687024e9b52ec763b14088,
+    type: 3}
+  m_PrefabInstance: {fileID: 869028991}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1430960872 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 808631739, guid: e7fcecc826687024e9b52ec763b14088,
     type: 3}
   m_PrefabInstance: {fileID: 869028991}
   m_PrefabAsset: {fileID: 0}
