@@ -15,14 +15,14 @@ TagManager:
   - 
   - 
   - Level
-  - Enemy
-  - Usable
-  - Pickup
-  - IgnorePlayer
+  - 
+  - 
+  - 
+  - 
+  - 
+  - Totem
+  - Jumper
   - Player
-  - 
-  - 
-  - 
   - 
   - 
   - 

@@ -45,7 +45,7 @@ GameObject:
   - component: {fileID: 95652339953015534}
   - component: {fileID: 50445034004152982}
   - component: {fileID: 1276672079}
-  m_Layer: 13
+  m_Layer: 16
   m_Name: PlayerStart
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -79,12 +79,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4bd6a3a095f1ec4abd8cf59101cb070, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  JumpForce: 600
-  CoyoteTime: 0.08
-  WhatIsGround:
+  jumpForce: 620
+  coyoteTime: 0.06
+  whatIsGround:
     serializedVersion: 2
-    m_Bits: 3221233463
-  GroundCheck: {fileID: 808631739}
+    m_Bits: 3221258551
+  groundCheck: {fileID: 0}
 --- !u!114 &4942367334449841875
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -97,7 +97,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed2b12f971b07134b9fac53cc6d8c17f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RunSpeed: 40
+  runSpeed: 40
 --- !u!212 &212991655389708426
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -117,7 +117,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
