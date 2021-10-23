@@ -98,8 +98,8 @@ namespace Assets.Scripts
             _animator.SetFloat(AnimatorNames.VelocityY, _body.velocity.y);
 
             Vector2 velocity = _body.velocity;
-            bool isTurningLeft = velocity.x < 0 && _facing == Facing.Right;
-            bool isTurningRight = velocity.x > 0 && _facing == Facing.Left;
+            bool isTurningLeft = velocity.x < 0 && _facing is Facing.Right;
+            bool isTurningRight = velocity.x > 0 && _facing is Facing.Left;
 
             if (isTurningRight || isTurningLeft)
             {
@@ -109,7 +109,7 @@ namespace Assets.Scripts
 
         private void Flip()
         {
-            _facing = _facing == Facing.Left ? Facing.Right : Facing.Left;
+            _facing = _facing is Facing.Left ? Facing.Right : Facing.Left;
 
             Transform localTransform = transform;
             Vector3 localScale = localTransform.localScale;

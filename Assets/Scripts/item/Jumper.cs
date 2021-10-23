@@ -1,24 +1,36 @@
+using Assets.Scripts.managers;
+using System;
 using UnityEngine;
 
 namespace Assets.Scripts.item
 {
     public class Jumper : MonoBehaviour
     {
-        private Collider2D collider;
+        private Collider2D _collider;
 
         private void OnEnable()
         {
-            collider = GetComponent<Collider2D>();
+            _collider = GetComponent<Collider2D>();
         }
 
-        public void EnterDragMode()
+        private void OnMouseDown()
         {
-            collider.enabled = false;
+            DragManager.Instance.StartDraggingMode(this);
         }
 
-        public void ExitDragMode()
+        private void OnMouseUp()
         {
-            collider.enabled = true;
+            DragManager.Instance.FinishDraggingMode();
+        }
+
+        public void StartDraggingMode()
+        {
+            _collider.enabled = false;
+        }
+
+        public void FinishDraggingMode()
+        {
+            _collider.enabled = true;
         }
     }
 }

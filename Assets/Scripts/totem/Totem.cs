@@ -1,16 +1,12 @@
 using Assets.Scripts.item;
-using Cinemachine;
+using Assets.Scripts.managers;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 
 namespace Assets.Scripts.totem
 {
     public class Totem : MonoBehaviour
     {
-        [Tooltip("The ample camera to transition when player is here")]
-        [SerializeField] private CinemachineVirtualCamera ampleCamera;
-
         private List<Item> _items;
 
         private void OnEnable()
@@ -22,7 +18,8 @@ namespace Assets.Scripts.totem
         {
             if (IsTriggeringWithPlayer(other))
             {
-                StartItemMode();
+                SetActiveItems(true);
+                DragManager.Instance.StartPlanningMode();
             }
         }
 
@@ -30,42 +27,21 @@ namespace Assets.Scripts.totem
         {
             if (IsTriggeringWithPlayer(other))
             {
-                FinishItemMode();
+                SetActiveItems(false);
+                DragManager.Instance.FinishPlanningMode();
             }
-        }
-
-        private void StartItemMode()
-        {
-            SetItemsActive(true);
-            ampleCamera.enabled = true;
-        }
-
-        private void FinishItemMode()
-        {
-            SetItemsActive(false);
-            ampleCamera.enabled = false;
-
-            FailCurrentDrag();
         }
 
         private static bool IsTriggeringWithPlayer(Component collided)
         {
-            return collided.gameObject.layer == LayerMask.NameToLayer("Player");
+            return collided.gameObject.layer.Equals(LayerMask.NameToLayer("Player"));
         }
 
-        private void SetItemsActive(bool active)
+        private void SetActiveItems(bool active)
         {
             foreach (Item item in _items)
             {
-                item.gameObject.SetActive(active);
-            }
-        }
-
-        private void FailCurrentDrag()
-        {
-            foreach (Item item in _items.Where(item => item.IsDragging()))
-            {
-                item.FailDrag();
+                item.SetActive(active);
             }
         }
     }

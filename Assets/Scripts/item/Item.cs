@@ -1,3 +1,4 @@
+using Assets.Scripts.managers;
 using System;
 using UnityEngine;
 
@@ -5,76 +6,50 @@ namespace Assets.Scripts.item
 {
     public class Item : MonoBehaviour
     {
-        [Tooltip("The main Camera")]
-        [SerializeField] private Camera mainCamera;
-
         [Tooltip("Object in which this item will transform to")]
         [SerializeField] private Jumper jumperTemplate;
 
-        private bool _isDragging;
-
         private SpriteRenderer _spriteRenderer;
-        private Jumper _jumper;
+        private bool _isPlaced;
 
         private void OnEnable()
         {
             _spriteRenderer = GetComponent<SpriteRenderer>();
         }
 
-        private void Update()
-        {
-            if (_isDragging && _jumper)
-            {
-                Drag();
-            }
-        }
-
         private void OnMouseDown()
         {
-            InitDrag();
+            StartDragMode();
         }
 
         private void OnMouseUp()
         {
-            SucceedDrag();
+            FinishDragMode();
         }
 
-        public bool IsDragging()
-        {
-            return _isDragging;
-        }
-
-        private void InitDrag()
+        private void StartDragMode()
         {
             _spriteRenderer.enabled = false;
-            _isDragging = true;
 
-            _jumper = Instantiate(jumperTemplate, transform.position, Quaternion.identity);
-            _jumper.EnterDragMode();
+            Jumper jumper = Instantiate(jumperTemplate, transform.position, Quaternion.identity);
+            DragManager.Instance.StartDraggingMode(jumper);
         }
 
-        private void SucceedDrag()
+        private void FinishDragMode()
         {
-            _isDragging = false;
-            _jumper.ExitDragMode();
-        }
-
-        private void Drag()
-        {
-            _jumper.transform.position = mainCamera.ScreenToWorldPoint(
-                new Vector3(
-                    Input.mousePosition.x,
-                    Input.mousePosition.y,
-                    Math.Abs(mainCamera.transform.position.z)
-                )
-            );
-        }
-
-        public void FailDrag()
-        {
-            _isDragging = false;
-            GameObject.Destroy(_jumper);
             _spriteRenderer.enabled = true;
+            _isPlaced = true;
+            gameObject.SetActive(false);
+
+            DragManager.Instance.FinishDraggingMode();
+        }
+
+        public void SetActive(bool active)
+        {
+            if (!_isPlaced)
+            {
+                gameObject.SetActive(active);
+            }
         }
     }
 }
