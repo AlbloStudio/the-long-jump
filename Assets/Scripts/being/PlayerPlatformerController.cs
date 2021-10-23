@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Assets.Scripts
+namespace Assets.Scripts.being
 {
     public class PlayerPlatformerController : MonoBehaviour
     {
@@ -15,12 +15,10 @@ namespace Assets.Scripts
         private void OnEnable()
         {
             _controller = GetComponent<CharacterController2D>();
-
         }
 
         private void Update()
         {
-
             if (Input.GetButtonDown("Jump"))
             {
                 _isJumping = true;

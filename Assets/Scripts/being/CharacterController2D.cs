@@ -1,7 +1,7 @@
 using Assets.Scripts.utils;
 using UnityEngine;
 
-namespace Assets.Scripts
+namespace Assets.Scripts.being
 {
     public static class AnimatorNames
     {
