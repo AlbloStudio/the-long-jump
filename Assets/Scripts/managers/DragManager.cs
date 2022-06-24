@@ -1,4 +1,5 @@
 using Assets.Scripts.item;
+using Assets.Scripts.utils;
 using Cinemachine;
 using System;
 using UnityEngine;
@@ -12,10 +13,8 @@ namespace Assets.Scripts.managers
         Dragging = 2,
     }
 
-    public class DragManager : MonoBehaviour
+    public class DragManager : Singleton<DragManager>
     {
-        public static DragManager Instance { get; private set; }
-
         [Tooltip("The main Camera")]
         [SerializeField] private Camera mainCamera;
 
@@ -25,18 +24,6 @@ namespace Assets.Scripts.managers
         private Mode _mode;
 
         private Jumper _currentJumper;
-
-        private void OnEnable()
-        {
-            if (Instance != null && Instance != this)
-            {
-                Destroy(this.gameObject);
-            }
-            else
-            {
-                Instance = this;
-            }
-        }
 
         private void Update()
         {

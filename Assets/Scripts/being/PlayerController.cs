@@ -2,31 +2,31 @@ using UnityEngine;
 
 namespace Assets.Scripts.being
 {
-    public class PlayerPlatformerController : MonoBehaviour
+    public class PlayerController : MonoBehaviour
     {
         [Tooltip("player speed")]
         [SerializeField] private float runSpeed = 40f;
 
-        private bool _isJumping = false;
+        private bool _shouldJump = false;
         private float _horizontalMovement = 0f;
 
-        private CharacterController2D _controller;
+        private CharacterMover _controller;
 
         private void OnEnable()
         {
-            _controller = GetComponent<CharacterController2D>();
+            _controller = GetComponent<CharacterMover>();
         }
 
         private void Update()
         {
             if (Input.GetButtonDown("Jump"))
             {
-                _isJumping = true;
+                _shouldJump = true;
             }
 
             if (Input.GetButtonUp("Jump"))
             {
-                _isJumping = false;
+                _shouldJump = false;
             }
 
             _horizontalMovement = Input.GetAxis("Horizontal") * runSpeed * Time.fixedDeltaTime;
@@ -35,12 +35,13 @@ namespace Assets.Scripts.being
         private void FixedUpdate()
         {
             _controller.Move(_horizontalMovement);
-            if (_isJumping)
+
+            if (_shouldJump)
             {
                 _controller.Jump();
             }
 
-            _isJumping = false;
+            _shouldJump = false;
         }
     }
 }
