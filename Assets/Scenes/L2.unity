@@ -15,7 +15,7 @@ RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 9
   m_Fog: 0
-  m_FogColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  m_FogColor: {r: 0.6509434, g: 0.095185116, b: 0.095185116, a: 1}
   m_FogMode: 3
   m_FogDensity: 0.01
   m_LinearFogStart: 0
@@ -34,7 +34,7 @@ RenderSettings:
   m_SpotCookie: {fileID: 10001, guid: 0000000000000000e000000000000000, type: 0}
   m_DefaultReflectionMode: 0
   m_DefaultReflectionResolution: 128
-  m_ReflectionBounces: 1
+  m_ReflectionBounces: 3
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
@@ -370,7 +370,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 841af71de5c6fb44eb0df07800d104cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _material: {fileID: 0}
 --- !u!1 &193131402
 GameObject:
   m_ObjectHideFlags: 0
@@ -563,7 +562,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 841af71de5c6fb44eb0df07800d104cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _material: {fileID: 0}
 --- !u!1 &244174862
 GameObject:
   m_ObjectHideFlags: 0
@@ -1282,7 +1280,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1077488797}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -20.95, y: -1.65, z: 0}
+  m_LocalPosition: {x: -20.93, y: -1.5, z: 0}
   m_LocalScale: {x: 0.21622, y: 0.21622, z: 0.21622}
   m_Children: []
   m_Father: {fileID: 1609517238}
@@ -1436,7 +1434,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 841af71de5c6fb44eb0df07800d104cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _material: {fileID: 0}
 --- !u!1 &1465765813
 GameObject:
   m_ObjectHideFlags: 0
@@ -1733,7 +1730,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75171b89ff8bbe244b01c3883539f16f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  topColor: {r: 0.3484336, g: 0.49671742, b: 0.509434, a: 1}
+  topColor: {r: 0.5921569, g: 0.7372549, b: 0.72156864, a: 1}
   bottomColor: {r: 0.122641504, g: 0.045701314, b: 0.11979188, a: 1}
   bounds: {x: 0, y: 15}
   verticalLimits: {x: 0.5, y: 0.3}
