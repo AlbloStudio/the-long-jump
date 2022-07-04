@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using Assets.Scripts.being;
+using Assets.Scripts.managers;
 
 namespace Assets.Scripts.item
 {
@@ -8,11 +9,11 @@ namespace Assets.Scripts.item
         [Tooltip("How strong is the spring")]
         [SerializeField] private float jumpForce = 1.5f;
 
-        public CharacterMover _controller;
+        private CharacterMover _controller;
 
-        private void Enable()
+        private void OnEnable()
         {
-            _controller = FindObjectOfType<CharacterMover>();
+            _controller = GeneralData.Instance.player;
         }
 
         private void OnCollisionEnter2D(Collision2D collision)

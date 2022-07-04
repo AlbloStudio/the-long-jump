@@ -5,7 +5,10 @@ namespace Assets.Scripts.managers
 {
     public class FogData : Singleton<FogData>
     {
+        [Tooltip("Top Screen Color")]
         public Color topColor;
+
+        [Tooltip("Bottom Screen Color")]
         public Color bottomColor;
 
         [Tooltip("bounds in which z will count")]
