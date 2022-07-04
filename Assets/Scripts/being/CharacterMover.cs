@@ -51,7 +51,7 @@ namespace Assets.Scripts.being
                 _coyoteCounter -= Time.fixedDeltaTime;
             }
 
-            bool isJumpFinished = _isGrounded && Float.Equals(_coyoteCounter, coyoteTime);
+            bool isJumpFinished = _isGrounded && !Float.Equals(_coyoteCounter, coyoteTime);
             if (isJumpFinished)
             {
                 _coyoteCounter = coyoteTime;
@@ -63,17 +63,17 @@ namespace Assets.Scripts.being
             _body.velocity = new Vector2(move * 10f, _body.velocity.y);
         }
 
-        public void Jump()
+        public bool CanJump()
         {
-            bool canJump = _coyoteCounter > 0;
+            return _coyoteCounter > 0;
+        }
 
-            if (canJump)
-            {
-                _isGrounded = false;
+        public void Jump(float force = 1)
+        {
+            _isGrounded = false;
 
-                _body.velocity = new Vector2(_body.velocity.x, 0);
-                _body.AddForce(new Vector2(0f, jumpForce));
-            }
+            _body.velocity = new Vector2(_body.velocity.x, 0);
+            _body.AddForce(new Vector2(0f, jumpForce * force));
         }
 
         public bool IsGrounded()

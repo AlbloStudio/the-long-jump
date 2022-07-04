@@ -36,7 +36,7 @@ namespace Assets.Scripts.being
         {
             _controller.Move(_horizontalMovement);
 
-            if (_shouldJump)
+            if (_shouldJump && _controller.CanJump())
             {
                 _controller.Jump();
             }

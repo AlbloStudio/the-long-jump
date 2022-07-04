@@ -8,7 +8,7 @@ namespace Assets.Scripts.utils
 
         public static bool Equals(float a, float b, float tolerance = Tolerance)
         {
-            return Math.Abs(a - b) > tolerance;
+            return Math.Abs(a - b) <= tolerance;
         }
     }
 }

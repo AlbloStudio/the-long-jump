@@ -1,5 +1,4 @@
 using Assets.Scripts.managers;
-using System;
 using UnityEngine;
 
 namespace Assets.Scripts.item
