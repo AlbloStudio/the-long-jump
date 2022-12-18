@@ -5,16 +5,10 @@ namespace Assets.Scripts.managers
 {
     public class FogData : Singleton<FogData>
     {
-        [Tooltip("Top Screen Color")]
-        public Color topColor;
-
-        [Tooltip("Bottom Screen Color")]
-        public Color bottomColor;
+        [Tooltip("a texture containing fog colors: first column is the back, second column is the front. They show the top to bottom colors in full fog. ")]
+        public Texture2D colors;
 
         [Tooltip("bounds in which z will count")]
-        public Vector2 bounds = new Vector2(0f, 15f);
-
-        [Tooltip("color reach for top and bottom")]
-        public Vector2 verticalLimits = new Vector2(0.5f, 0.5f);
+        public Vector2 bounds = new Vector2(-1f, 15f);
     }
 }

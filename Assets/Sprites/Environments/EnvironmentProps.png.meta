@@ -147,6 +147,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -727,6 +728,31 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      EnvironmentProps_10: 21300062
+      EnvironmentProps_11: 21300064
+      EnvironmentProps_13: 21300026
+      EnvironmentProps_2: 21300052
+      EnvironmentProps_1: 21300050
+      EnvironmentProps_16: 21300066
+      EnvironmentProps_23: 21300080
+      EnvironmentProps_20: 21300074
+      EnvironmentProps_14: 21300028
+      EnvironmentProps_21: 21300076
+      EnvironmentProps_6: 21300012
+      EnvironmentProps_17: 21300068
+      EnvironmentProps_7: 21300014
+      EnvironmentProps_9: 21300060
+      EnvironmentProps_18: 21300070
+      EnvironmentProps_15: 21300030
+      EnvironmentProps_4: 21300054
+      EnvironmentProps_22: 21300078
+      EnvironmentProps_5: 21300056
+      EnvironmentProps_0: 21300048
+      EnvironmentProps_3: 21300006
+      EnvironmentProps_8: 21300058
+      EnvironmentProps_19: 21300072
+      EnvironmentProps_12: 21300024
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

@@ -168,6 +168,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -982,6 +983,41 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      GrassInnerCornerLeft: 21300064
+      GrassSlopeRightWall: 21300072
+      GrassCornerThinRight: 21300094
+      GrassSlopeRightFill: 21300020
+      GrassInnerCornerBottomRight: 21300056
+      GrassSlopeRightBottomFill: 21300050
+      GrassSlopeLeftFill: 21300022
+      GrassBackWall: 21300058
+      GrassSlopeLeftEnd: 21300078
+      GrassSlopeRightTop: 21300080
+      GrassSlopeRighEndTop: 21300084
+      GrassLeft: 21300006
+      GrassSlopeLeft: 21300018
+      GrassMiddle: 21300036
+      GrassBottomLeft: 21300044
+      GrassBotSlopeRightWall: 21300088
+      GrassInnerCornerBottomLeft: 21300054
+      GrassBottomRight: 21300048
+      GrassSlopeLeftTop: 21300082
+      GrassSlopeLeftEndTop: 21300086
+      GrassCornerThinLeft: 21300092
+      GrassSlopeRight: 21300016
+      GrassRight: 21300008
+      GrassTop: 21300002
+      GrassSlopeRightEnd: 21300068
+      GrassSlopeRightBottom: 21300060
+      GrassSlopeLeftBottom: 21300062
+      GrassSlopeLeftWall: 21300070
+      GrassBottom: 21300046
+      GrassSlopeLeftBottomFill: 21300052
+      GrassTopLeft: 21300000
+      GrassInnerCornerRight: 21300066
+      GrassTopRight: 21300004
+      GrassSlopeRightEndBot: 21300090
   spritePackingTag: 
   pSDRemoveMatte: 1
   pSDShowRemoveMatteOption: 1

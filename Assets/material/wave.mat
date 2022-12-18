@@ -2,15 +2,16 @@
 %TAG !u! tag:unity3d.com,2011:
 --- !u!21 &2100000
 Material:
-  serializedVersion: 6
+  serializedVersion: 8
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: wave
-  m_Shader: {fileID: -6465566751694194690, guid: e52236d627df02c43a0ae7a539f53d58,
+  m_Shader: {fileID: -6465566751694194690, guid: 28abce19dd6f7014c989d0cc1dc5c9e2,
     type: 3}
-  m_ShaderKeywords: 
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -21,6 +22,10 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _AlphaTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Colors:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
@@ -48,15 +53,17 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    m_Ints: []
     m_Floats:
     - Vector1_58c83858095246109046863df9fdc717: 3.72
     - Vector1_6e4e0866e5844ecc8c437358c88f3e1e: 0.01
     - Vector1_9fd6e95b64c84330acabd8036b7b6e09: 0.23
+    - _BlutAmount: 0
     - _Depth: -0.48
     - _EnableExternalAlpha: 0
-    - _Pivot: 0.2
-    - _WindAggresivity: 0
-    - _WindForce: 0.7
+    - _Pivot: -0.08
+    - _WindAggresivity: -3.59
+    - _WindForce: 19.6
     - _WindForce_1: 0.81
     - _WindSpeed: 3.21
     m_Colors:

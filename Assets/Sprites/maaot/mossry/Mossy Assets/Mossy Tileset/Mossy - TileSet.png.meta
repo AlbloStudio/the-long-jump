@@ -171,6 +171,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -1276,6 +1277,56 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      Mossy - TileSet_17: -5072850715659334932
+      Mossy - TileSet_29: -5459091127691064642
+      Mossy - TileSet_44: 5098698998475253099
+      Mossy - TileSet_20: -524877543031904614
+      Mossy - TileSet_4: 7789460486736427789
+      Mossy - TileSet_13: -3594177204811327246
+      Mossy - TileSet_28: 2857388898317084124
+      Mossy - TileSet_14: -4183846049574238538
+      Mossy - TileSet_2: -8013599348960855253
+      Mossy - TileSet_41: 4502061714101203422
+      Mossy - TileSet_6: -418929144885664223
+      Mossy - TileSet_15: -835656968662149559
+      Mossy - TileSet_27: -8345245913391173539
+      Mossy - TileSet_24: -1581547282002965455
+      Mossy - TileSet_40: -3866491109049220897
+      Mossy - TileSet_35: 4398186595708621341
+      Mossy - TileSet_7: -4372659424568917565
+      Mossy - TileSet_10: -5569898554837922632
+      Mossy - TileSet_37: 5371275752305055631
+      Mossy - TileSet_32: -5833995535470845175
+      Mossy - TileSet_38: 5035188537419874837
+      Mossy - TileSet_12: 6928388786959331256
+      Mossy - TileSet_43: -9153382592485233709
+      Mossy - TileSet_26: 6662521998811505123
+      Mossy - TileSet_31: 4037330239159434468
+      Mossy - TileSet_48: -1925861959747490014
+      Mossy - TileSet_16: -4102537442370791014
+      Mossy - TileSet_18: -6255141689524456930
+      Mossy - TileSet_34: -7188324732607111159
+      Mossy - TileSet_3: -5249700988863797070
+      Mossy - TileSet_47: 2298562702179888915
+      Mossy - TileSet_0: 7780190520650127750
+      Mossy - TileSet_1: 1036836331014718058
+      Mossy - TileSet_23: -5036600939746470205
+      Mossy - TileSet_33: 8867913802308176863
+      Mossy - TileSet_46: -647901498481303547
+      Mossy - TileSet_5: -2891453398403303555
+      Mossy - TileSet_39: -1851547395948528943
+      Mossy - TileSet_8: 4514297465504893602
+      Mossy - TileSet_9: -3487523447489209345
+      Mossy - TileSet_22: 4946514624398523938
+      Mossy - TileSet_25: 5140639665807568530
+      Mossy - TileSet_19: -6547473480025862038
+      Mossy - TileSet_45: -3836277627540937040
+      Mossy - TileSet_11: -3685418513897516578
+      Mossy - TileSet_21: -3872889320325841034
+      Mossy - TileSet_30: 6727615444850285541
+      Mossy - TileSet_36: 6494960875842546982
+      Mossy - TileSet_42: 206791664983288845
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

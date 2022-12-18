@@ -237,6 +237,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -1090,6 +1091,42 @@ TextureImporter:
     secondaryTextures:
     - texture: {fileID: 2800000, guid: 724b392eb970e6a4c8fc06ffdc27ee29, type: 3}
       name: _NormalMap
+    nameFileIdTable:
+      CaveSlopeLeftBottomFill: 21300048
+      CaveInnerCornerLeft: 21300030
+      CaveSlopeLeftTop: 21300062
+      Caves_TileSet_26: 21300124
+      CaveSlopeLeftEndBot: 21300058
+      CaveSlopeRightEnd: 21300064
+      CaveBotSlopeLeftWall: 21300068
+      CaveSlopeRight: 21300036
+      CaveSlopeRightFill: 21300042
+      CaveSlopeLeftBottom: 21300046
+      CaveInnerCornerRight: 21300028
+      CaveSlopeRightEndTop: 21300052
+      CaveTop: 21300002
+      CaveLeft: 21300008
+      CaveRight: 21300006
+      CaveSlopeRightTop: 21300060
+      CaveBottomRight: 21300012
+      CaveSlopeRightEndBot: 21300056
+      CaveTopRight: 21300004
+      CaveBackWall: 21300026
+      CavesBackgroundTop: 21300136
+      CaveInnerCornerBottomRight: 21300032
+      CaveSlopeRightBottomFill: 21300050
+      Caves_TileSet_25: 21300122
+      CaveSlopeRightBottom: 21300044
+      CaveBottomLeft: 21300010
+      CaveMiddle: 21300016
+      CaveSlopeLeftEndTop: 21300054
+      CaveInnerCornerBottomLeft: 21300034
+      CaveSlopeLeftFill: 21300040
+      CaveSlopeLeft: 21300038
+      CaveTopLeft: 21300000
+      CaveBotSlopeRightWall: 21300070
+      CaveSlopeLeftEnd: 21300066
+      CaveBottom: 21300014
   spritePackingTag: 
   pSDRemoveMatte: 1
   pSDShowRemoveMatteOption: 1
