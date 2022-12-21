@@ -11,16 +11,17 @@ GameObject:
   - component: {fileID: 4886314674593625293}
   - component: {fileID: 4886314674593625292}
   - component: {fileID: 4886314674593625295}
-  - component: {fileID: 4886314674593625294}
   - component: {fileID: 3867873428551323986}
   - component: {fileID: 215878602949697917}
+  - component: {fileID: 6261419487813198615}
+  - component: {fileID: 9140375930039307348}
   m_Layer: 15
-  m_Name: SpringItem
+  m_Name: TeleportPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &4886314674593625293
 Transform:
   m_ObjectHideFlags: 0
@@ -30,7 +31,7 @@ Transform:
   m_GameObject: {fileID: 4886314674593625290}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.74, y: 1.36, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 3, y: 3, z: 3}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -77,7 +78,7 @@ SpriteRenderer:
   m_SortingLayerID: 1665408557
   m_SortingLayer: 3
   m_SortingOrder: 0
-  m_Sprite: {fileID: -1257572615, guid: 4404ac4086d3d604582e14cf9fd88874, type: 3}
+  m_Sprite: {fileID: -997027263, guid: 88ce52560c668354cbbc9dbdf5398c3f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -100,34 +101,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b79a3cdedbb74e46a1b1fabb95810d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumperTemplate: {fileID: 4886314674593625290, guid: c0b41bd674b70cb44a1dab39cddfc94f,
+  jumperTemplate: {fileID: 8044821020109087051, guid: f01a7c1cc4d3b25479415b8d20be23b2,
     type: 3}
---- !u!61 &4886314674593625294
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4886314674593625290}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.030379772, y: -0.042131007}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.32, y: 0.32}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 2.3566008, y: 0.76404727}
-  m_EdgeRadius: 0
 --- !u!198 &3867873428551323986
 ParticleSystem:
   m_ObjectHideFlags: 0
@@ -4907,3 +4882,32 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
+--- !u!58 &6261419487813198615
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4886314674593625290}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.16
+--- !u!114 &9140375930039307348
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4886314674593625290}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e89810fdc6ddea418d1da1a3efda6fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jumperTemplate: {fileID: 0}

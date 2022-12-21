@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 808631739}
-  m_Layer: 16
+  m_Layer: 17
   m_Name: GroundCheck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -47,7 +47,7 @@ GameObject:
   - component: {fileID: 95652339953015534}
   - component: {fileID: 50445034004152982}
   - component: {fileID: 1276672079}
-  m_Layer: 16
+  m_Layer: 17
   m_Name: PlayerStart
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -86,7 +86,7 @@ MonoBehaviour:
   coyoteTime: 0.1
   whatIsGround:
     serializedVersion: 2
-    m_Bits: 1
+    m_Bits: 33024
   groundCheck: {fileID: 808631739}
   _isGrounded: 0
 --- !u!114 &4942367334449841875

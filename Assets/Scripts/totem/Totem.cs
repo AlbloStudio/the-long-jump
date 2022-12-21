@@ -85,6 +85,7 @@ namespace Assets.Scripts.totem
             if (Input.GetMouseButtonDown(0))
             {
                 Item itemClicked = ItemClicked();
+
                 if (itemClicked)
                 {
                     _activeItem = itemClicked;
@@ -103,7 +104,7 @@ namespace Assets.Scripts.totem
 
             RaycastHit2D rayHit = Physics2D.GetRayIntersection(ray, Mathf.Infinity, LayerMask.GetMask("Totem Item"));
 
-            return rayHit ? rayHit.transform.GetComponent<Item>() : null;
+            return rayHit.transform ? rayHit.transform.GetComponent<Item>() : null;
         }
 
         private void Drag()

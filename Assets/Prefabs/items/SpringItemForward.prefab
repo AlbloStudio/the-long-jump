@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 3867873428551323986}
   - component: {fileID: 215878602949697917}
   m_Layer: 15
-  m_Name: SpringItem
+  m_Name: SpringItemForward
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -100,7 +100,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b79a3cdedbb74e46a1b1fabb95810d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumperTemplate: {fileID: 4886314674593625290, guid: c0b41bd674b70cb44a1dab39cddfc94f,
+  jumperTemplate: {fileID: 4886314674593625290, guid: 45f72025a338b2348b341e787960987e,
     type: 3}
 --- !u!61 &4886314674593625294
 BoxCollider2D:

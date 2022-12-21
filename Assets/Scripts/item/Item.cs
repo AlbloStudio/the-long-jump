@@ -7,17 +7,15 @@ namespace Assets.Scripts.item
 {
     public class Item : MonoBehaviour
     {
-        [Tooltip("Object in which this item will transform to")]
-        [SerializeField] private GameObject jumperTemplate;
-
-        private GameObject _jumperInstance;
         private Vector2 _originalPosition;
 
         private Collider2D _safeArea;
+        private Jumper _jumper;
 
         private void Awake()
         {
             _originalPosition = transform.position;
+            _jumper = GetComponent<Jumper>();
         }
 
         private bool IsInSafeArea()
@@ -31,22 +29,19 @@ namespace Assets.Scripts.item
 
             gameObject.SetActive(true);
 
-            if (_jumperInstance)
-            {
-                Destroy(_jumperInstance.gameObject);
-            }
+            _jumper.enabled = false;
         }
 
         public void ExitPlanningMode()
         {
-            gameObject.SetActive(false);
-
             if (IsInSafeArea())
             {
-                _jumperInstance = Instantiate(jumperTemplate, transform.position, Quaternion.identity, GeneralData.Instance.jumpersFolder.transform);
+                _jumper.enabled = true;
             }
             else
             {
+                gameObject.SetActive(false);
+
                 transform.position = _originalPosition;
             }
         }
