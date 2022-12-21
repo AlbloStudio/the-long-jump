@@ -21,10 +21,10 @@ namespace Assets.Scripts.being
 
         private float _coyoteCounter;
 
-        private Animator _animator;
         private Rigidbody2D _body;
 
         public bool _isGrounded;
+        private Vector2 _impulseVelocity = Vector2.zero;
 
         private void OnEnable()
         {
@@ -41,6 +41,11 @@ namespace Assets.Scripts.being
         {
             Collider2D[] colliders = Physics2D.OverlapCircleAll(groundCheck.transform.position, _GROUNDED_RADIUS, whatIsGround);
             _isGrounded = colliders.Length > 0;
+
+            if (_isGrounded)
+            {
+                _impulseVelocity = Vector2.zero;
+            }
         }
 
         private void CountCoyoteTime()
@@ -60,7 +65,13 @@ namespace Assets.Scripts.being
 
         public void Move(float move)
         {
-            _body.velocity = new Vector2(move * 10f, _body.velocity.y);
+            _body.velocity = new Vector2(move * 10f + _impulseVelocity.x, _body.velocity.y);
+        }
+
+        public void Teleport(Vector2 position)
+        {
+            _body.velocity = Vector2.zero;
+            transform.position = position;
         }
 
         public bool CanJump()
@@ -72,8 +83,15 @@ namespace Assets.Scripts.being
         {
             _isGrounded = false;
 
-            _body.velocity = new Vector2(_body.velocity.x, 0);
-            _body.AddForce(new Vector2(0f, jumpForce * force));
+            _body.AddForce(jumpForce * force * Vector2.up);
+        }
+
+        public void Impulse(float force, Vector2 direction)
+        {
+            _isGrounded = false;
+            _impulseVelocity = direction * (force / _body.mass * Time.fixedDeltaTime);
+
+            _body.AddForce(force * direction);
         }
 
         public bool IsGrounded()
