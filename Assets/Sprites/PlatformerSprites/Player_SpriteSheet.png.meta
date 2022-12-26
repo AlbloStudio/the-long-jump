@@ -111,7 +111,7 @@ TextureImporter:
       213: 21300070
     second: Player_SpriteSheet_35
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -171,6 +171,7 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 1
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -198,6 +199,18 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 1
   - serializedVersion: 3
     buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 1
+  - serializedVersion: 3
+    buildTarget: Server
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -980,9 +993,7 @@ TextureImporter:
     nameFileIdTable:
       Player_SpriteSheet_2: 21300004
       Player_SpriteSheet_4: 21300008
-      Player_SpriteSheet_18: 21300036
       Player_SpriteSheet_3: 21300006
-      Player_SpriteSheet_34: 21300068
       Player_SpriteSheet_9: 21300018
       Player_SpriteSheet_5: 21300010
       Player_SpriteSheet_25: 21300050
@@ -1009,10 +1020,12 @@ TextureImporter:
       Player_SpriteSheet_6: 21300012
       Player_SpriteSheet_28: 21300056
       Player_SpriteSheet_0: 21300000
-      Player_SpriteSheet_14: 21300028
+      Player_SpriteSheet_18: 21300036
+      Player_SpriteSheet_34: 21300068
       Player_SpriteSheet_7: 21300014
-      Player_SpriteSheet_17: 21300034
+      Player_SpriteSheet_14: 21300028
       Player_SpriteSheet_16: 21300032
+      Player_SpriteSheet_17: 21300034
       Player_SpriteSheet_8: 21300016
   spritePackingTag: 
   pSDRemoveMatte: 0
