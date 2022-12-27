@@ -1,6 +1,4 @@
 ﻿using UnityEngine;
-using Assets.Scripts.being;
-using Assets.Scripts.managers;
 
 namespace Assets.Scripts.item
 {
@@ -17,24 +15,30 @@ namespace Assets.Scripts.item
         private new void OnEnable()
         {
             base.OnEnable();
-            _collider.isTrigger = false;
-        }
 
-        private void OnDisable()
-        {
-            _collider.isTrigger = true;
+            transform.rotation = Quaternion.LookRotation(Vector3.forward, direction);
         }
 
         private void OnCollisionEnter2D(Collision2D collision)
         {
-            if (!enabled)
-            {
-                return;
-            }
-
             if (collision.gameObject == _controller.gameObject)
             {
                 _controller.Impulse(_FORCE * jumpForce, direction);
+            }
+        }
+
+        protected override void OnChangePlanningMode(PlanningMode newMode)
+        {
+            switch (newMode)
+            {
+                case PlanningMode.Planning:
+                case PlanningMode.Waiting:
+                    _collider.isTrigger = true;
+                    break;
+
+                case PlanningMode.Playing:
+                    _collider.isTrigger = false;
+                    break;
             }
         }
     }

@@ -6,14 +6,19 @@ namespace Assets.Scripts.item
 {
     public class Platform : Jumper
     {
-        private new void OnEnable()
+        protected override void OnChangePlanningMode(PlanningMode newMode)
         {
-            _collider.isTrigger = false;
-        }
+            switch (newMode)
+            {
+                case PlanningMode.Planning:
+                case PlanningMode.Waiting:
+                    _collider.isTrigger = true;
+                    break;
 
-        private void OnDisable()
-        {
-            _collider.isTrigger = true;
+                case PlanningMode.Playing:
+                    _collider.isTrigger = false;
+                    break;
+            }
         }
     }
 }

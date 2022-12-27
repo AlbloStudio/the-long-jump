@@ -29,20 +29,22 @@ namespace Assets.Scripts.item
 
             gameObject.SetActive(true);
 
-            _jumper.enabled = false;
+            _jumper.SetPlanningMode(Jumper.PlanningMode.Planning);
         }
 
         public void ExitPlanningMode()
         {
             if (IsInSafeArea())
             {
-                _jumper.enabled = true;
+                _jumper.SetPlanningMode(Jumper.PlanningMode.Playing);
             }
             else
             {
                 gameObject.SetActive(false);
 
                 transform.position = _originalPosition;
+
+                _jumper.SetPlanningMode(Jumper.PlanningMode.Waiting);
             }
         }
     }

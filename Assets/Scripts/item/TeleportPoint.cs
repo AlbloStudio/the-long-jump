@@ -13,7 +13,7 @@ namespace Assets.Scripts.item
 
         private void OnTriggerEnter2D(Collider2D other)
         {
-            if (!enabled)
+            if (mode != PlanningMode.Playing)
             {
                 return;
             }
@@ -29,12 +29,22 @@ namespace Assets.Scripts.item
 
         private bool IsTeleportable()
         {
+            if (!_nextTelepoint || _nextTelepoint.mode != PlanningMode.Playing)
+            {
+                return false;
+            }
+
             float distance = Vector2.Distance(transform.position, _nextTelepoint.transform.position);
 
             var directionToNextPoint = Vector3.Normalize(_nextTelepoint.transform.position - transform.position);
             var inBetweenHits = Physics2D.RaycastAll(transform.position, directionToNextPoint, distance, LayerMask.GetMask("Level", "Totem Item"));
 
-            return _nextTelepoint && _nextTelepoint.isActiveAndEnabled && distance <= _maxTeleportingLength && inBetweenHits.Length <= 2;
+            return distance <= _maxTeleportingLength && inBetweenHits.Length <= 2;
+        }
+
+        protected override void OnChangePlanningMode(PlanningMode newMode)
+        {
+            //--
         }
     }
 }
