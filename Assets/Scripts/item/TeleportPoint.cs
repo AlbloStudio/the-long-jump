@@ -37,7 +37,7 @@ namespace Assets.Scripts.item
             float distance = Vector2.Distance(transform.position, _nextTelepoint.transform.position);
 
             var directionToNextPoint = Vector3.Normalize(_nextTelepoint.transform.position - transform.position);
-            var inBetweenHits = Physics2D.RaycastAll(transform.position, directionToNextPoint, distance, LayerMask.GetMask("Level", "Totem Item"));
+            var inBetweenHits = Physics2D.RaycastAll(transform.position, directionToNextPoint, distance, LayerMask.GetMask("Level", "Jumper"));
 
             return distance <= _maxTeleportingLength && inBetweenHits.Length <= 2;
         }
