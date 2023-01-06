@@ -65,7 +65,7 @@ namespace Assets.Scripts.being
 
         public void Move(float move)
         {
-            _body.velocity = new Vector2(move * 10f + _impulseVelocity.x, _body.velocity.y);
+            _body.velocity = new Vector2((move * 10f) + _impulseVelocity.x, _body.velocity.y);
         }
 
         public void Teleport(Vector2 position)

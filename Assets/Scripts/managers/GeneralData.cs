@@ -21,7 +21,7 @@ namespace Assets.Scripts.managers
 
         public CinemachineVirtualCamera ampleCameraCineMachine { get; private set; }
 
-        private void OnEnable()
+        private void Awake()
         {
             ampleCameraCineMachine = ampleCamera.GetComponent<CinemachineVirtualCamera>();
         }

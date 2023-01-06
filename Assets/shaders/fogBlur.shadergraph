@@ -329,7 +329,7 @@
     "m_SlotType": 0,
     "m_Hidden": false,
     "m_ShaderOutputName": "Vector1_28fd17d1093f4f4b8b899ce7a05e6ebb",
-    "m_StageCapability": 3,
+    "m_StageCapability": 2,
     "m_Value": 0.07000000029802323,
     "m_DefaultValue": 0.0,
     "m_Labels": []
@@ -750,7 +750,7 @@
     "m_SlotType": 0,
     "m_Hidden": false,
     "m_ShaderOutputName": "Color_787d670099b948688beed0bf274d903a",
-    "m_StageCapability": 3,
+    "m_StageCapability": 2,
     "m_Value": {
         "x": 0.6792452931404114,
         "y": 0.46457815170288088,
