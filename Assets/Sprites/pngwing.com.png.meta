@@ -1,37 +1,7 @@
 fileFormatVersion: 2
-guid: a15b09ef9c9a05341ba7697c5764d33d
+guid: f338b0554a176a84186c492e456e7c29
 TextureImporter:
-  internalIDToNameTable:
-  - first:
-      213: -6297841393305379348
-    second: Mossy - Hanging Plants_0
-  - first:
-      213: -9120406111138420596
-    second: Mossy - Hanging Plants_1
-  - first:
-      213: -3643801988075151291
-    second: Mossy - Hanging Plants_2
-  - first:
-      213: 6343888730784975065
-    second: Mossy - Hanging Plants_3
-  - first:
-      213: -1960693398722581246
-    second: Mossy - Hanging Plants_4
-  - first:
-      213: -5342899683599240943
-    second: Mossy - Hanging Plants_5
-  - first:
-      213: -3722490455595391638
-    second: Mossy - Hanging Plants_6
-  - first:
-      213: 3986061963867474379
-    second: Mossy - Hanging Plants_7
-  - first:
-      213: -8677164435290038233
-    second: Mossy - Hanging Plants_8
-  - first:
-      213: -5427887325597579183
-    second: Mossy - Hanging Plants_9
+  internalIDToNameTable: []
   externalObjects: {}
   serializedVersion: 12
   mipmaps:
@@ -74,7 +44,7 @@ TextureImporter:
   compressionQuality: 50
   spriteMode: 2
   spriteExtrude: 1
-  spriteMeshType: 0
+  spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
@@ -93,7 +63,7 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
-  cookieLightType: 1
+  cookieLightType: 0
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -135,211 +105,316 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Mossy - Hanging Plants_0
+      name: pngwing.com_0
       rect:
         serializedVersion: 2
-        x: 112
-        y: 1649
-        width: 365
-        height: 1179
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 618
+        width: 182
+        height: 206
+      alignment: 1
+      pivot: {x: 0, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ced1844ce929998a0800000000000000
-      internalID: -6297841393305379348
+      spriteID: 923de21584c2b1f4d9e2957541b297bb
+      internalID: -576491840
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mossy - Hanging Plants_1
+      name: pngwing.com_1
       rect:
         serializedVersion: 2
-        x: 516
-        y: 1856
-        width: 365
-        height: 978
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 182
+        y: 618
+        width: 182
+        height: 206
+      alignment: 1
+      pivot: {x: 0, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c88ea42c6fecd6180800000000000000
-      internalID: -9120406111138420596
+      spriteID: e4b06fae45f42f7468f8b5e9ef01211b
+      internalID: -1488400526
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mossy - Hanging Plants_2
+      name: pngwing.com_2
       rect:
         serializedVersion: 2
-        x: 912
-        y: 1852
-        width: 364
-        height: 979
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 364
+        y: 618
+        width: 182
+        height: 206
+      alignment: 1
+      pivot: {x: 0, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5402be4c56d9e6dc0800000000000000
-      internalID: -3643801988075151291
+      spriteID: 14f79c1ad0f29e048ad04716cdc4dd24
+      internalID: -984010348
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mossy - Hanging Plants_3
+      name: pngwing.com_3
       rect:
         serializedVersion: 2
-        x: 1306
-        y: 2010
-        width: 307
-        height: 822
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 546
+        y: 618
+        width: 182
+        height: 206
+      alignment: 1
+      pivot: {x: 0, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9d8ca0570350a0850800000000000000
-      internalID: 6343888730784975065
+      spriteID: 6f7ebc1f218f850458d0fddd29d19550
+      internalID: 1661172151
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mossy - Hanging Plants_4
+      name: pngwing.com_4
       rect:
         serializedVersion: 2
-        x: 1667
-        y: 1894
-        width: 269
-        height: 951
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 412
+        width: 182
+        height: 206
+      alignment: 1
+      pivot: {x: 0, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 20defa7fdb73ac4e0800000000000000
-      internalID: -1960693398722581246
+      spriteID: 5745b784ef6db0346a1808a8a3fda29a
+      internalID: 1776203419
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mossy - Hanging Plants_5
+      name: pngwing.com_5
       rect:
         serializedVersion: 2
-        x: 87
-        y: 172
-        width: 469
-        height: 1378
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 182
+        y: 412
+        width: 182
+        height: 206
+      alignment: 1
+      pivot: {x: 0, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1113580bb053ad5b0800000000000000
-      internalID: -5342899683599240943
+      spriteID: 281032b884104324f856404019c281fc
+      internalID: -1388501264
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mossy - Hanging Plants_6
+      name: pngwing.com_6
       rect:
         serializedVersion: 2
-        x: 716
-        y: 172
-        width: 468
-        height: 1378
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 364
+        y: 412
+        width: 182
+        height: 206
+      alignment: 1
+      pivot: {x: 0, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a65647a37ae075cc0800000000000000
-      internalID: -3722490455595391638
+      spriteID: 48037087375ef5d4c82b7c6e2bd25cdf
+      internalID: -1916068071
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mossy - Hanging Plants_7
+      name: pngwing.com_7
       rect:
         serializedVersion: 2
-        x: 1178
-        y: 1318
-        width: 761
-        height: 511
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 546
+        y: 412
+        width: 182
+        height: 206
+      alignment: 1
+      pivot: {x: 0, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bc94401bc36515730800000000000000
-      internalID: 3986061963867474379
+      spriteID: 3299d88c3adf6b642b0e6d4149c34dec
+      internalID: -1310195334
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mossy - Hanging Plants_8
+      name: pngwing.com_8
       rect:
         serializedVersion: 2
-        x: 1224
-        y: 712
-        width: 761
-        height: 511
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 206
+        width: 182
+        height: 206
+      alignment: 1
+      pivot: {x: 0, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 72062e07be4849780800000000000000
-      internalID: -8677164435290038233
+      spriteID: b6980654f57fa3f4fb6a22133ca40856
+      internalID: -1908447424
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mossy - Hanging Plants_9
+      name: pngwing.com_9
       rect:
         serializedVersion: 2
-        x: 1221
-        y: 84
-        width: 762
-        height: 511
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 182
+        y: 206
+        width: 182
+        height: 206
+      alignment: 1
+      pivot: {x: 0, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 15849ec4c354ca4b0800000000000000
-      internalID: -5427887325597579183
+      spriteID: 8d089c3585eb216458e51625c71cbddf
+      internalID: 1493482653
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngwing.com_10
+      rect:
+        serializedVersion: 2
+        x: 364
+        y: 206
+        width: 182
+        height: 206
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 73d674b7151737d43a41ca463e1ed7b4
+      internalID: -1628149410
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngwing.com_11
+      rect:
+        serializedVersion: 2
+        x: 546
+        y: 206
+        width: 182
+        height: 206
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3d16824ed8585ef489e77bf4034f4c76
+      internalID: -1140455982
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngwing.com_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 182
+        height: 206
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9ad248313c6fb2b48a3d0b51de90fd2d
+      internalID: -898157549
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngwing.com_13
+      rect:
+        serializedVersion: 2
+        x: 182
+        y: 0
+        width: 182
+        height: 206
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0f9d9bdfd19f1584589ee1b3072ab238
+      internalID: 2026345388
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pngwing.com_14
+      rect:
+        serializedVersion: 2
+        x: 364
+        y: 0
+        width: 182
+        height: 206
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 62f1bcdc95d57cb40832c2754fea5672
+      internalID: 730477243
       vertices: []
       indices: 
       edges: []
@@ -355,16 +430,21 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Mossy - Hanging Plants_1: -9120406111138420596
-      Mossy - Hanging Plants_2: -3643801988075151291
-      Mossy - Hanging Plants_4: -1960693398722581246
-      Mossy - Hanging Plants_7: 3986061963867474379
-      Mossy - Hanging Plants_8: -8677164435290038233
-      Mossy - Hanging Plants_9: -5427887325597579183
-      Mossy - Hanging Plants_5: -5342899683599240943
-      Mossy - Hanging Plants_0: -6297841393305379348
-      Mossy - Hanging Plants_6: -3722490455595391638
-      Mossy - Hanging Plants_3: 6343888730784975065
+      pngwing.com_12: -898157549
+      pngwing.com_7: -1310195334
+      pngwing.com_2: -984010348
+      pngwing.com_4: 1776203419
+      pngwing.com_0: -576491840
+      pngwing.com_11: -1140455982
+      pngwing.com_1: -1488400526
+      pngwing.com_3: 1661172151
+      pngwing.com_5: -1388501264
+      pngwing.com_8: -1908447424
+      pngwing.com_14: 730477243
+      pngwing.com_10: -1628149410
+      pngwing.com_13: 2026345388
+      pngwing.com_6: -1916068071
+      pngwing.com_9: 1493482653
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
