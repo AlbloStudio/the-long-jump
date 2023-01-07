@@ -14,7 +14,7 @@ namespace Assets.Scripts.being
         [SerializeField] private float coyoteTime = .1f;
 
         [Tooltip("A mask determining what is ground to the character")]
-        [SerializeField] private LayerMask whatIsGround = new LayerMask();
+        [SerializeField] private LayerMask whatIsGround = new();
 
         [Tooltip(" A position marking where to check if the player is grounded")]
         [SerializeField] private Transform groundCheck;

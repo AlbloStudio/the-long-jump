@@ -1,7 +1,5 @@
 using Assets.Scripts.item;
 using Assets.Scripts.managers;
-using Assets.Scripts.utils;
-using Cinemachine;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
@@ -60,7 +58,7 @@ namespace Assets.Scripts.totem
         {
             _isPlanning = true;
 
-            GeneralData.Instance.ampleCameraCineMachine.enabled = true;
+            GeneralData.Instance.AmpleCameraCineMachine.enabled = true;
 
             foreach (Item item in _items)
             {
@@ -72,7 +70,7 @@ namespace Assets.Scripts.totem
         {
             _isPlanning = false;
 
-            GeneralData.Instance.ampleCameraCineMachine.enabled = false;
+            GeneralData.Instance.AmpleCameraCineMachine.enabled = false;
 
             foreach (Item item in _items)
             {

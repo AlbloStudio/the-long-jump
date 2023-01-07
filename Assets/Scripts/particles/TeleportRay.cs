@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class TeleportRay : MonoBehaviour
 {
+    private const float OFFSET = 0.1f;
+    private const int VERTEX_NUMBER = 4;
+
     public TeleportPoint point1;
     public TeleportPoint point2;
 
     private Mesh _mesh;
-
-    private const float OFFSET = 0.1f;
-    private const int VERTEX_NUMBER = 4;
 
     private void Awake()
     {
@@ -20,8 +20,7 @@ public class TeleportRay : MonoBehaviour
 
     private void Update()
     {
-        transform.position = point1.transform.position;
-        transform.rotation = Rotation.LookAt2D(transform.position, point2.transform.position);
+        transform.SetPositionAndRotation(point1.transform.position, Rotation.LookAt2D(transform.position, point2.transform.position));
 
         CalculateVertices();
     }

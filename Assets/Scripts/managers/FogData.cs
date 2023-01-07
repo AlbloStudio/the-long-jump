@@ -9,6 +9,6 @@ namespace Assets.Scripts.managers
         public Texture2D colors;
 
         [Tooltip("bounds in which z will count")]
-        public Vector2 bounds = new Vector2(-1f, 15f);
+        public Vector2 bounds = new(-1f, 15f);
     }
 }

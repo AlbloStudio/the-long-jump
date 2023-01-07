@@ -29,7 +29,7 @@ namespace Assets.Scripts.being
                 _shouldJump = false;
             }
 
-            _horizontalMovement = Input.GetAxis("Horizontal") * runSpeed * Time.fixedDeltaTime;
+            _horizontalMovement = Input.GetAxis("Horizontal") * runSpeed * Time.deltaTime;
         }
 
         private void FixedUpdate()

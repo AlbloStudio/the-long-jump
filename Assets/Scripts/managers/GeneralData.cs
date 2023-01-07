@@ -19,11 +19,11 @@ namespace Assets.Scripts.managers
         [Tooltip("Where Jumpers Go Into")]
         public GameObject jumpersFolder;
 
-        public CinemachineVirtualCamera ampleCameraCineMachine { get; private set; }
+        public CinemachineVirtualCamera AmpleCameraCineMachine { get; private set; }
 
-        private void Awake()
+        private new void Awake()
         {
-            ampleCameraCineMachine = ampleCamera.GetComponent<CinemachineVirtualCamera>();
+            AmpleCameraCineMachine = ampleCamera.GetComponent<CinemachineVirtualCamera>();
         }
     }
 }
