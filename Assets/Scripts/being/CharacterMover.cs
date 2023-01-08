@@ -26,7 +26,7 @@ namespace Assets.Scripts.being
         public bool _isGrounded;
         private Vector2 _impulseVelocity = Vector2.zero;
 
-        private void OnEnable()
+        private void Awake()
         {
             _body = GetComponent<Rigidbody2D>();
         }

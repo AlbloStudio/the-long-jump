@@ -24,17 +24,22 @@ namespace Assets.Scripts.item
         private Vector2 _originalColliderSize;
         private Vector2 _originalColliderOffset;
 
-        private new void OnEnable()
+        private new void Awake()
         {
-            base.OnEnable();
+            base.Awake();
 
-            transform.rotation = Quaternion.LookRotation(Vector3.forward, direction);
             _animator = GetComponent<Animator>();
-            _boxCollider = GetComponent<BoxCollider2D>();
 
-            _colliderBounds = gameObject.GetComponent<SpriteRenderer>().sprite.bounds.size;
+            _boxCollider = GetComponent<BoxCollider2D>();
             _originalColliderSize = _boxCollider.size;
             _originalColliderOffset = _boxCollider.offset;
+
+            _colliderBounds = GetComponent<SpriteRenderer>().sprite.bounds.size;
+        }
+
+        private void Start()
+        {
+            transform.rotation = Quaternion.LookRotation(Vector3.forward, direction);
         }
 
         private void OnCollisionEnter2D(Collision2D collision)
@@ -59,6 +64,8 @@ namespace Assets.Scripts.item
                 case PlanningMode.Playing:
                     _collider.isTrigger = false;
                     SetColliderForBouncing();
+                    break;
+                default:
                     break;
             }
         }

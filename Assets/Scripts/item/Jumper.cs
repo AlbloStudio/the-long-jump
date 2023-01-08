@@ -19,10 +19,10 @@ namespace Assets.Scripts.item
         protected CharacterMover _controller;
         protected Collider2D _collider;
 
-        protected void OnEnable()
+        protected void Awake()
         {
-            _controller = GeneralData.Instance.player;
             _collider = GetComponent<Collider2D>();
+            _controller = GeneralData.Instance.player;
         }
 
         public void SetPlanningMode(PlanningMode newMode)

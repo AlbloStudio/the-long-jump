@@ -12,7 +12,7 @@ namespace Assets.Scripts.being
 
         private CharacterMover _controller;
 
-        private void OnEnable()
+        private void Awake()
         {
             _controller = GetComponent<CharacterMover>();
         }

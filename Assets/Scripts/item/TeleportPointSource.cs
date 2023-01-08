@@ -15,10 +15,10 @@ namespace Assets.Scripts.item
 
         private TeleportRay _rayPrefabInstance;
 
-        private new void OnEnable()
-        {
-            base.OnEnable();
 
+
+        private void Start()
+        {
             if (_nextTelepoint && !_rayPrefabInstance)
             {
                 _rayPrefabInstance = Instantiate(_rayPrefab, transform.position, transform.rotation, transform);

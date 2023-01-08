@@ -15,7 +15,7 @@ namespace Assets.Scripts.totem
         private bool _isPlanning = false;
         private Item _activeItem;
 
-        private void OnEnable()
+        private void Awake()
         {
             _items = new List<Item>(GetComponentsInChildren<Item>(true));
         }

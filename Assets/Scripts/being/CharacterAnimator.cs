@@ -1,4 +1,3 @@
-using Assets.Scripts.utils;
 using UnityEngine;
 
 namespace Assets.Scripts.being
@@ -26,7 +25,7 @@ namespace Assets.Scripts.being
         private Rigidbody2D _body;
         private CharacterMover _controller;
 
-        private void OnEnable()
+        private void Awake()
         {
             _controller = GetComponent<CharacterMover>();
             _animator = GetComponent<Animator>();

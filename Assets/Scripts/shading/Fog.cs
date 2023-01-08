@@ -11,7 +11,7 @@ namespace Assets.Scripts.shading
 
         private List<Material> _materials;
 
-        private void OnEnable()
+        private void Awake()
         {
             _materials = new List<Material>(GetComponent<Renderer>().materials);
         }
