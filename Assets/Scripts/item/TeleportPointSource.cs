@@ -15,13 +15,11 @@ namespace Assets.Scripts.item
 
         private TeleportRay _rayPrefabInstance;
 
-
-
         private void Start()
         {
             if (_nextTelepoint && !_rayPrefabInstance)
             {
-                _rayPrefabInstance = Instantiate(_rayPrefab, transform.position, transform.rotation, transform);
+                _rayPrefabInstance = Instantiate(_rayPrefab, transform.position, transform.rotation, transform.parent);
                 _rayPrefabInstance.sourcePoint = this;
                 _rayPrefabInstance.targetPoint = _nextTelepoint;
             }
