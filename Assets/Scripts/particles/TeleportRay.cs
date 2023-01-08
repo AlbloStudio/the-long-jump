@@ -7,22 +7,30 @@ public class TeleportRay : MonoBehaviour
     private const float OFFSET = 0.1f;
     private const int VERTEX_NUMBER = 4;
 
-    public TeleportPoint point1;
-    public TeleportPoint point2;
+    [Tooltip("object where line starts")]
+    public TeleportPointSource sourcePoint;
+    [Tooltip("object where line goes")]
+    public Jumper targetPoint;
 
     private Mesh _mesh;
+    private ParticleSystem _particles;
 
     private void Awake()
     {
         GetComponent<MeshFilter>().mesh = _mesh = new Mesh();
         _mesh.name = "Teleport Ray";
+
+        _particles = GetComponent<ParticleSystem>();
     }
 
+    [System.Obsolete]
     private void Update()
     {
-        transform.SetPositionAndRotation(point1.transform.position, Rotation.LookAt2D(transform.position, point2.transform.position));
+        transform.SetPositionAndRotation(sourcePoint.transform.position, Rotation.LookAt2D(transform.position, targetPoint.transform.position));
 
         CalculateVertices();
+
+        CalculateParticles();
     }
 
     private void CalculateVertices()
@@ -30,7 +38,7 @@ public class TeleportRay : MonoBehaviour
         Vector2[] points = new Vector2[]
         {
            Vector2.zero,
-            point2.transform.position - transform.position,
+            targetPoint.transform.position - transform.position,
         };
 
         Vector3[] vertices = new Vector3[VERTEX_NUMBER];
@@ -53,5 +61,12 @@ public class TeleportRay : MonoBehaviour
             1,
             3
         };
+    }
+
+    [System.Obsolete]
+    private void CalculateParticles()
+    {
+        float area = 2 * OFFSET * Vector2.Distance(_mesh.vertices[0], _mesh.vertices[2]);
+        _particles.emissionRate = 200f * area;
     }
 }

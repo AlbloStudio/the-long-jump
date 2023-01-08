@@ -28,13 +28,12 @@ namespace Assets.Scripts.being
             {
                 _shouldJump = false;
             }
-
-            _horizontalMovement = Input.GetAxis("Horizontal") * runSpeed * Time.deltaTime;
         }
 
         private void FixedUpdate()
         {
             _controller.Move(_horizontalMovement);
+            _horizontalMovement = Input.GetAxis("Horizontal") * runSpeed * Time.fixedDeltaTime;
 
             if (_shouldJump && _controller.CanJump())
             {

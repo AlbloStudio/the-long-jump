@@ -1,15 +1,31 @@
-﻿using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Assets.Scripts.item
 {
-    public class TeleportPoint : Jumper
+    public class TeleportPointSource : Jumper
     {
-        [Tooltip("point to teleport to")]
-        [SerializeField] private TeleportPoint _nextTelepoint;
+        [Tooltip("Jumper to teleport to")]
+        [SerializeField] private Jumper _nextTelepoint;
 
-        [Tooltip("max teleporting length")]
+        [Tooltip("Max teleporting length")]
         [SerializeField] private float _maxTeleportingLength = 20f;
+
+        [Tooltip("Ray prefab")]
+        [SerializeField] private TeleportRay _rayPrefab;
+
+        private TeleportRay _rayPrefabInstance;
+
+        private new void OnEnable()
+        {
+            base.OnEnable();
+
+            if (_nextTelepoint && !_rayPrefabInstance)
+            {
+                _rayPrefabInstance = Instantiate(_rayPrefab, transform.position, transform.rotation, transform);
+                _rayPrefabInstance.sourcePoint = this;
+                _rayPrefabInstance.targetPoint = _nextTelepoint;
+            }
+        }
 
         private void OnTriggerEnter2D(Collider2D other)
         {
@@ -36,8 +52,8 @@ namespace Assets.Scripts.item
 
             float distance = Vector2.Distance(transform.position, _nextTelepoint.transform.position);
 
-            var directionToNextPoint = Vector3.Normalize(_nextTelepoint.transform.position - transform.position);
-            var inBetweenHits = Physics2D.RaycastAll(transform.position, directionToNextPoint, distance, LayerMask.GetMask("Level", "Jumper"));
+            Vector3 directionToNextPoint = Vector3.Normalize(_nextTelepoint.transform.position - transform.position);
+            RaycastHit2D[] inBetweenHits = Physics2D.RaycastAll(transform.position, directionToNextPoint, distance, LayerMask.GetMask("Level", "Jumper"));
 
             return distance <= _maxTeleportingLength && inBetweenHits.Length <= 2;
         }

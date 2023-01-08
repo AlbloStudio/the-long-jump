@@ -10,16 +10,16 @@ GameObject:
   m_Component:
   - component: {fileID: 2683071882097238536}
   - component: {fileID: 4047508611978453856}
+  - component: {fileID: -5270882348585380735}
   - component: {fileID: 5325956314474088607}
   - component: {fileID: 1080118567}
-  - component: {fileID: 1466787466697255379}
   m_Layer: 16
   m_Name: TeleportPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2683071882097238536
 Transform:
   m_ObjectHideFlags: 0
@@ -51,6 +51,22 @@ CircleCollider2D:
   m_Offset: {x: 0.011725366, y: 0}
   serializedVersion: 2
   m_Radius: 0.1365117
+--- !u!114 &-5270882348585380735
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8044821020109087051}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a56ccf207a36e247ab5467ba7d22d6d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mode: 0
+  _nextTelepoint: {fileID: 0}
+  _maxTeleportingLength: 20
+  _rayPrefab: {fileID: 0}
 --- !u!212 &5325956314474088607
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -115,19 +131,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e89810fdc6ddea418d1da1a3efda6fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1466787466697255379
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8044821020109087051}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d2407c7cf0697c743b191be56090030c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mode: 0
-  _nextTelepoint: {fileID: 0}
-  _maxTeleportingLength: 20
-  _rayPrefab: {fileID: 0}

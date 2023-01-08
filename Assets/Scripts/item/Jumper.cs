@@ -13,6 +13,7 @@ namespace Assets.Scripts.item
             Planning = 2,
         }
 
+        [HideInInspector]
         public PlanningMode mode = PlanningMode.Waiting;
 
         protected CharacterMover _controller;
