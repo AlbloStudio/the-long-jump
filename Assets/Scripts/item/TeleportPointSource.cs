@@ -1,11 +1,12 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 
 namespace Assets.Scripts.item
 {
     public class TeleportPointSource : Jumper
     {
         [Tooltip("Jumper to teleport to")]
-        [SerializeField] private Jumper _nextTelepoint;
+        public Jumper targetPoint;
 
         [Tooltip("Max teleporting length")]
         [SerializeField] private float _maxTeleportingLength = 20f;
@@ -17,11 +18,10 @@ namespace Assets.Scripts.item
 
         private void Start()
         {
-            if (_nextTelepoint && !_rayPrefabInstance)
+            if (targetPoint)
             {
                 _rayPrefabInstance = Instantiate(_rayPrefab, transform.position, transform.rotation, transform.parent);
-                _rayPrefabInstance.sourcePoint = this;
-                _rayPrefabInstance.targetPoint = _nextTelepoint;
+                _rayPrefabInstance.teleport = this;
             }
         }
 
@@ -36,24 +36,46 @@ namespace Assets.Scripts.item
             {
                 if (IsTeleportable())
                 {
-                    _controller.Teleport(_nextTelepoint.transform.position);
+                    _controller.Teleport(targetPoint.transform.position);
                 }
             }
         }
 
+        public bool IsRayTrazable()
+        {
+            return AreTeleportersInMode(new[] { PlanningMode.Planning, PlanningMode.Playing });
+        }
+
+        public bool IsFarAway()
+        {
+            float distance = GetDistanceBetweenTeleporters();
+
+            return distance > _maxTeleportingLength;
+        }
+
+        public bool IsObstructed()
+        {
+            float distance = GetDistanceBetweenTeleporters();
+
+            Vector3 directionToNextPoint = Vector3.Normalize(targetPoint.transform.position - transform.position);
+            RaycastHit2D[] inBetweenHits = Physics2D.RaycastAll(transform.position, directionToNextPoint, distance, LayerMask.GetMask("Level", "Jumper"));
+            return inBetweenHits.Length > 2;
+        }
+
         private bool IsTeleportable()
         {
-            if (!_nextTelepoint || _nextTelepoint.mode != PlanningMode.Playing)
-            {
-                return false;
-            }
+            return targetPoint && targetPoint.mode == PlanningMode.Playing && !IsFarAway() && !IsObstructed();
+        }
 
-            float distance = Vector2.Distance(transform.position, _nextTelepoint.transform.position);
+        private float GetDistanceBetweenTeleporters()
+        {
+            return Vector2.Distance(transform.position, targetPoint.transform.position);
+        }
 
-            Vector3 directionToNextPoint = Vector3.Normalize(_nextTelepoint.transform.position - transform.position);
-            RaycastHit2D[] inBetweenHits = Physics2D.RaycastAll(transform.position, directionToNextPoint, distance, LayerMask.GetMask("Level", "Jumper"));
-
-            return distance <= _maxTeleportingLength && inBetweenHits.Length <= 2;
+        private bool AreTeleportersInMode(PlanningMode[] modes)
+        {
+            List<PlanningMode> allowedModes = new(modes);
+            return allowedModes.Contains(mode) && allowedModes.Contains(targetPoint.mode);
         }
 
         protected override void OnChangePlanningMode(PlanningMode newMode)

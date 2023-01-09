@@ -100,7 +100,7 @@ namespace Assets.Scripts.totem
             Camera camera = GeneralData.Instance.ampleCamera;
             Ray ray = camera.ScreenPointToRay(Input.mousePosition);
 
-            RaycastHit2D rayHit = Physics2D.GetRayIntersection(ray, Mathf.Infinity, LayerMask.GetMask("Jumper"));
+            RaycastHit2D rayHit = Physics2D.GetRayIntersection(ray, Mathf.Infinity, LayerMask.GetMask("Jumper", "PlatformJumper"));
 
             return rayHit.transform ? rayHit.transform.GetComponent<Item>() : null;
         }

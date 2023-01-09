@@ -6,11 +6,6 @@ public class TeleportRay : MonoBehaviour
 {
     private const int VERTEX_NUMBER = 4;
 
-    [Tooltip("object where line starts")]
-    public TeleportPointSource sourcePoint;
-    [Tooltip("object where line goes")]
-    public Jumper targetPoint;
-
     [Tooltip("offset from one point to another")]
     [SerializeField] private Vector2 rayOffset = new(0.1f, 0.02f);
 
@@ -20,25 +15,51 @@ public class TeleportRay : MonoBehaviour
     [Tooltip("How fast particles move from source to target")]
     [SerializeField] private float _particleSpeedModifier = 0.5f;
 
+    public TeleportPointSource teleport;
+
+    private MeshFilter _meshFilter;
     private Mesh _mesh;
     private ParticleSystem _particles;
+    private Color initialColor;
 
+    [System.Obsolete]
     private void Awake()
     {
-        GetComponent<MeshFilter>().mesh = _mesh = new Mesh();
+        _meshFilter = GetComponent<MeshFilter>();
+        _meshFilter.mesh = _mesh = new Mesh();
         _mesh.name = "Teleport Ray";
 
         _particles = GetComponent<ParticleSystem>();
+        initialColor = _particles.startColor;
     }
 
     [System.Obsolete]
     private void Update()
     {
-        transform.SetPositionAndRotation(sourcePoint.transform.position, Rotation.LookAt2D(transform.position, targetPoint.transform.position));
+        transform.SetPositionAndRotation(teleport.transform.position, Rotation.LookAt2D(transform.position, teleport.targetPoint.transform.position));
 
-        CalculateVertices();
+        if (teleport.transform.hasChanged || teleport.targetPoint.transform.hasChanged)
+        {
+            RenderRay();
+        }
+    }
 
-        CalculateParticles();
+    [System.Obsolete]
+    private void RenderRay()
+    {
+        ParticleSystem.EmissionModule emission = _particles.emission;
+
+        if (!teleport.IsRayTrazable())
+        {
+            emission.enabled = false;
+        }
+        else
+        {
+            emission.enabled = true;
+
+            CalculateVertices();
+            CalculateParticles();
+        }
     }
 
     private void CalculateVertices()
@@ -46,7 +67,7 @@ public class TeleportRay : MonoBehaviour
         Vector2[] points = new Vector2[]
         {
            Vector2.zero,
-            targetPoint.transform.position - transform.position,
+            teleport.targetPoint.transform.position - transform.position,
         };
 
         Vector3[] vertices = new Vector3[VERTEX_NUMBER];
@@ -71,15 +92,22 @@ public class TeleportRay : MonoBehaviour
         };
     }
 
-    [System.Obsolete]
     private void CalculateParticles()
     {
-        float area = 2 * Vector2.Distance(_mesh.vertices[0], _mesh.vertices[2]) * rayOffset.x;
-        _particles.emissionRate = _particleEmissionRate * area;
+        ParticleSystem.MainModule mainParticles = _particles.main;
+        ParticleSystem.EmissionModule emission = _particles.emission;
 
-        Vector2 particlesDireciton = Vector3.Normalize(targetPoint.transform.position - sourcePoint.transform.position);
+        float area = 2 * Vector2.Distance(_mesh.vertices[0], _mesh.vertices[2]) * rayOffset.x;
+
+        float rateModifier = teleport.IsFarAway() ? 0.2f : 1f;
+        emission.rateOverTime = _particleEmissionRate * area * rateModifier;
+
+        Vector2 particlesDireciton = Vector3.Normalize(teleport.targetPoint.transform.position - teleport.transform.position);
         ParticleSystem.VelocityOverLifetimeModule vel = _particles.velocityOverLifetime;
         vel.x = particlesDireciton.x * _particleSpeedModifier;
         vel.y = particlesDireciton.y * _particleSpeedModifier;
+
+        mainParticles.startColor = teleport.IsObstructed() ? Color.black : initialColor;
+        mainParticles.gravityModifier = teleport.IsFarAway() ? 0.3f : 0;
     }
 }
