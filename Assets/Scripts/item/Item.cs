@@ -1,6 +1,3 @@
-using Assets.Scripts.managers;
-using Assets.Scripts.utils;
-using System;
 using UnityEngine;
 
 namespace Assets.Scripts.item
@@ -16,6 +13,11 @@ namespace Assets.Scripts.item
         {
             _originalPosition = transform.position;
             _jumper = GetComponent<Jumper>();
+        }
+
+        private void Start()
+        {
+            gameObject.SetActive(false);
         }
 
         private bool IsInSafeArea()

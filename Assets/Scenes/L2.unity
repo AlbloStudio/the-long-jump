@@ -657,8 +657,8 @@ EdgeCollider2D:
   m_Points:
   - {x: 37.36357, y: -1.0714406}
   - {x: 36.793404, y: -97.877625}
-  - {x: -28.730543, y: -99.81455}
-  - {x: -28.731152, y: -1.5166223}
+  - {x: -28.730549, y: -99.81455}
+  - {x: -28.731152, y: -1.5166227}
   - {x: 7.485447, y: -1.0714406}
   - {x: 32.08679, y: -1.0714406}
   - {x: 32.40388, y: -1.0714406}
@@ -2792,6 +2792,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: TeleportPoint
       objectReference: {fileID: 0}
+    - target: {fileID: 8044821020109087051, guid: f01a7c1cc4d3b25479415b8d20be23b2,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f01a7c1cc4d3b25479415b8d20be23b2, type: 3}
 --- !u!1001 &1355567006
@@ -3862,13 +3867,13 @@ EdgeCollider2D:
   m_Offset: {x: 0, y: 0}
   m_EdgeRadius: 0
   m_Points:
-  - {x: 37.363663, y: -1.0552045}
+  - {x: 37.363667, y: -1.0552045}
   - {x: 36.793213, y: -97.91066}
-  - {x: -1.8017004, y: -98.497925}
+  - {x: -1.8016696, y: -98.49793}
   - {x: -29.496744, y: -1.5088866}
   - {x: 31.664778, y: -1.0938743}
   - {x: 32.37032, y: -1.0890871}
-  - {x: 37.363663, y: -1.0552045}
+  - {x: 37.363667, y: -1.0552045}
   m_AdjacentStartPoint: {x: 0, y: 0}
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0
@@ -4001,8 +4006,8 @@ SpriteShapeRenderer:
   - {fileID: -3685418513897516578, guid: 6c4d2e3d7e4b64047ae0979ea691f2a5, type: 3}
   - {fileID: 6928388786959331256, guid: 6c4d2e3d7e4b64047ae0979ea691f2a5, type: 3}
   m_LocalAABB:
-    m_Center: {x: 3.903431, y: -49.777008, z: 0}
-    m_Extent: {x: 33.650795, y: 48.912544, z: 0}
+    m_Center: {x: 3.9034348, y: -49.777008, z: 0}
+    m_Extent: {x: 33.6508, y: 48.912544, z: 0}
 --- !u!4 &1465765817
 Transform:
   m_ObjectHideFlags: 0
@@ -4218,7 +4223,7 @@ PrefabInstance:
     - target: {fileID: 4886314674593625290, guid: 45f72025a338b2348b341e787960987e,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4886314674593625293, guid: 45f72025a338b2348b341e787960987e,
         type: 3}
@@ -6045,7 +6050,7 @@ PrefabInstance:
     - target: {fileID: 2457705079126736251, guid: 5f117a37ccf832340bc94bce06c514d5,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5f117a37ccf832340bc94bce06c514d5, type: 3}
@@ -7541,6 +7546,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: TeleportPointTarget
       objectReference: {fileID: 0}
+    - target: {fileID: 8044821020109087051, guid: b760db24c2ab0e44aa1d9ff89f362594,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b760db24c2ab0e44aa1d9ff89f362594, type: 3}
 --- !u!1001 &4674573710337168854
@@ -7707,22 +7717,22 @@ PrefabInstance:
     - target: {fileID: 6256245377344935539, guid: eca6ca398f615334db23d055a359ca30,
         type: 3}
       propertyPath: m_LocalAABB.m_Center.x
-      value: 35.25827
+      value: 35.258118
       objectReference: {fileID: 0}
     - target: {fileID: 6256245377344935539, guid: eca6ca398f615334db23d055a359ca30,
         type: 3}
       propertyPath: m_LocalAABB.m_Center.y
-      value: -24.854889
+      value: -24.854752
       objectReference: {fileID: 0}
     - target: {fileID: 6256245377344935539, guid: eca6ca398f615334db23d055a359ca30,
         type: 3}
       propertyPath: m_LocalAABB.m_Extent.x
-      value: 173.60974
+      value: 173.60982
       objectReference: {fileID: 0}
     - target: {fileID: 6256245377344935539, guid: eca6ca398f615334db23d055a359ca30,
         type: 3}
       propertyPath: m_LocalAABB.m_Extent.y
-      value: 94.16469
+      value: 94.164894
       objectReference: {fileID: 0}
     - target: {fileID: 6256245377344935548, guid: eca6ca398f615334db23d055a359ca30,
         type: 3}
