@@ -16,9 +16,6 @@ namespace Assets.Scripts.managers
         [Tooltip("Planning Ample Camera")]
         public Camera ampleCamera;
 
-        [Tooltip("Where Jumpers Go Into")]
-        public GameObject jumpersFolder;
-
         public CinemachineVirtualCamera AmpleCameraCineMachine { get; private set; }
 
         private new void Awake()

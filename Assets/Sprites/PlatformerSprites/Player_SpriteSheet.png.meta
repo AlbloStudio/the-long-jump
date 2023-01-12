@@ -152,10 +152,10 @@ TextureImporter:
   compressionQuality: 50
   spriteMode: 2
   spriteExtrude: 1
-  spriteMeshType: 1
+  spriteMeshType: 0
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 64
+  spritePixelsToUnits: 128
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -184,7 +184,7 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 1
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Standalone
     maxTextureSize: 2048
@@ -196,7 +196,7 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 1
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Android
     maxTextureSize: 2048
@@ -220,20 +220,20 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 1
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Player_SpriteSheet_0
+      name: Player_SpriteSheet_2
       rect:
         serializedVersion: 2
-        x: 0
+        x: 128
         y: 448
         width: 64
         height: 64
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -246,15 +246,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player_SpriteSheet_1
+      name: Player_SpriteSheet_4
       rect:
         serializedVersion: 2
-        x: 64
+        x: 256
         y: 448
         width: 64
         height: 64
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -267,15 +267,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player_SpriteSheet_2
+      name: Player_SpriteSheet_3
       rect:
         serializedVersion: 2
-        x: 128
+        x: 192
         y: 448
         width: 64
         height: 64
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -288,15 +288,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player_SpriteSheet_3
+      name: Player_SpriteSheet_9
       rect:
         serializedVersion: 2
-        x: 192
-        y: 448
+        x: 64
+        y: 384
         width: 64
         height: 64
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -309,15 +309,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player_SpriteSheet_4
+      name: Player_SpriteSheet_5
       rect:
         serializedVersion: 2
-        x: 256
+        x: 320
         y: 448
         width: 64
         height: 64
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -330,15 +330,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player_SpriteSheet_5
+      name: Player_SpriteSheet_25
       rect:
         serializedVersion: 2
-        x: 320
-        y: 448
+        x: 64
+        y: 256
         width: 64
         height: 64
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -351,15 +351,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player_SpriteSheet_6
+      name: Player_SpriteSheet_26
       rect:
         serializedVersion: 2
-        x: 384
-        y: 448
+        x: 128
+        y: 256
         width: 64
         height: 64
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -372,15 +372,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player_SpriteSheet_7
+      name: Player_SpriteSheet_13
       rect:
         serializedVersion: 2
-        x: 448
-        y: 448
+        x: 320
+        y: 384
         width: 64
         height: 64
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -393,15 +393,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player_SpriteSheet_8
+      name: Player_SpriteSheet_23
       rect:
         serializedVersion: 2
-        x: 0
-        y: 384
+        x: 448
+        y: 320
         width: 64
         height: 64
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -414,15 +414,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player_SpriteSheet_9
+      name: Player_SpriteSheet_21
       rect:
         serializedVersion: 2
-        x: 64
-        y: 384
+        x: 320
+        y: 320
         width: 64
         height: 64
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -435,15 +435,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player_SpriteSheet_10
+      name: Player_SpriteSheet_12
       rect:
         serializedVersion: 2
-        x: 128
+        x: 256
         y: 384
         width: 64
         height: 64
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -456,15 +456,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player_SpriteSheet_11
+      name: Player_SpriteSheet_24
       rect:
         serializedVersion: 2
-        x: 192
-        y: 384
+        x: 0
+        y: 256
         width: 64
         height: 64
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -477,15 +477,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player_SpriteSheet_12
+      name: Player_SpriteSheet_29
       rect:
         serializedVersion: 2
-        x: 256
-        y: 384
+        x: 320
+        y: 256
         width: 64
         height: 64
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -498,15 +498,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player_SpriteSheet_13
+      name: Player_SpriteSheet_33
       rect:
         serializedVersion: 2
-        x: 320
-        y: 384
+        x: 64
+        y: 192
         width: 64
         height: 64
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -519,15 +519,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player_SpriteSheet_14
+      name: Player_SpriteSheet_19
       rect:
         serializedVersion: 2
-        x: 384
-        y: 384
+        x: 192
+        y: 320
         width: 64
         height: 64
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -540,15 +540,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player_SpriteSheet_15
+      name: Player_SpriteSheet_10
       rect:
         serializedVersion: 2
-        x: 448
+        x: 128
         y: 384
         width: 64
         height: 64
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -561,15 +561,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player_SpriteSheet_16
+      name: Player_SpriteSheet_20
       rect:
         serializedVersion: 2
-        x: 0
+        x: 256
         y: 320
         width: 64
         height: 64
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -582,15 +582,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player_SpriteSheet_17
+      name: Player_SpriteSheet_35
       rect:
         serializedVersion: 2
-        x: 64
-        y: 320
+        x: 192
+        y: 192
         width: 64
         height: 64
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -603,15 +603,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player_SpriteSheet_18
+      name: Player_SpriteSheet_27
       rect:
         serializedVersion: 2
-        x: 128
-        y: 320
+        x: 192
+        y: 256
         width: 64
         height: 64
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -624,15 +624,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player_SpriteSheet_19
+      name: Player_SpriteSheet_22
       rect:
         serializedVersion: 2
-        x: 192
+        x: 384
         y: 320
         width: 64
         height: 64
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -645,15 +645,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player_SpriteSheet_20
+      name: Player_SpriteSheet_30
       rect:
         serializedVersion: 2
-        x: 256
-        y: 320
+        x: 384
+        y: 256
         width: 64
         height: 64
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -666,15 +666,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player_SpriteSheet_21
+      name: Player_SpriteSheet_32
       rect:
         serializedVersion: 2
-        x: 320
-        y: 320
+        x: 0
+        y: 192
         width: 64
         height: 64
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -687,15 +687,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player_SpriteSheet_22
+      name: Player_SpriteSheet_11
       rect:
         serializedVersion: 2
-        x: 384
-        y: 320
+        x: 192
+        y: 384
         width: 64
         height: 64
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -708,15 +708,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player_SpriteSheet_23
+      name: Player_SpriteSheet_1
       rect:
         serializedVersion: 2
-        x: 448
-        y: 320
+        x: 64
+        y: 448
         width: 64
         height: 64
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -729,15 +729,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player_SpriteSheet_24
+      name: Player_SpriteSheet_15
       rect:
         serializedVersion: 2
-        x: 0
-        y: 256
+        x: 448
+        y: 384
         width: 64
         height: 64
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -750,15 +750,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player_SpriteSheet_25
+      name: Player_SpriteSheet_31
       rect:
         serializedVersion: 2
-        x: 64
+        x: 448
         y: 256
         width: 64
         height: 64
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -771,15 +771,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player_SpriteSheet_26
+      name: Player_SpriteSheet_6
       rect:
         serializedVersion: 2
-        x: 128
-        y: 256
+        x: 384
+        y: 448
         width: 64
         height: 64
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -792,15 +792,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player_SpriteSheet_27
+      name: Player_SpriteSheet_28
       rect:
         serializedVersion: 2
-        x: 192
+        x: 256
         y: 256
         width: 64
         height: 64
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -813,15 +813,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player_SpriteSheet_28
+      name: Player_SpriteSheet_0
       rect:
         serializedVersion: 2
-        x: 256
-        y: 256
+        x: 0
+        y: 448
         width: 64
         height: 64
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -834,15 +834,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player_SpriteSheet_29
+      name: Player_SpriteSheet_18
       rect:
         serializedVersion: 2
-        x: 320
-        y: 256
+        x: 128
+        y: 320
         width: 64
         height: 64
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -855,15 +855,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player_SpriteSheet_30
+      name: Player_SpriteSheet_34
       rect:
         serializedVersion: 2
-        x: 384
-        y: 256
+        x: 128
+        y: 192
         width: 64
         height: 64
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -876,15 +876,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player_SpriteSheet_31
+      name: Player_SpriteSheet_7
       rect:
         serializedVersion: 2
         x: 448
-        y: 256
+        y: 448
         width: 64
         height: 64
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -897,15 +897,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player_SpriteSheet_32
+      name: Player_SpriteSheet_14
       rect:
         serializedVersion: 2
-        x: 0
-        y: 192
+        x: 384
+        y: 384
         width: 64
         height: 64
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -918,15 +918,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player_SpriteSheet_33
+      name: Player_SpriteSheet_16
       rect:
         serializedVersion: 2
-        x: 64
-        y: 192
+        x: 0
+        y: 320
         width: 64
         height: 64
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -939,15 +939,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player_SpriteSheet_34
+      name: Player_SpriteSheet_17
       rect:
         serializedVersion: 2
-        x: 128
-        y: 192
+        x: 64
+        y: 320
         width: 64
         height: 64
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -960,15 +960,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player_SpriteSheet_35
+      name: Player_SpriteSheet_8
       rect:
         serializedVersion: 2
-        x: 192
-        y: 192
+        x: 0
+        y: 384
         width: 64
         height: 64
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -983,7 +983,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: f33f890351272494287d7e0114d7294c
     internalID: 0
     vertices: []
     indices: 
@@ -991,42 +991,42 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Player_SpriteSheet_2: 21300004
-      Player_SpriteSheet_4: 21300008
-      Player_SpriteSheet_3: 21300006
-      Player_SpriteSheet_9: 21300018
-      Player_SpriteSheet_5: 21300010
-      Player_SpriteSheet_25: 21300050
-      Player_SpriteSheet_26: 21300052
-      Player_SpriteSheet_13: 21300026
-      Player_SpriteSheet_23: 21300046
-      Player_SpriteSheet_21: 21300042
-      Player_SpriteSheet_12: 21300024
-      Player_SpriteSheet_24: 21300048
-      Player_SpriteSheet_29: 21300058
-      Player_SpriteSheet_33: 21300066
-      Player_SpriteSheet_19: 21300038
-      Player_SpriteSheet_10: 21300020
-      Player_SpriteSheet_20: 21300040
-      Player_SpriteSheet_35: 21300070
-      Player_SpriteSheet_27: 21300054
-      Player_SpriteSheet_22: 21300044
-      Player_SpriteSheet_30: 21300060
-      Player_SpriteSheet_32: 21300064
-      Player_SpriteSheet_11: 21300022
-      Player_SpriteSheet_1: 21300002
-      Player_SpriteSheet_15: 21300030
-      Player_SpriteSheet_31: 21300062
-      Player_SpriteSheet_6: 21300012
-      Player_SpriteSheet_28: 21300056
-      Player_SpriteSheet_0: 21300000
-      Player_SpriteSheet_18: 21300036
-      Player_SpriteSheet_34: 21300068
-      Player_SpriteSheet_7: 21300014
-      Player_SpriteSheet_14: 21300028
-      Player_SpriteSheet_16: 21300032
-      Player_SpriteSheet_17: 21300034
-      Player_SpriteSheet_8: 21300016
+      Player_SpriteSheet_2: 21300000
+      Player_SpriteSheet_4: 21300002
+      Player_SpriteSheet_3: 21300004
+      Player_SpriteSheet_9: 21300006
+      Player_SpriteSheet_5: 21300008
+      Player_SpriteSheet_25: 21300010
+      Player_SpriteSheet_26: 21300012
+      Player_SpriteSheet_13: 21300014
+      Player_SpriteSheet_23: 21300016
+      Player_SpriteSheet_21: 21300018
+      Player_SpriteSheet_12: 21300020
+      Player_SpriteSheet_24: 21300022
+      Player_SpriteSheet_29: 21300024
+      Player_SpriteSheet_33: 21300026
+      Player_SpriteSheet_19: 21300028
+      Player_SpriteSheet_10: 21300030
+      Player_SpriteSheet_20: 21300032
+      Player_SpriteSheet_35: 21300034
+      Player_SpriteSheet_27: 21300036
+      Player_SpriteSheet_22: 21300038
+      Player_SpriteSheet_30: 21300040
+      Player_SpriteSheet_32: 21300042
+      Player_SpriteSheet_11: 21300044
+      Player_SpriteSheet_1: 21300046
+      Player_SpriteSheet_15: 21300048
+      Player_SpriteSheet_31: 21300050
+      Player_SpriteSheet_6: 21300052
+      Player_SpriteSheet_28: 21300054
+      Player_SpriteSheet_0: 21300056
+      Player_SpriteSheet_18: 21300058
+      Player_SpriteSheet_34: 21300060
+      Player_SpriteSheet_7: 21300062
+      Player_SpriteSheet_14: 21300064
+      Player_SpriteSheet_16: 21300066
+      Player_SpriteSheet_17: 21300068
+      Player_SpriteSheet_8: 21300070
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
