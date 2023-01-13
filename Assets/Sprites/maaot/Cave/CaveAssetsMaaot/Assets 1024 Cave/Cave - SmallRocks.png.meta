@@ -135,7 +135,7 @@ TextureImporter:
       213: -1392051703132286171
     second: Cave - SmallRocks_43
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -179,7 +179,7 @@ TextureImporter:
   spriteMeshType: 0
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -195,6 +195,7 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -210,6 +211,18 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -1186,17 +1199,17 @@ TextureImporter:
       Cave - SmallRocks_37: -2979857049886536812
       Cave - SmallRocks_28: -1439979144534480287
       Cave - SmallRocks_2: -2493821621276057831
-      Cave - SmallRocks_3: -4494004569107490680
       Cave - SmallRocks_33: -7962708039751616428
-      Cave - SmallRocks_10: 4001769570858825416
-      Cave - SmallRocks_7: 8417261638804700597
-      Cave - SmallRocks_6: -7860321058049874662
-      Cave - SmallRocks_18: -6556686012822432966
-      Cave - SmallRocks_14: -435026583393288548
       Cave - SmallRocks_32: -3016530619638483621
       Cave - SmallRocks_43: -1392051703132286171
-      Cave - SmallRocks_0: 7755263233434312463
+      Cave - SmallRocks_7: 8417261638804700597
+      Cave - SmallRocks_6: -7860321058049874662
       Cave - SmallRocks_41: -2177050145984206322
+      Cave - SmallRocks_14: -435026583393288548
+      Cave - SmallRocks_10: 4001769570858825416
+      Cave - SmallRocks_3: -4494004569107490680
+      Cave - SmallRocks_0: 7755263233434312463
+      Cave - SmallRocks_18: -6556686012822432966
       Cave - SmallRocks_16: 219891711605049466
       Cave - SmallRocks_42: 4459580669314635480
       Cave - SmallRocks_39: 2070977477592778985

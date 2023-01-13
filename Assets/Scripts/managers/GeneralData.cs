@@ -11,16 +11,9 @@ namespace Assets.Scripts.managers
         public CharacterMover player;
 
         [Tooltip("Main Camera")]
-        public Camera mainCamera;
+        public CinemachineVirtualCamera mainCamera;
 
         [Tooltip("Planning Ample Camera")]
-        public Camera ampleCamera;
-
-        public CinemachineVirtualCamera AmpleCameraCineMachine { get; private set; }
-
-        private new void Awake()
-        {
-            AmpleCameraCineMachine = ampleCamera.GetComponent<CinemachineVirtualCamera>();
-        }
+        public CinemachineVirtualCamera AmpleCamera;
     }
 }

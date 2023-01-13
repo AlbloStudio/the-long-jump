@@ -58,7 +58,7 @@ namespace Assets.Scripts.totem
         {
             _isPlanning = true;
 
-            GeneralData.Instance.AmpleCameraCineMachine.enabled = true;
+            GeneralData.Instance.mainCamera.enabled = false;
 
             foreach (Item item in _items)
             {
@@ -70,7 +70,7 @@ namespace Assets.Scripts.totem
         {
             _isPlanning = false;
 
-            GeneralData.Instance.AmpleCameraCineMachine.enabled = false;
+            GeneralData.Instance.mainCamera.enabled = true;
 
             foreach (Item item in _items)
             {
@@ -97,8 +97,7 @@ namespace Assets.Scripts.totem
 
         private Item ItemClicked()
         {
-            Camera camera = GeneralData.Instance.ampleCamera;
-            Ray ray = camera.ScreenPointToRay(Input.mousePosition);
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
             RaycastHit2D rayHit = Physics2D.GetRayIntersection(ray, Mathf.Infinity, LayerMask.GetMask("Jumper", "PlatformJumper"));
 
@@ -107,7 +106,7 @@ namespace Assets.Scripts.totem
 
         private void Drag()
         {
-            _activeItem.transform.position = GeneralData.Instance.mainCamera.ScreenToWorldPoint(
+            _activeItem.transform.position = Camera.main.ScreenToWorldPoint(
                 new Vector3(
                     Input.mousePosition.x,
                     Input.mousePosition.y,

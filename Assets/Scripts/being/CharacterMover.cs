@@ -5,7 +5,7 @@ namespace Assets.Scripts.being
 {
     public class CharacterMover : MonoBehaviour
     {
-        private const float _GROUNDED_RADIUS = .2f;
+        private const float _GROUNDED_RADIUS = .01f;
 
         [Tooltip("Amount of force added when the player jumps")]
         [SerializeField] private float jumpForce = 600f;
@@ -81,6 +81,7 @@ namespace Assets.Scripts.being
 
         public void Jump(float force = 1)
         {
+            Debug.Log("Jumping");
             _isGrounded = false;
 
             _body.AddForce(jumpForce * force * Vector2.up);
