@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using Assets.Scripts.being;
 using Assets.Scripts.managers;
 
 namespace Assets.Scripts.item
@@ -13,16 +12,15 @@ namespace Assets.Scripts.item
             Planning = 2,
         }
 
-        [HideInInspector]
         public PlanningMode mode = PlanningMode.Waiting;
 
-        protected CharacterMover _controller;
+        protected Action _charAction;
         protected Collider2D _collider;
 
         protected void Awake()
         {
             _collider = GetComponent<Collider2D>();
-            _controller = GeneralData.Instance.player;
+            _charAction = GeneralData.Instance.charAction;
         }
 
         public void SetPlanningMode(PlanningMode newMode)

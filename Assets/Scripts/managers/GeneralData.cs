@@ -1,4 +1,3 @@
-using Assets.Scripts.being;
 using Assets.Scripts.utils;
 using Cinemachine;
 using UnityEngine;
@@ -8,7 +7,7 @@ namespace Assets.Scripts.managers
     public class GeneralData : Singleton<GeneralData>
     {
         [Tooltip("Player")]
-        public CharacterMover player;
+        public Action charAction;
 
         [Tooltip("Main Camera")]
         public CinemachineVirtualCamera mainCamera;

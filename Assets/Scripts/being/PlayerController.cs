@@ -1,46 +1,15 @@
 using UnityEngine;
 
-namespace Assets.Scripts.being
+[CreateAssetMenu(fileName = "PlayerController", menuName = "InputController/PlayerController")]
+public class PlayerController : InputController
 {
-    public class PlayerController : MonoBehaviour
+    public override bool RetrieveJumpInput()
     {
-        [Tooltip("player speed")]
-        [SerializeField] private float runSpeed = 40f;
+        return Input.GetButtonDown("Jump");
+    }
 
-        private bool _shouldJump = false;
-        private float _horizontalMovement = 0f;
-
-        private CharacterMover _controller;
-
-        private void Awake()
-        {
-            _controller = GetComponent<CharacterMover>();
-        }
-
-        private void Update()
-        {
-            if (Input.GetButtonDown("Jump"))
-            {
-                _shouldJump = true;
-            }
-
-            if (Input.GetButtonUp("Jump"))
-            {
-                _shouldJump = false;
-            }
-        }
-
-        private void FixedUpdate()
-        {
-            _controller.Move(_horizontalMovement);
-            _horizontalMovement = Input.GetAxis("Horizontal") * runSpeed * Time.fixedDeltaTime;
-
-            if (_shouldJump && _controller.CanJump())
-            {
-                _controller.Jump();
-            }
-
-            _shouldJump = false;
-        }
+    public override float RetrieveMoveInput()
+    {
+        return Input.GetAxisRaw("Horizontal");
     }
 }
