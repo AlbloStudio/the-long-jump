@@ -47,7 +47,7 @@ TextureImporter:
   spriteMeshType: 0
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 32
+  spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 0
@@ -105,13 +105,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: tileset-debug_0
+      name: up-left
       rect:
         serializedVersion: 2
         x: 0
-        y: 64
-        width: 32
-        height: 16
+        y: 32
+        width: 16
+        height: 17
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -119,19 +119,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f9065f234d172334980580076ff96b75
+      spriteID: 4c063ed6963767345bceb598bf69b4c2
       internalID: 1233836188
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tileset-debug_8
+      name: up-righ
       rect:
         serializedVersion: 2
-        x: 16
-        y: 48
-        width: 16
+        x: 32
+        y: 33
+        width: 17
         height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -140,19 +140,40 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 124b13986ac0f6440b5a1a391a91897c
-      internalID: 831652114
+      spriteID: c470bc162660d5c4eb19d6d3ccdbd98b
+      internalID: 1938754170
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tileset-debug_9
+      name: down-right
+      rect:
+        serializedVersion: 2
+        x: 33
+        y: 0
+        width: 16
+        height: 17
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5cf8b1aac9f37494e8fe1b3c39423941
+      internalID: 1355013020
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: down-left
       rect:
         serializedVersion: 2
         x: 0
-        y: 48
-        width: 16
+        y: 0
+        width: 17
         height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -161,20 +182,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 29c2cd3b412e1ea4d8eb045e8577c525
-      internalID: 1260658231
+      spriteID: 26783927b71d28348bf2bc387a674cec
+      internalID: 2062606757
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tileset-debug_10
+      name: border
       rect:
         serializedVersion: 2
         x: 16
         y: 32
         width: 16
-        height: 16
+        height: 17
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -182,29 +203,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0a9dbd00588980d4bb956ac53e21b603
-      internalID: -299556239
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: tileset-debug_11
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 32
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0fd3ec2da29ea964eaa4cdc27abd0fab
-      internalID: 1721556843
+      spriteID: a9fb80bfb8485d24c83a5780c86afb6b
+      internalID: 836859286
       vertices: []
       indices: 
       edges: []
@@ -220,18 +220,18 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
+      down-left: 2062606757
       tileset-debug_8: 831652114
-      tileset-debug_0: 1233836188
       tileset-debug_7: -837808580
-      tileset-debug_4: 836859286
+      up-righ: 1938754170
       tileset-debug_11: 1721556843
-      tileset-debug_1: 1938754170
-      tileset-debug_3: 2062606757
+      up-left: 1233836188
       tileset-debug_6: 570932000
       tileset-debug_10: -299556239
       tileset-debug_5: 1976975475
       tileset-debug_9: 1260658231
-      tileset-debug_2: 1355013020
+      down-right: 1355013020
+      border: 836859286
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
