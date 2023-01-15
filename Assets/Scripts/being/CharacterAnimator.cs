@@ -23,11 +23,11 @@ namespace Assets.Scripts.being
 
         private Animator _animator;
         private Rigidbody2D _body;
-        private Ground _ground;
+        private CharacterMover _controller;
 
         private void Awake()
         {
-            _ground = GetComponent<Ground>();
+            _controller = GetComponent<CharacterMover>();
             _animator = GetComponent<Animator>();
             _body = GetComponent<Rigidbody2D>();
         }
@@ -50,7 +50,7 @@ namespace Assets.Scripts.being
 
         public void ManageAnimations()
         {
-            _animator.SetBool(AnimatorNames.Grounded, _ground.OnGround);
+            _animator.SetBool(AnimatorNames.Grounded, _controller.IsGrounded());
             _animator.SetFloat(AnimatorNames.VelocityX, Mathf.Abs(_body.velocity.x));
             _animator.SetFloat(AnimatorNames.VelocityY, _body.velocity.y);
 

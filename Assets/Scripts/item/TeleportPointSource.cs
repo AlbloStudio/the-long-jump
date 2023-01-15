@@ -1,5 +1,4 @@
-﻿using Assets.Scripts.managers;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 namespace Assets.Scripts.item
@@ -24,8 +23,6 @@ namespace Assets.Scripts.item
                 _rayPrefabInstance = Instantiate(_rayPrefab, transform.position, transform.rotation, transform.parent);
                 _rayPrefabInstance.teleport = this;
             }
-
-            _charAction = GeneralData.Instance.charAction;
         }
 
         private void OnTriggerEnter2D(Collider2D other)
@@ -35,11 +32,11 @@ namespace Assets.Scripts.item
                 return;
             }
 
-            if (other.gameObject == _charAction.gameObject)
+            if (other.gameObject == _controller.gameObject)
             {
                 if (IsTeleportable())
                 {
-                    _charAction.Teleport(targetPoint.transform.position);
+                    _controller.Teleport(targetPoint.transform.position);
                 }
             }
         }

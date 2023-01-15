@@ -35,7 +35,6 @@ namespace Assets.Scripts.item
             _originalColliderOffset = _boxCollider.offset;
 
             _colliderBounds = GetComponent<SpriteRenderer>().sprite.bounds.size;
-
         }
 
         private void Start()
@@ -45,9 +44,9 @@ namespace Assets.Scripts.item
 
         private void OnCollisionEnter2D(Collision2D collision)
         {
-            if (collision.gameObject == _charAction.gameObject)
+            if (collision.gameObject == _controller.gameObject)
             {
-                _charAction.Impulse(_FORCE * jumpForce, direction);
+                _controller.Impulse(_FORCE * jumpForce, direction);
                 _animator.SetTrigger(AnimatorNames.Activate);
             }
         }
