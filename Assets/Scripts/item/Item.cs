@@ -22,7 +22,7 @@ namespace Assets.Scripts.item
 
         private bool IsInSafeArea()
         {
-            return _safeArea.bounds.Contains(transform.position);
+            return _safeArea.bounds.Contains(new(transform.position.x, transform.position.y, 0));
         }
 
         public void EnterPlanningMode(Collider2D safeArea)

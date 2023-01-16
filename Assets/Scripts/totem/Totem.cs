@@ -1,6 +1,5 @@
 using Assets.Scripts.item;
 using Assets.Scripts.managers;
-using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -106,13 +105,16 @@ namespace Assets.Scripts.totem
 
         private void Drag()
         {
-            _activeItem.transform.position = Camera.main.ScreenToWorldPoint(
+            Vector3 mousePos = Camera.main.ScreenToWorldPoint(
                 new Vector3(
                     Input.mousePosition.x,
                     Input.mousePosition.y,
-                    Math.Abs(GeneralData.Instance.mainCamera.transform.position.z)
+                    Mathf.Abs(GeneralData.Instance.mainCamera.transform.position.z)
                 )
             );
+
+            _activeItem.transform.position = new(mousePos.x, mousePos.y, mousePos.z);
+
         }
     }
 }
