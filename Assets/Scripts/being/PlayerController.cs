@@ -9,6 +9,7 @@ namespace Assets.Scripts.being
 
         private bool _shouldJump = false;
         private float _horizontalMovement = 0f;
+        private float xInput = 0;
 
         private CharacterMover _controller;
 
@@ -28,19 +29,29 @@ namespace Assets.Scripts.being
             {
                 _shouldJump = false;
             }
+
+            xInput = Input.GetAxis("Horizontal");
         }
 
         private void FixedUpdate()
         {
-            _controller.Move(_horizontalMovement);
-            _horizontalMovement = Input.GetAxis("Horizontal") * runSpeed * Time.fixedDeltaTime;
+            Move();
+            Jump();
+        }
 
+        private void Move()
+        {
+            _horizontalMovement = xInput * runSpeed * Time.fixedDeltaTime;
+            _controller.Move(_horizontalMovement);
+        }
+
+        private void Jump()
+        {
             if (_shouldJump && _controller.CanJump())
             {
                 _controller.Jump();
+                _shouldJump = false;
             }
-
-            _shouldJump = false;
         }
     }
 }

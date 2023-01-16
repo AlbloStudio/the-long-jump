@@ -13,10 +13,7 @@ namespace Assets.Scripts.item
         {
             _originalPosition = transform.position;
             _jumper = GetComponent<Jumper>();
-        }
 
-        private void Start()
-        {
             gameObject.SetActive(false);
         }
 

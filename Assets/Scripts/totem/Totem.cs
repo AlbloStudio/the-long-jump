@@ -57,8 +57,7 @@ namespace Assets.Scripts.totem
         {
             _isPlanning = true;
 
-            GeneralData.Instance.mainCamera.enabled = false;
-
+            GeneralData.Instance.mainCamera.gameObject.SetActive(false);
             foreach (Item item in _items)
             {
                 item.EnterPlanningMode(safeArea);
@@ -69,7 +68,7 @@ namespace Assets.Scripts.totem
         {
             _isPlanning = false;
 
-            GeneralData.Instance.mainCamera.enabled = true;
+            GeneralData.Instance.mainCamera.gameObject.SetActive(true);
 
             foreach (Item item in _items)
             {
@@ -113,7 +112,7 @@ namespace Assets.Scripts.totem
                 )
             );
 
-            _activeItem.transform.position = new(mousePos.x, mousePos.y, mousePos.z);
+            _activeItem.transform.position = new(mousePos.x, mousePos.y, _activeItem.transform.position.z);
 
         }
     }
