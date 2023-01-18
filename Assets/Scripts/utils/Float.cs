@@ -2,7 +2,7 @@
 
 namespace Assets.Scripts.utils
 {
-    public class Float
+    public static class Float
     {
         public const float Tolerance = 0.001f;
 
