@@ -46,6 +46,6 @@ public class MyPlayerEditor : Editor
 
         Vector2 currentDistanceBetweenExtremes = leftest - rightest;
 
-        colliderRight.transform.position = new(rightPos.x - currentDistanceBetweenExtremes.x, rightPos.y - currentDistanceBetweenExtremes.y, rightPos.z);
+        colliderRight.transform.position = new(rightPos.x - currentDistanceBetweenExtremes.x + gap.distanceX, rightPos.y - currentDistanceBetweenExtremes.y + gap.distanceY, rightPos.z);
     }
 }
