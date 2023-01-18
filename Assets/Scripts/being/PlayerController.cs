@@ -35,17 +35,21 @@ namespace Assets.Scripts.being
 
         private void FixedUpdate()
         {
-            Move();
-            Jump();
+            TryMove();
+            TryJump();
         }
 
-        private void Move()
+        private void TryMove()
         {
-            _horizontalMovement = xInput * runSpeed * Time.fixedDeltaTime;
-            _controller.Move(_horizontalMovement);
+            if (_controller.CanMove())
+            {
+
+                _horizontalMovement = xInput * runSpeed * Time.fixedDeltaTime;
+                _controller.Move(_horizontalMovement);
+            }
         }
 
-        private void Jump()
+        private void TryJump()
         {
             if (_shouldJump && _controller.CanJump())
             {

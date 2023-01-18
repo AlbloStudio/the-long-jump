@@ -50,7 +50,7 @@ namespace Assets.Scripts.being
 
         public void ManageAnimations()
         {
-            _animator.SetBool(AnimatorNames.Grounded, _controller.IsGrounded());
+            _animator.SetBool(AnimatorNames.Grounded, _controller.IsGrounded);
             _animator.SetFloat(AnimatorNames.VelocityX, Mathf.Abs(_body.velocity.x));
             _animator.SetFloat(AnimatorNames.VelocityY, _body.velocity.y);
 

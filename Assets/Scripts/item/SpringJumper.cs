@@ -42,9 +42,9 @@ namespace Assets.Scripts.item
             transform.rotation = Quaternion.LookRotation(Vector3.forward, direction);
         }
 
-        private void OnCollisionEnter2D(Collision2D collision)
+        private void OnTriggerEnter2D(Collider2D collider)
         {
-            if (collision.gameObject == _controller.gameObject)
+            if (mode == PlanningMode.Playing && collider.gameObject == _controller.gameObject)
             {
                 _controller.Impulse(_FORCE * jumpForce, direction);
                 _animator.SetTrigger(AnimatorNames.Activate);
@@ -57,12 +57,10 @@ namespace Assets.Scripts.item
             {
                 case PlanningMode.Planning:
                 case PlanningMode.Waiting:
-                    _collider.isTrigger = true;
                     SetColliderForClicking();
                     break;
 
                 case PlanningMode.Playing:
-                    _collider.isTrigger = false;
                     SetColliderForBouncing();
                     break;
                 default:
