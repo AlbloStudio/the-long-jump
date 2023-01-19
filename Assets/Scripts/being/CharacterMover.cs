@@ -23,6 +23,12 @@ namespace Assets.Scripts.being
         [Tooltip("The Physics Material to use when we are in the ground")]
         [SerializeField] private PhysicsMaterial2D groundPhysicsMaterial;
 
+        [Tooltip("Gravity when falliong down")]
+        [SerializeField] private float _downwardsGravityScale = 9f;
+
+        [Tooltip("Gravity when jumping up")]
+        [SerializeField] private float _upwardsGravityScale = 3f;
+
         public bool IsGrounded { get; private set; } = false;
 
         private Rigidbody2D _body;
@@ -34,12 +40,15 @@ namespace Assets.Scripts.being
         private void Awake()
         {
             _body = GetComponent<Rigidbody2D>();
+
             _coyote = GetComponent<Coyote>();
+            _coyote._downwardsGravityScale = _downwardsGravityScale;
         }
 
         private void FixedUpdate()
         {
             CheckIsGrounded();
+            ControlGravity();
             _coyote.CountCoyoteTime(IsGrounded);
         }
 
@@ -66,6 +75,14 @@ namespace Assets.Scripts.being
             }
 
             _wasGrounded = IsGrounded;
+        }
+
+        private void ControlGravity()
+        {
+            if (!IsGrounded && !_coyote.IsCoyoting)
+            {
+                _body.gravityScale = _body.velocity.y > 0 ? _upwardsGravityScale : _downwardsGravityScale;
+            }
         }
 
         public void Move(float move)

@@ -9,17 +9,17 @@ namespace Assets.Scripts.being
         [SerializeField] private float coyoteTime = .1f;
 
         public bool IsCoyoting { get; private set; }
+        [HideInInspector]
+        public float _downwardsGravityScale;
 
         private float _coyoteCounter;
         private bool _wasCoyoting;
-        private float _originalGravityScale;
 
         private Rigidbody2D _body;
 
         private void Awake()
         {
             _body = GetComponent<Rigidbody2D>();
-            _originalGravityScale = _body.gravityScale;
             _coyoteCounter = coyoteTime;
         }
 
@@ -48,14 +48,14 @@ namespace Assets.Scripts.being
 
         private void StartCoyote()
         {
-            _body.gravityScale = 0;
+            // _body.gravityScale = 0;
             _body.velocity = new(_body.velocity.x, 0f);
         }
 
         public void EndCoyote()
         {
             _coyoteCounter = 0f;
-            _body.gravityScale = _originalGravityScale;
+            // _body.gravityScale = _downwardsGravityScale;
         }
 
         public void RestartCoyote()
