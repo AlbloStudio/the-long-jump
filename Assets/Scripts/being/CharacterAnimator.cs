@@ -1,4 +1,5 @@
 using UnityEngine;
+using static Assets.Scripts.being.CharacterMover;
 
 namespace Assets.Scripts.being
 {
@@ -50,7 +51,7 @@ namespace Assets.Scripts.being
 
         public void ManageAnimations()
         {
-            _animator.SetBool(AnimatorNames.Grounded, _controller.IsGrounded);
+            _animator.SetBool(AnimatorNames.Grounded, _controller.state.IsInState(CharState.Grounded));
             _animator.SetFloat(AnimatorNames.VelocityX, Mathf.Abs(_body.velocity.x));
             _animator.SetFloat(AnimatorNames.VelocityY, _body.velocity.y);
 

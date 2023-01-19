@@ -2,9 +2,23 @@ using UnityEngine;
 
 namespace Assets.Scripts.being
 {
-    [RequireComponent(typeof(Coyote))]
     public class CharacterMover : MonoBehaviour
     {
+        public enum CharState
+        {
+            Grounded,
+            Coyoting,
+            Airing,
+            Jumping,
+            Impulsing,
+        }
+
+        [Tooltip("Amount of time that the player can still jump after leaving ground")]
+        [SerializeField] private float coyoteTime = .1f;
+
+        [Tooltip("player speed")]
+        [SerializeField] private float runSpeed = 40f;
+
         [Tooltip("Circle that determines if we are grounded or not")]
         [SerializeField] private float groundCheckRadius = 1f;
 
@@ -30,26 +44,181 @@ namespace Assets.Scripts.being
         [SerializeField] private float _upwardsGravityScale = 3f;
 
         public bool IsGrounded { get; private set; } = false;
+        public StateMachine<CharState> state = new(CharState.Airing);
+        public string currentStateName = CharState.Airing.ToString();
 
         private Rigidbody2D _body;
-        private Coyote _coyote;
+        private float _originalGravityScale;
 
-        private bool _wasGrounded;
-        private Vector2 _impulseVelocity = Vector2.zero;
+        private float _coyoteCounter;
 
         private void Awake()
         {
             _body = GetComponent<Rigidbody2D>();
+            _coyoteCounter = coyoteTime;
 
-            _coyote = GetComponent<Coyote>();
-            _coyote._downwardsGravityScale = _downwardsGravityScale;
+            _originalGravityScale = _body.gravityScale;
+
+            state.StateChanged.AddListener(StateChanged);
         }
 
         private void FixedUpdate()
         {
-            CheckIsGrounded();
-            ControlGravity();
-            _coyote.CountCoyoteTime(IsGrounded);
+            currentStateName = state.CurrentState.ToString();
+
+            Collider2D[] colliders = Physics2D.OverlapCircleAll(groundCheck.transform.position, groundCheckRadius, whatIsGround);
+            bool isGrounded = colliders.Length > 0;
+
+            switch (state.CurrentState)
+            {
+                case CharState.Airing:
+                    WhileAiring(isGrounded);
+
+                    break;
+                case CharState.Coyoting:
+                    WhileCoyoting(isGrounded);
+
+                    break;
+                case CharState.Grounded:
+                    WhileGrounded(isGrounded);
+                    break;
+                case CharState.Impulsing:
+                    WhileImpulsing(isGrounded);
+
+                    break;
+                case CharState.Jumping:
+                    WhileJumping(isGrounded);
+
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        private void WhileAiring(bool isGrounded)
+        {
+            if (isGrounded)
+            {
+                state.ChangeState(CharState.Grounded);
+            }
+            else
+            {
+                _body.gravityScale = _body.velocity.y > 0 ? _upwardsGravityScale : _downwardsGravityScale;
+            }
+        }
+
+        private void WhileCoyoting(bool isGrounded)
+        {
+            if (isGrounded)
+            {
+                state.ChangeState(CharState.Grounded);
+            }
+            else
+            {
+
+                _coyoteCounter -= Time.fixedDeltaTime;
+
+                if (_coyoteCounter <= 0f)
+                {
+                    state.ChangeState(CharState.Airing);
+                }
+            }
+        }
+
+        private void WhileGrounded(bool isGrounded)
+        {
+            if (!isGrounded)
+            {
+                state.ChangeState(CharState.Coyoting);
+            }
+        }
+
+        private void WhileImpulsing(bool isGrounded)
+        {
+            if (isGrounded)
+            {
+                state.ChangeState(CharState.Grounded);
+            }
+        }
+
+        private void WhileJumping(bool isGrounded)
+        {
+            if (!isGrounded)
+            {
+                state.ChangeState(CharState.Airing);
+            }
+        }
+
+        private void StateChanged(CharState newState, CharState previousState)
+        {
+            if (previousState == CharState.Coyoting)
+            {
+                OnStoppedCoyoting();
+            }
+
+            switch (newState)
+            {
+                case CharState.Airing:
+                    OnAir();
+                    break;
+
+                case CharState.Coyoting:
+                    OnCoyote();
+
+                    break;
+
+                case CharState.Grounded:
+                    OnGround();
+                    break;
+
+                case CharState.Impulsing:
+                    OnImpulse();
+                    break;
+
+                case CharState.Jumping:
+                    OnJump();
+                    break;
+
+                default:
+                    break;
+            }
+        }
+
+        private void OnStoppedCoyoting()
+        {
+            _body.gravityScale = _originalGravityScale;
+            _coyoteCounter = coyoteTime;
+        }
+
+        private void OnAir()
+        {
+            _body.sharedMaterial = airPhysicsMaterial;
+
+        }
+
+        private void OnCoyote()
+        {
+            _body.velocity = new(_body.velocity.x, 0f);
+            _originalGravityScale = _body.gravityScale;
+            _body.gravityScale = 0;
+        }
+
+        private void OnGround()
+        {
+            _body.sharedMaterial = groundPhysicsMaterial;
+
+        }
+
+        private void OnImpulse()
+        {
+            _body.sharedMaterial = airPhysicsMaterial;
+
+        }
+
+        private void OnJump()
+        {
+            _body.sharedMaterial = airPhysicsMaterial;
+
         }
 
         private void OnDrawGizmos()
@@ -57,37 +226,9 @@ namespace Assets.Scripts.being
             Gizmos.DrawWireSphere(groundCheck.position, groundCheckRadius);
         }
 
-        private void CheckIsGrounded()
-        {
-            Collider2D[] colliders = Physics2D.OverlapCircleAll(groundCheck.transform.position, groundCheckRadius, whatIsGround);
-            IsGrounded = colliders.Length > 0;
-
-            if (IsGrounded != _wasGrounded)
-            {
-                if (IsGrounded)
-                {
-                    Land();
-                }
-                else
-                {
-                    Air();
-                }
-            }
-
-            _wasGrounded = IsGrounded;
-        }
-
-        private void ControlGravity()
-        {
-            if (!IsGrounded && !_coyote.IsCoyoting)
-            {
-                _body.gravityScale = _body.velocity.y > 0 ? _upwardsGravityScale : _downwardsGravityScale;
-            }
-        }
-
         public void Move(float move)
         {
-            _body.velocity = new Vector2(move * 10f, _body.velocity.y);
+            _body.velocity = new Vector2(move * 10f * runSpeed, _body.velocity.y);
         }
 
         public void Teleport(Vector2 position)
@@ -98,12 +239,12 @@ namespace Assets.Scripts.being
 
         public bool CanJump()
         {
-            return IsGrounded || _coyote.IsCoyoting;
+            return state.IsInState(CharState.Grounded, CharState.Coyoting);
         }
 
         public bool CanMove()
         {
-            return _impulseVelocity.Equals(Vector2.zero);
+            return !state.IsInState(CharState.Impulsing);
         }
 
         public void Jump(float force = 1, Vector2? direction = null)
@@ -113,31 +254,17 @@ namespace Assets.Scripts.being
                 direction = Vector2.up;
             }
 
-            _coyote.EndCoyote();
+            _body.AddForce(jumpForce * force * (Vector2)direction, ForceMode2D.Force);
 
-            _body.AddForce(jumpForce * force * (Vector2)direction);
+            state.ChangeState(CharState.Jumping);
         }
 
         public void Impulse(float force, Vector2 direction)
         {
-            _impulseVelocity = direction * (force / _body.mass * Time.fixedDeltaTime);
             _body.velocity = Vector2.zero;
             Jump(force / jumpForce, direction);
-        }
 
-        private void Air()
-        {
-            IsGrounded = false;
-            _body.sharedMaterial = airPhysicsMaterial;
-        }
-
-        private void Land()
-        {
-            IsGrounded = true;
-            _body.sharedMaterial = groundPhysicsMaterial;
-
-            _impulseVelocity = Vector2.zero;
-            _coyote.RestartCoyote();
+            state.ChangeState(CharState.Impulsing);
         }
     }
 }

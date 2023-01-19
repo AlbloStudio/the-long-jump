@@ -4,12 +4,9 @@ namespace Assets.Scripts.being
 {
     public class PlayerController : MonoBehaviour
     {
-        [Tooltip("player speed")]
-        [SerializeField] private float runSpeed = 40f;
-
         private bool _shouldJump = false;
         private float _horizontalMovement = 0f;
-        private float xInput = 0;
+        private float _xInput = 0;
 
         private CharacterMover _controller;
 
@@ -30,7 +27,7 @@ namespace Assets.Scripts.being
                 _shouldJump = false;
             }
 
-            xInput = Input.GetAxis("Horizontal");
+            _xInput = Input.GetAxis("Horizontal");
         }
 
         private void FixedUpdate()
@@ -43,8 +40,7 @@ namespace Assets.Scripts.being
         {
             if (_controller.CanMove())
             {
-
-                _horizontalMovement = xInput * runSpeed * Time.fixedDeltaTime;
+                _horizontalMovement = _xInput * Time.fixedDeltaTime;
                 _controller.Move(_horizontalMovement);
             }
         }
