@@ -1,3 +1,4 @@
+using Assets.Scripts.managers;
 using UnityEngine;
 
 namespace Assets.Scripts.being
@@ -302,6 +303,11 @@ namespace Assets.Scripts.being
             Jump(force / jumpForce, direction);
 
             state.ChangeState(CharState.Impulsing);
+        }
+
+        public void Kill()
+        {
+            transform.position = CheckpointManager.Instance.ActiveCheckpoint.transform.position;
         }
     }
 }
