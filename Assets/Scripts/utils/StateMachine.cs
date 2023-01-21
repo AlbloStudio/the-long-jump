@@ -1,13 +1,9 @@
 using System.Collections.Generic;
-using System.ComponentModel;
 using UnityEngine.Events;
 
 public class StateMachine<StateType>
 {
-
     public StateType CurrentState { get; private set; }
-
-    public event PropertyChangedEventHandler OnStateChange;
 
     public UnityEvent<StateType, StateType> StateChanged { get; private set; } = new();
 

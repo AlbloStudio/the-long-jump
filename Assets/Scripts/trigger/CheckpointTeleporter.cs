@@ -20,14 +20,6 @@ namespace Assets.Scripts.trigger
             }
         }
 
-        private void OnValidate()
-        {
-            if (checkPoints.Length == 0)
-            {
-                Debug.LogException(new System.Exception("At least one checkpoint is needed for DeathTeleporter to work"));
-            }
-        }
-
         private void OnTriggerEnter2D(Collider2D collided)
         {
             if (collided.transform.Equals(teleportee))

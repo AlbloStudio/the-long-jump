@@ -1,5 +1,4 @@
 using Assets.Scripts.being;
-using Assets.Scripts.utils;
 using Cinemachine;
 using UnityEngine;
 
@@ -12,8 +11,5 @@ namespace Assets.Scripts.managers
 
         [Tooltip("Main Camera")]
         public CinemachineVirtualCamera mainCamera;
-
-        [Tooltip("Planning Ample Camera")]
-        public CinemachineVirtualCamera AmpleCamera;
     }
 }

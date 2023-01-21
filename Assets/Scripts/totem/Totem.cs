@@ -1,5 +1,6 @@
 using Assets.Scripts.item;
 using Assets.Scripts.managers;
+using Cinemachine;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -9,6 +10,9 @@ namespace Assets.Scripts.totem
     {
         [Tooltip("The safe area where the Objects can be placed into")]
         [SerializeField] private Collider2D safeArea;
+
+        [Tooltip("The camera that will point when planning mode")]
+        [SerializeField] private CinemachineVirtualCamera planningCamera;
 
         private List<Item> _items;
         private bool _isPlanning = false;
@@ -57,7 +61,7 @@ namespace Assets.Scripts.totem
         {
             _isPlanning = true;
 
-            GeneralData.Instance.mainCamera.gameObject.SetActive(false);
+            planningCamera.gameObject.SetActive(true);
             foreach (Item item in _items)
             {
                 item.EnterPlanningMode(safeArea);
@@ -68,8 +72,7 @@ namespace Assets.Scripts.totem
         {
             _isPlanning = false;
 
-            GeneralData.Instance.mainCamera.gameObject.SetActive(true);
-
+            planningCamera.gameObject.SetActive(false);
             foreach (Item item in _items)
             {
                 item.ExitPlanningMode();
