@@ -25,6 +25,9 @@ namespace Assets.Scripts.being
         [Tooltip("Amount of force added when the player jumps")]
         [SerializeField] private float jumpForce = 600f;
 
+        [Tooltip("Amount of time that the player has to wait before jumping again")]
+        [SerializeField] private float jumpTime = .1f;
+
         [Tooltip("A mask determining what is ground to the character")]
         [SerializeField] private LayerMask whatIsGround = new();
 
@@ -51,6 +54,7 @@ namespace Assets.Scripts.being
         private float _originalGravityScale;
 
         private float _coyoteCounter;
+        private float _jumpCounter;
 
         private void Awake()
         {
@@ -73,23 +77,24 @@ namespace Assets.Scripts.being
             {
                 case CharState.Airing:
                     WhileAiring(isGrounded);
-
                     break;
+
                 case CharState.Coyoting:
                     WhileCoyoting(isGrounded);
-
                     break;
+
                 case CharState.Grounded:
                     WhileGrounded(isGrounded);
                     break;
+
                 case CharState.Impulsing:
                     WhileImpulsing(isGrounded);
-
                     break;
+
                 case CharState.Jumping:
                     WhileJumping(isGrounded);
-
                     break;
+
                 default:
                     break;
             }
@@ -143,10 +148,17 @@ namespace Assets.Scripts.being
 
         private void WhileJumping(bool isGrounded)
         {
-            if (!isGrounded)
+
+            if (_jumpCounter <= 0)
             {
-                state.ChangeState(CharState.Airing);
+                if (isGrounded)
+                {
+                    state.ChangeState(CharState.Grounded);
+                }
             }
+
+            _body.gravityScale = _body.velocity.y > 0 ? _upwardsGravityScale : _downwardsGravityScale;
+            _jumpCounter -= Time.deltaTime;
         }
 
         private void StateChanged(CharState newState, CharState previousState)
@@ -154,6 +166,28 @@ namespace Assets.Scripts.being
             if (previousState == CharState.Coyoting)
             {
                 OnStoppedCoyoting();
+            }
+
+            switch (previousState)
+            {
+                case CharState.Grounded:
+                    break;
+
+                case CharState.Coyoting:
+                    OnStoppedCoyoting();
+                    break;
+
+                case CharState.Airing:
+                    break;
+
+                case CharState.Jumping:
+                    OnStoppedJumping();
+                    break;
+
+                case CharState.Impulsing:
+                    break;
+                default:
+                    break;
             }
 
             switch (newState)
@@ -164,7 +198,6 @@ namespace Assets.Scripts.being
 
                 case CharState.Coyoting:
                     OnCoyote();
-
                     break;
 
                 case CharState.Grounded:
@@ -188,6 +221,11 @@ namespace Assets.Scripts.being
         {
             _body.gravityScale = _originalGravityScale;
             _coyoteCounter = coyoteTime;
+        }
+
+        private void OnStoppedJumping()
+        {
+            _jumpCounter = jumpTime;
         }
 
         private void OnAir()
@@ -218,7 +256,6 @@ namespace Assets.Scripts.being
         private void OnJump()
         {
             _body.sharedMaterial = airPhysicsMaterial;
-
         }
 
         private void OnDrawGizmos()

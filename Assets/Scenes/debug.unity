@@ -1734,6 +1734,11 @@ PrefabInstance:
       propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[1].value
       value: 0.7659575
       objectReference: {fileID: 0}
+    - target: {fileID: 6092892046494052870, guid: e7fcecc826687024e9b52ec763b14088,
+        type: 3}
+      propertyPath: jumpForce
+      value: 500
+      objectReference: {fileID: 0}
     - target: {fileID: 6092892046494052876, guid: e7fcecc826687024e9b52ec763b14088,
         type: 3}
       propertyPath: m_RootOrder
@@ -1789,8 +1794,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6092892046888342739, guid: e7fcecc826687024e9b52ec763b14088,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 6092892044994751112, guid: e7fcecc826687024e9b52ec763b14088, type: 3}
+    - {fileID: 6092892044994751119, guid: e7fcecc826687024e9b52ec763b14088, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: e7fcecc826687024e9b52ec763b14088, type: 3}
 --- !u!4 &697908000 stripped
 Transform:
@@ -4598,6 +4609,120 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a15a3978361b6af44b5e59af1c77098f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1950319918 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6092892046888342738, guid: e7fcecc826687024e9b52ec763b14088,
+    type: 3}
+  m_PrefabInstance: {fileID: 588267687}
+  m_PrefabAsset: {fileID: 0}
+--- !u!96 &1950319920
+TrailRenderer:
+  serializedVersion: 2
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1950319918}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 0
+  m_LightProbeUsage: 0
+  m_ReflectionProbeUsage: 0
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10306, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_Time: 5
+  m_Parameters:
+    serializedVersion: 3
+    widthMultiplier: 0.1
+    widthCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0.055290222
+        value: 0.4202118
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 0.63461536
+        value: 0.7659575
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    colorGradient:
+      serializedVersion: 2
+      key0: {r: 1, g: 1, b: 1, a: 1}
+      key1: {r: 1, g: 0, b: 0, a: 1}
+      key2: {r: 0, g: 0, b: 0, a: 0}
+      key3: {r: 0, g: 0, b: 0, a: 0}
+      key4: {r: 0, g: 0, b: 0, a: 0}
+      key5: {r: 0, g: 0, b: 0, a: 0}
+      key6: {r: 0, g: 0, b: 0, a: 0}
+      key7: {r: 0, g: 0, b: 0, a: 0}
+      ctime0: 0
+      ctime1: 65535
+      ctime2: 0
+      ctime3: 0
+      ctime4: 0
+      ctime5: 0
+      ctime6: 0
+      ctime7: 0
+      atime0: 0
+      atime1: 65535
+      atime2: 0
+      atime3: 0
+      atime4: 0
+      atime5: 0
+      atime6: 0
+      atime7: 0
+      m_Mode: 0
+      m_NumColorKeys: 2
+      m_NumAlphaKeys: 2
+    numCornerVertices: 90
+    numCapVertices: 0
+    alignment: 0
+    textureMode: 0
+    shadowBias: 0.5
+    generateLightingData: 0
+  m_MinVertexDistance: 0.1
+  m_Autodestruct: 0
+  m_Emitting: 1
 --- !u!1 &1967719689
 GameObject:
   m_ObjectHideFlags: 0
@@ -5260,7 +5385,7 @@ PrefabInstance:
     - target: {fileID: 451175721206856851, guid: 05d5e9057437e0e46a23bcff1d841916,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.3999987
+      value: 3.3999996
       objectReference: {fileID: 0}
     - target: {fileID: 451175721206856851, guid: 05d5e9057437e0e46a23bcff1d841916,
         type: 3}
@@ -5335,22 +5460,22 @@ PrefabInstance:
     - target: {fileID: 451175721206856863, guid: 05d5e9057437e0e46a23bcff1d841916,
         type: 3}
       propertyPath: m_NormalizedViewPortRect.x
-      value: 0.13366337
+      value: 0.04034135
       objectReference: {fileID: 0}
     - target: {fileID: 451175721206856863, guid: 05d5e9057437e0e46a23bcff1d841916,
         type: 3}
       propertyPath: m_NormalizedViewPortRect.y
-      value: 0.14757709
+      value: 0.057931036
       objectReference: {fileID: 0}
     - target: {fileID: 451175721206856863, guid: 05d5e9057437e0e46a23bcff1d841916,
         type: 3}
       propertyPath: m_NormalizedViewPortRect.width
-      value: 0.7326732
+      value: 0.9185415
       objectReference: {fileID: 0}
     - target: {fileID: 451175721206856863, guid: 05d5e9057437e0e46a23bcff1d841916,
         type: 3}
       propertyPath: m_NormalizedViewPortRect.height
-      value: 0.7048458
+      value: 0.8827586
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 05d5e9057437e0e46a23bcff1d841916, type: 3}
@@ -6519,7 +6644,7 @@ PrefabInstance:
     - target: {fileID: 6156171167272724539, guid: 5b70ab28dec6bf4439c4bda0abec2b82,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.3999987
+      value: 3.3999996
       objectReference: {fileID: 0}
     - target: {fileID: 6156171167272724539, guid: 5b70ab28dec6bf4439c4bda0abec2b82,
         type: 3}
