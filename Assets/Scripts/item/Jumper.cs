@@ -17,12 +17,14 @@ namespace Assets.Scripts.item
         public PlanningMode mode = PlanningMode.Waiting;
 
         protected CharacterMover _controller;
+        protected Collider2D _controllerFeet;
         protected Collider2D _collider;
 
         protected void Awake()
         {
             _collider = GetComponent<Collider2D>();
             _controller = GeneralData.Instance.player;
+            _controllerFeet = GeneralData.Instance.playerFeet;
         }
 
         public void SetPlanningMode(PlanningMode newMode)

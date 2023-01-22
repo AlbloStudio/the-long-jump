@@ -9,6 +9,9 @@ namespace Assets.Scripts.managers
         [Tooltip("Player")]
         public CharacterMover player;
 
+        [Tooltip("Player feet for stuff like springs")]
+        public Collider2D playerFeet;
+
         [Tooltip("Main Camera")]
         public CinemachineVirtualCamera mainCamera;
     }

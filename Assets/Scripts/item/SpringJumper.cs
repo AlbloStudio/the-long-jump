@@ -44,7 +44,7 @@ namespace Assets.Scripts.item
 
         private void OnTriggerEnter2D(Collider2D collider)
         {
-            if (mode == PlanningMode.Playing && collider.gameObject == _controller.gameObject)
+            if (mode == PlanningMode.Playing && collider == _controllerFeet)
             {
                 _controller.Impulse(_FORCE * jumpForce, direction);
                 _animator.SetTrigger(AnimatorNames.Activate);
