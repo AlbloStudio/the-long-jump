@@ -260,6 +260,8 @@ namespace Assets.Scripts.being
 
         private void OnGround()
         {
+            _body.gravityScale = downwardsGravityScale;
+
             _body.sharedMaterial = groundPhysicsMaterial;
             float fallDistance = _fallDamageFirstPosition - transform.position.y;
             if (fallDistance >= fallDeath)
@@ -270,6 +272,8 @@ namespace Assets.Scripts.being
 
         private void OnImpulse()
         {
+            _body.gravityScale = downwardsGravityScale;
+
             _body.sharedMaterial = airPhysicsMaterial;
             _fallDamageFirstPosition = transform.position.y;
         }
@@ -278,7 +282,6 @@ namespace Assets.Scripts.being
         {
             _body.sharedMaterial = airPhysicsMaterial;
             _fallDamageFirstPosition = transform.position.y;
-            Debug.Log(_fallDamageFirstPosition);
         }
 
         private void OnDrawGizmos()
@@ -322,7 +325,8 @@ namespace Assets.Scripts.being
         public void Impulse(float force, Vector2 direction)
         {
             _body.velocity = Vector2.zero;
-            Jump(force / jumpForce, direction);
+
+            _body.AddForce(force * direction, ForceMode2D.Force);
 
             state.ChangeState(CharState.Impulsing);
         }

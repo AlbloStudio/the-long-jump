@@ -13,8 +13,7 @@ namespace Assets.Scripts.item
             Planning = 2,
         }
 
-        [HideInInspector]
-        public PlanningMode mode = PlanningMode.Waiting;
+        public PlanningMode mode;
 
         protected CharacterMover _controller;
         protected Collider2D _controllerFeet;
@@ -25,6 +24,8 @@ namespace Assets.Scripts.item
             _collider = GetComponent<Collider2D>();
             _controller = GeneralData.Instance.player;
             _controllerFeet = GeneralData.Instance.playerFeet;
+
+            mode = GetComponent<Item>() == null ? PlanningMode.Playing : PlanningMode.Waiting;
         }
 
         public void SetPlanningMode(PlanningMode newMode)
