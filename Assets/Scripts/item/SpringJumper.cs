@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using static Enum;
 
 namespace Assets.Scripts.item
 {
@@ -6,27 +7,22 @@ namespace Assets.Scripts.item
     {
         private BoxCollider2D _boxCollider;
 
-        public static class AnimatorNames
-        {
-            public static readonly int Activate = Animator.StringToHash("activate");
-        }
-
         private const float _FORCE = 600f;
 
         [Tooltip("How strong is the spring")]
-        [SerializeField] private float jumpForce = 1.5f;
+        [SerializeField] private float _jumpForce = 1.5f;
 
         [Tooltip("Direction of the spring")]
-        [SerializeField] private Vector2 direction = Vector2.up;
+        [SerializeField] private Vector2 _direction = Vector2.up;
 
         [Tooltip("The object to draw trajectory")]
-        [SerializeField] private TrajectoryDrawer trajectoryDrawerPrefab;
+        [SerializeField] private TrajectoryDrawer _trajectoryDrawerPrefab;
 
         private Animator _animator;
+        private TrajectoryDrawer _trajectoryDrawer;
         private Vector2 _colliderBounds;
         private Vector2 _originalColliderSize;
         private Vector2 _originalColliderOffset;
-        private TrajectoryDrawer _trajectoryDrawer;
 
         private new void Awake()
         {
@@ -45,17 +41,17 @@ namespace Assets.Scripts.item
 
         private void Start()
         {
-            transform.rotation = Quaternion.LookRotation(Vector3.forward, direction);
+            transform.rotation = Quaternion.LookRotation(Vector3.forward, _direction);
         }
 
         private void OnTriggerEnter2D(Collider2D collider)
         {
-            if (mode == PlanningMode.Playing && collider == _controllerFeet)
+            if (Mode == PlanningMode.Playing && collider == _controllerFeet)
             {
                 _controller.transform.position = _boxCollider.bounds.center + _controller.transform.position - _controllerFeet.transform.position;
 
-                _controller.Impulse(_FORCE * jumpForce, direction);
-                _animator.SetTrigger(AnimatorNames.Activate);
+                _controller.Impulse(_FORCE * _jumpForce, _direction);
+                _animator.SetTrigger(SpringAnimationNames.Activate);
             }
         }
 
@@ -96,21 +92,19 @@ namespace Assets.Scripts.item
 
         private void InitTrajectoryDrawer()
         {
-            if (trajectoryDrawerPrefab == null)
+            if (_trajectoryDrawerPrefab == null)
             {
                 return;
             }
 
-            _trajectoryDrawer = Instantiate(trajectoryDrawerPrefab, _boxCollider.bounds.center, transform.rotation, transform);
-            _trajectoryDrawer.Force = jumpForce * _FORCE;
-            _trajectoryDrawer.Direction = direction;
-            _trajectoryDrawer._objectToSimulate = _controller.GetComponent<Rigidbody2D>();
+            _trajectoryDrawer = Instantiate(_trajectoryDrawerPrefab, _boxCollider.bounds.center, transform.rotation, transform);
+            _trajectoryDrawer.InitializeData(_jumpForce * _FORCE, _direction, _controller.GetComponent<Rigidbody2D>());
             _trajectoryDrawer.gameObject.SetActive(false);
         }
 
         private void ActivateTrajectoryDrawer(bool activate)
         {
-            if (trajectoryDrawerPrefab != null)
+            if (_trajectoryDrawerPrefab != null)
             {
 
                 _trajectoryDrawer.gameObject.SetActive(activate);

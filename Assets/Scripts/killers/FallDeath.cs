@@ -7,9 +7,9 @@ namespace Assets.Scripts.trigger
     {
         private void OnTriggerEnter2D(Collider2D collided)
         {
-            if (collided.transform.Equals(GeneralData.Instance.player.transform))
+            if (collided.transform.Equals(GeneralData.Instance.Player.transform))
             {
-                GeneralData.Instance.player.Kill();
+                GeneralData.Instance.Player.Kill();
             }
         }
     }

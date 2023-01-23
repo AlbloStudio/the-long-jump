@@ -1,19 +1,13 @@
 ﻿using UnityEngine;
 using Assets.Scripts.being;
 using Assets.Scripts.managers;
+using static Enum;
 
 namespace Assets.Scripts.item
 {
     public abstract class Jumper : MonoBehaviour
     {
-        public enum PlanningMode
-        {
-            Waiting = 0,
-            Playing = 1,
-            Planning = 2,
-        }
-
-        public PlanningMode mode;
+        public PlanningMode Mode { get; private set; }
 
         protected CharacterMover _controller;
         protected Collider2D _controllerFeet;
@@ -22,15 +16,15 @@ namespace Assets.Scripts.item
         protected void Awake()
         {
             _collider = GetComponent<Collider2D>();
-            _controller = GeneralData.Instance.player;
-            _controllerFeet = GeneralData.Instance.playerFeet;
+            _controller = GeneralData.Instance.Player;
+            _controllerFeet = GeneralData.Instance.PlayerFeet;
 
-            mode = GetComponent<Item>() == null ? PlanningMode.Playing : PlanningMode.Waiting;
+            Mode = GetComponent<Item>() == null ? PlanningMode.Playing : PlanningMode.Waiting;
         }
 
         public void SetPlanningMode(PlanningMode newMode)
         {
-            mode = newMode;
+            Mode = newMode;
             OnChangePlanningMode(newMode);
         }
 

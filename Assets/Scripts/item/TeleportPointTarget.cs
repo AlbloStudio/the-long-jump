@@ -1,4 +1,6 @@
-﻿namespace Assets.Scripts.item
+﻿using static Enum;
+
+namespace Assets.Scripts.item
 {
     public class TeleportPointTarget : Jumper
     {

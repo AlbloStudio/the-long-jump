@@ -9,10 +9,10 @@ namespace Assets.Scripts.totem
     public class Totem : MonoBehaviour
     {
         [Tooltip("The safe area where the Objects can be placed into")]
-        [SerializeField] private Collider2D safeArea;
+        [SerializeField] private Collider2D _safeArea;
 
         [Tooltip("The camera that will point when planning mode")]
-        [SerializeField] private CinemachineVirtualCamera planningCamera;
+        [SerializeField] private CinemachineVirtualCamera _planningCamera;
 
         private List<Item> _items;
         private bool _isPlanning = false;
@@ -61,10 +61,10 @@ namespace Assets.Scripts.totem
         {
             _isPlanning = true;
 
-            planningCamera.gameObject.SetActive(true);
+            _planningCamera.gameObject.SetActive(true);
             foreach (Item item in _items)
             {
-                item.EnterPlanningMode(safeArea);
+                item.EnterPlanningMode(_safeArea);
             }
         }
 
@@ -72,7 +72,7 @@ namespace Assets.Scripts.totem
         {
             _isPlanning = false;
 
-            planningCamera.gameObject.SetActive(false);
+            _planningCamera.gameObject.SetActive(false);
             foreach (Item item in _items)
             {
                 item.ExitPlanningMode();
@@ -111,12 +111,11 @@ namespace Assets.Scripts.totem
                 new Vector3(
                     Input.mousePosition.x,
                     Input.mousePosition.y,
-                    Mathf.Abs(GeneralData.Instance.mainCamera.transform.position.z)
+                    Mathf.Abs(GeneralData.Instance.MainCamera.transform.position.z)
                 )
             );
 
             _activeItem.transform.position = new(mousePos.x, mousePos.y, _activeItem.transform.position.z);
-
         }
     }
 }

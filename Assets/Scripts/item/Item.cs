@@ -1,13 +1,14 @@
 using UnityEngine;
+using static Enum;
 
 namespace Assets.Scripts.item
 {
     public class Item : MonoBehaviour
     {
-        private Vector2 _originalPosition;
-
         private Collider2D _safeArea;
         private Jumper _jumper;
+
+        private Vector2 _originalPosition;
 
         private void Awake()
         {
@@ -28,14 +29,14 @@ namespace Assets.Scripts.item
 
             gameObject.SetActive(true);
 
-            _jumper.SetPlanningMode(Jumper.PlanningMode.Planning);
+            _jumper.SetPlanningMode(PlanningMode.Planning);
         }
 
         public void ExitPlanningMode()
         {
             if (IsInSafeArea())
             {
-                _jumper.SetPlanningMode(Jumper.PlanningMode.Playing);
+                _jumper.SetPlanningMode(PlanningMode.Playing);
             }
             else
             {
@@ -43,7 +44,7 @@ namespace Assets.Scripts.item
 
                 transform.position = _originalPosition;
 
-                _jumper.SetPlanningMode(Jumper.PlanningMode.Waiting);
+                _jumper.SetPlanningMode(PlanningMode.Waiting);
             }
         }
     }

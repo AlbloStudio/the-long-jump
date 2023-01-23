@@ -1,54 +1,46 @@
 using Assets.Scripts.managers;
 using UnityEngine;
+using static Enum;
 
 namespace Assets.Scripts.being
 {
     public class CharacterMover : MonoBehaviour
     {
-        public enum CharState
-        {
-            Grounded,
-            Coyoting,
-            Airing,
-            Jumping,
-            Impulsing,
-        }
-
         [Tooltip("Amount of time that the player can still jump after leaving ground")]
-        [SerializeField] private float coyoteTime = .1f;
+        [SerializeField] private float _coyoteTime = .1f;
 
         [Tooltip("player speed")]
-        [SerializeField] private float runSpeed = 40f;
+        [SerializeField] private float _runSpeed = 40f;
 
         [Tooltip("Circle that determines if we are grounded or not")]
-        [SerializeField] private float groundCheckRadius = 1f;
+        [SerializeField] private float _groundCheckRadius = 1f;
 
         [Tooltip("Amount of force added when the player jumps")]
-        [SerializeField] private float jumpForce = 600f;
+        [SerializeField] private float _jumpForce = 600f;
 
         [Tooltip("Amount of time that the player has to wait before jumping again")]
-        [SerializeField] private float jumpTime = .1f;
+        [SerializeField] private float _jumpTime = .1f;
 
         [Tooltip("A mask determining what is ground to the character")]
-        [SerializeField] private LayerMask whatIsGround = new();
+        [SerializeField] private LayerMask _whatIsGround = new();
 
         [Tooltip(" A position marking where to check if the player is grounded")]
-        [SerializeField] private Transform groundCheck;
+        [SerializeField] private Transform _groundCheck;
 
         [Tooltip("The Physics Material to use when we are in the air")]
-        [SerializeField] private PhysicsMaterial2D airPhysicsMaterial;
+        [SerializeField] private PhysicsMaterial2D _airPhysicsMaterial;
 
         [Tooltip("The Physics Material to use when we are in the ground")]
-        [SerializeField] private PhysicsMaterial2D groundPhysicsMaterial;
+        [SerializeField] private PhysicsMaterial2D _groundPhysicsMaterial;
 
         [Tooltip("Gravity when falliong down")]
-        [SerializeField] private float downwardsGravityScale = 9f;
+        [SerializeField] private float _downwardsGravityScale = 9f;
 
         [Tooltip("Gravity when jumping up")]
-        [SerializeField] private float upwardsGravityScale = 3f;
+        [SerializeField] private float _upwardsGravityScale = 3f;
 
         [Tooltip("how much in units you have to fall to die")]
-        [SerializeField] private float fallDeath = 5f;
+        [SerializeField] private float _fallDeath = 5f;
 
         public bool IsGrounded { get; private set; } = false;
         public StateMachine<CharState> state = new(CharState.Airing);
@@ -66,8 +58,8 @@ namespace Assets.Scripts.being
             _body = GetComponent<Rigidbody2D>();
             _originalGravityScale = _body.gravityScale;
 
-            _coyoteCounter = coyoteTime;
-            _jumpCounter = jumpTime;
+            _coyoteCounter = _coyoteTime;
+            _jumpCounter = _jumpTime;
             _fallDamageFirstPosition = transform.position.y;
 
             state.StateChanged.AddListener(StateChanged);
@@ -77,7 +69,7 @@ namespace Assets.Scripts.being
         {
             currentStateName = state.CurrentState.ToString();
 
-            Collider2D[] colliders = Physics2D.OverlapCircleAll(groundCheck.transform.position, groundCheckRadius, whatIsGround);
+            Collider2D[] colliders = Physics2D.OverlapCircleAll(_groundCheck.transform.position, _groundCheckRadius, _whatIsGround);
             bool isGrounded = colliders.Length > 0;
 
             switch (state.CurrentState)
@@ -115,7 +107,7 @@ namespace Assets.Scripts.being
             }
             else
             {
-                _body.gravityScale = _body.velocity.y > 0 ? upwardsGravityScale : downwardsGravityScale;
+                _body.gravityScale = _body.velocity.y > 0 ? _upwardsGravityScale : _downwardsGravityScale;
                 _fallDamageFirstPosition = Mathf.Max(transform.position.y, _fallDamageFirstPosition);
             }
         }
@@ -172,7 +164,7 @@ namespace Assets.Scripts.being
             if (!isGrounded)
             {
 
-                _body.gravityScale = _body.velocity.y > 0 ? upwardsGravityScale : downwardsGravityScale;
+                _body.gravityScale = _body.velocity.y > 0 ? _upwardsGravityScale : _downwardsGravityScale;
                 _jumpCounter -= Time.deltaTime;
                 _fallDamageFirstPosition = Mathf.Max(transform.position.y, _fallDamageFirstPosition);
             }
@@ -237,17 +229,17 @@ namespace Assets.Scripts.being
         private void OnStoppedCoyoting()
         {
             _body.gravityScale = _originalGravityScale;
-            _coyoteCounter = coyoteTime;
+            _coyoteCounter = _coyoteTime;
         }
 
         private void OnStoppedJumping()
         {
-            _jumpCounter = jumpTime;
+            _jumpCounter = _jumpTime;
         }
 
         private void OnAir()
         {
-            _body.sharedMaterial = airPhysicsMaterial;
+            _body.sharedMaterial = _airPhysicsMaterial;
             _fallDamageFirstPosition = transform.position.y;
         }
 
@@ -260,11 +252,11 @@ namespace Assets.Scripts.being
 
         private void OnGround()
         {
-            _body.gravityScale = downwardsGravityScale;
+            _body.gravityScale = _downwardsGravityScale;
 
-            _body.sharedMaterial = groundPhysicsMaterial;
+            _body.sharedMaterial = _groundPhysicsMaterial;
             float fallDistance = _fallDamageFirstPosition - transform.position.y;
-            if (fallDistance >= fallDeath)
+            if (fallDistance >= _fallDeath)
             {
                 Kill();
             }
@@ -272,26 +264,31 @@ namespace Assets.Scripts.being
 
         private void OnImpulse()
         {
-            _body.gravityScale = downwardsGravityScale;
+            _body.gravityScale = _downwardsGravityScale;
 
-            _body.sharedMaterial = airPhysicsMaterial;
+            _body.sharedMaterial = _airPhysicsMaterial;
             _fallDamageFirstPosition = transform.position.y;
         }
 
         private void OnJump()
         {
-            _body.sharedMaterial = airPhysicsMaterial;
+            _body.sharedMaterial = _airPhysicsMaterial;
             _fallDamageFirstPosition = transform.position.y;
         }
 
         private void OnDrawGizmos()
         {
-            Gizmos.DrawWireSphere(groundCheck.position, groundCheckRadius);
+            Gizmos.DrawWireSphere(_groundCheck.position, _groundCheckRadius);
         }
 
         public void Move(float move)
         {
-            _body.velocity = new Vector2(move * 10f * runSpeed, _body.velocity.y);
+            if (!CanMove())
+            {
+                return;
+            }
+
+            _body.velocity = new Vector2(move * 10f * _runSpeed, _body.velocity.y);
         }
 
         public void Teleport(Vector2 position)
@@ -312,12 +309,17 @@ namespace Assets.Scripts.being
 
         public void Jump(float force = 1, Vector2? direction = null)
         {
+            if (!CanJump())
+            {
+                return;
+            }
+
             if (direction == null)
             {
                 direction = Vector2.up;
             }
 
-            _body.AddForce(jumpForce * force * (Vector2)direction, ForceMode2D.Force);
+            _body.AddForce(_jumpForce * force * (Vector2)direction, ForceMode2D.Force);
 
             state.ChangeState(CharState.Jumping);
         }

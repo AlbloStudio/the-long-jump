@@ -1,12 +1,13 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
+using static Enum;
 
 namespace Assets.Scripts.item
 {
     public class TeleportPointSource : Jumper
     {
         [Tooltip("Jumper to teleport to")]
-        public Jumper targetPoint;
+        [SerializeField] private Jumper _targetPoint;
 
         [Tooltip("Max teleporting length")]
         [SerializeField] private float _maxTeleportingLength = 20f;
@@ -14,11 +15,13 @@ namespace Assets.Scripts.item
         [Tooltip("Ray prefab")]
         [SerializeField] private TeleportRay _rayPrefab;
 
+        public Jumper TargetPoint => _targetPoint;
+
         private TeleportRay _rayPrefabInstance;
 
         private void Start()
         {
-            if (targetPoint)
+            if (_targetPoint != null)
             {
                 _rayPrefabInstance = Instantiate(_rayPrefab, transform.position, transform.rotation, transform.parent);
                 _rayPrefabInstance.teleport = this;
@@ -27,60 +30,62 @@ namespace Assets.Scripts.item
 
         private void OnTriggerEnter2D(Collider2D other)
         {
-            if (mode != PlanningMode.Playing)
-            {
-                return;
-            }
-
             if (other.gameObject == _controller.gameObject)
             {
-                if (IsTeleportable())
-                {
-                    _controller.Teleport(targetPoint.transform.position);
-                }
+                TryTeleportation();
             }
         }
 
         public bool IsRayTrazable()
         {
-            return AreTeleportersInMode(new[] { PlanningMode.Planning, PlanningMode.Playing });
+            return AreSourceAndTargetInMode(new[] { PlanningMode.Planning, PlanningMode.Playing });
         }
 
         public bool IsFarAway()
         {
-            float distance = GetDistanceBetweenTeleporters();
-
-            return distance > _maxTeleportingLength;
+            return GetDistanceBetweenTeleporters() > _maxTeleportingLength;
         }
 
         public bool IsObstructed()
         {
-            float distance = GetDistanceBetweenTeleporters();
+            Vector3 directionToNextPoint = Vector3.Normalize(_targetPoint.transform.position - transform.position);
+            RaycastHit2D[] inBetweenHits = Physics2D.RaycastAll(transform.position, directionToNextPoint, GetDistanceBetweenTeleporters(), LayerMask.GetMask("Level", "Jumper"));
 
-            Vector3 directionToNextPoint = Vector3.Normalize(targetPoint.transform.position - transform.position);
-            RaycastHit2D[] inBetweenHits = Physics2D.RaycastAll(transform.position, directionToNextPoint, distance, LayerMask.GetMask("Level", "Jumper"));
             return inBetweenHits.Length > 2;
-        }
-
-        private bool IsTeleportable()
-        {
-            return targetPoint && targetPoint.mode == PlanningMode.Playing && !IsFarAway() && !IsObstructed();
-        }
-
-        private float GetDistanceBetweenTeleporters()
-        {
-            return Vector2.Distance(transform.position, targetPoint.transform.position);
-        }
-
-        private bool AreTeleportersInMode(PlanningMode[] modes)
-        {
-            List<PlanningMode> allowedModes = new(modes);
-            return allowedModes.Contains(mode) && allowedModes.Contains(targetPoint.mode);
         }
 
         protected override void OnChangePlanningMode(PlanningMode newMode)
         {
             //--
+        }
+
+        private void TryTeleportation()
+        {
+            if (Mode != PlanningMode.Playing)
+            {
+                return;
+            }
+
+            if (IsTeleportable())
+            {
+                _controller.Teleport(_targetPoint.transform.position);
+            }
+        }
+
+        private bool IsTeleportable()
+        {
+            return _targetPoint && _targetPoint.Mode == PlanningMode.Playing && !IsFarAway() && !IsObstructed();
+        }
+
+        private float GetDistanceBetweenTeleporters()
+        {
+            return Vector2.Distance(transform.position, _targetPoint.transform.position);
+        }
+
+        private bool AreSourceAndTargetInMode(PlanningMode[] modes)
+        {
+            List<PlanningMode> allowedModes = new(modes);
+            return allowedModes.Contains(Mode) && allowedModes.Contains(_targetPoint.Mode);
         }
     }
 }

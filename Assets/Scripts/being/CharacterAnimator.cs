@@ -1,30 +1,17 @@
 using UnityEngine;
-using static Assets.Scripts.being.CharacterMover;
+using static Enum;
 
 namespace Assets.Scripts.being
 {
-    public static class AnimatorNames
-    {
-        public static readonly int Grounded = Animator.StringToHash("grounded");
-        public static readonly int VelocityX = Animator.StringToHash("velocityX");
-        public static readonly int VelocityY = Animator.StringToHash("velocityY");
-    }
-
     public class CharacterAnimator : MonoBehaviour
     {
         private const float _FLIP_MARGN = .00001f;
 
-        private enum Facing
-        {
-            Right,
-            Left
-        }
-
-        private Facing _facing = Facing.Right;
-
         private Animator _animator;
         private Rigidbody2D _body;
         private CharacterMover _controller;
+
+        private Facing _facing = Facing.Right;
 
         private void Awake()
         {
@@ -41,19 +28,14 @@ namespace Assets.Scripts.being
         private void Flip()
         {
             _facing = _facing is Facing.Left ? Facing.Right : Facing.Left;
-
-            Transform localTransform = transform;
-            Vector3 localScale = localTransform.localScale;
-
-            localScale.x = -localScale.x;
-            localTransform.localScale = localScale;
+            transform.localScale = -transform.localScale;
         }
 
         public void ManageAnimations()
         {
-            _animator.SetBool(AnimatorNames.Grounded, _controller.state.IsInState(CharState.Grounded));
-            _animator.SetFloat(AnimatorNames.VelocityX, Mathf.Abs(_body.velocity.x));
-            _animator.SetFloat(AnimatorNames.VelocityY, _body.velocity.y);
+            _animator.SetBool(CharAnimationNames.Grounded, _controller.state.IsInState(CharState.Grounded));
+            _animator.SetFloat(CharAnimationNames.VelocityX, Mathf.Abs(_body.velocity.x));
+            _animator.SetFloat(CharAnimationNames.VelocityY, _body.velocity.y);
 
             Vector2 velocity = _body.velocity;
             bool isTurningLeft = velocity.x < -_FLIP_MARGN && _facing is Facing.Right;

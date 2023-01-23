@@ -4,11 +4,11 @@ namespace Assets.Scripts.being
 {
     public class PlayerController : MonoBehaviour
     {
+        private CharacterMover _controller;
+
         private bool _shouldJump = false;
         private float _horizontalMovement = 0f;
         private float _xInput = 0;
-
-        private CharacterMover _controller;
 
         private void Awake()
         {
@@ -32,22 +32,20 @@ namespace Assets.Scripts.being
 
         private void FixedUpdate()
         {
-            TryMove();
-            TryJump();
+            Move();
+            Jump();
         }
 
-        private void TryMove()
+        private void Move()
         {
-            if (_controller.CanMove())
-            {
-                _horizontalMovement = _xInput * Time.fixedDeltaTime;
-                _controller.Move(_horizontalMovement);
-            }
+
+            _horizontalMovement = _xInput * Time.fixedDeltaTime;
+            _controller.Move(_horizontalMovement);
         }
 
-        private void TryJump()
+        private void Jump()
         {
-            if (_shouldJump && _controller.CanJump())
+            if (_shouldJump)
             {
                 _controller.Jump();
                 _shouldJump = false;

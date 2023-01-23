@@ -5,9 +5,9 @@ public class Killer : MonoBehaviour
 {
     private void OnCollisionEnter2D(Collision2D collided)
     {
-        if (collided.transform.Equals(GeneralData.Instance.player.transform))
+        if (collided.transform.Equals(GeneralData.Instance.Player.transform))
         {
-            GeneralData.Instance.player.Kill();
+            GeneralData.Instance.Player.Kill();
         }
     }
 }

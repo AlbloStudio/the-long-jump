@@ -23,13 +23,13 @@ namespace Assets.Scripts.shading
 
         private void SetShaderValues()
         {
-            Vector3 fogDataBounds = FogData.Instance.bounds;
+            Vector3 fogDataBounds = FogData.Instance.Bounds;
 
             float depth = Mathf.InverseLerp(0, fogDataBounds.y, transform.position.z);
 
             _materials.ForEach(material =>
             {
-                material.SetTexture(Colors, FogData.Instance.colors);
+                material.SetTexture(Colors, FogData.Instance.Colors);
                 material.SetFloat(Depth, depth);
             });
         }

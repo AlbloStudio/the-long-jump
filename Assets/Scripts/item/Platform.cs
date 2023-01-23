@@ -1,6 +1,4 @@
-﻿using UnityEngine;
-using Assets.Scripts.being;
-using Assets.Scripts.managers;
+﻿using static Enum;
 
 namespace Assets.Scripts.item
 {
@@ -17,6 +15,8 @@ namespace Assets.Scripts.item
 
                 case PlanningMode.Playing:
                     _collider.isTrigger = false;
+                    break;
+                default:
                     break;
             }
         }

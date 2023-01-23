@@ -6,7 +6,7 @@ namespace Assets.Scripts.managers
 {
     public class CheckpointManager : Singleton<CheckpointManager>
     {
-        public Checkpoint ActiveCheckpoint;
+        public Checkpoint ActiveCheckpoint { get; private set; }
 
         private void Awake()
         {
@@ -21,7 +21,7 @@ namespace Assets.Scripts.managers
 
         private void SetNewCheckpoint(Checkpoint newCheckPoint, Collider2D collided)
         {
-            if (collided.transform.Equals(GeneralData.Instance.player.transform))
+            if (collided.transform.Equals(GeneralData.Instance.Player.transform))
             {
                 ActiveCheckpoint = newCheckPoint;
             }

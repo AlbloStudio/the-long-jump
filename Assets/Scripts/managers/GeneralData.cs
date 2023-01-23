@@ -7,12 +7,16 @@ namespace Assets.Scripts.managers
     public class GeneralData : Singleton<GeneralData>
     {
         [Tooltip("Player")]
-        public CharacterMover player;
+        [SerializeField] private CharacterMover _player;
 
         [Tooltip("Player feet for stuff like springs")]
-        public Collider2D playerFeet;
+        [SerializeField] private Collider2D _playerFeet;
 
         [Tooltip("Main Camera")]
-        public CinemachineVirtualCamera mainCamera;
+        [SerializeField] private CinemachineVirtualCamera _mainCamera;
+
+        public CharacterMover Player => _player;
+        public Collider2D PlayerFeet => _playerFeet;
+        public CinemachineVirtualCamera MainCamera => _mainCamera;
     }
 }
