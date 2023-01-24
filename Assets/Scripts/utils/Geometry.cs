@@ -5,6 +5,14 @@ namespace Assets.Scripts.utils
 {
     public static class Geometry
     {
+        private const int VERTEX_NUMBER = 4;
+
+        public class MeshData
+        {
+            public Vector3[] Vertices;
+            public int[] Triangles;
+        }
+
         public enum Position
         {
             top = 0,
@@ -58,6 +66,25 @@ namespace Assets.Scripts.utils
             }
 
             return extreme;
+        }
+
+        public static MeshData CalculateRectangleMesh(Vector2 topLeft, Vector2 topRight, Vector2 bottomLeft, Vector2 bottomRight)
+        {
+
+            Vector3[] vertices = new Vector3[VERTEX_NUMBER];
+
+            vertices[0] = bottomLeft;
+            vertices[1] = topLeft;
+            vertices[2] = bottomRight;
+            vertices[3] = topRight;
+
+            MeshData mesh = new()
+            {
+                Vertices = vertices,
+                Triangles = new int[] { 0, 1, 2, 2, 1, 3 }
+            };
+
+            return mesh;
         }
     }
 }

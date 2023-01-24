@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class TeleportRay : MonoBehaviour
 {
-    private const int VERTEX_NUMBER = 4;
 
     [Tooltip("offset from one point to another")]
     [SerializeField] private Vector2 _rayOffset = new(0.1f, 0.02f);
@@ -66,30 +65,29 @@ public class TeleportRay : MonoBehaviour
     {
         Vector2[] points = new Vector2[]
         {
-           Vector2.zero,
+            Vector2.zero,
             teleport.TargetPoint.transform.position - transform.position,
         };
 
-        Vector3[] vertices = new Vector3[VERTEX_NUMBER];
-
         float pointDistance = Vector2.Distance(points[0], points[1]);
 
-        vertices[0] = new Vector2(points[0].x - _rayOffset.x, points[0].y - _rayOffset.y);
-        vertices[1] = new Vector2(points[0].x - _rayOffset.x, points[0].y + _rayOffset.y);
-        vertices[2] = new Vector2(points[0].x + pointDistance - (_rayOffset.x * 2), points[0].y - _rayOffset.y);
-        vertices[3] = new Vector2(points[0].x + pointDistance - (_rayOffset.x * 2), points[0].y + _rayOffset.y);
+        Vector2 topLeft = new(points[0].x - _rayOffset.x, points[0].y + _rayOffset.y);
+        Vector2 topRight = new(points[0].x + pointDistance - (_rayOffset.x * 2), points[0].y + _rayOffset.y);
+        Vector2 bottomLeft = new(points[0].x - _rayOffset.x, points[0].y - _rayOffset.y);
+        Vector2 bottomRight = new(points[0].x + pointDistance - (_rayOffset.x * 2), points[0].y - _rayOffset.y);
 
-        _mesh.vertices = vertices;
+        Geometry.MeshData meshData = Geometry.CalculateRectangleMesh(topLeft, topRight, bottomLeft, bottomRight);
+        _mesh.vertices = meshData.Vertices;
+        _mesh.triangles = meshData.Triangles;
 
-        _mesh.triangles = new int[]
-         {
-            0,
-            1,
-            2,
-            2,
-            1,
-            3
-        };
+    }
+
+    private void OnDrawGizmos()
+    {
+        foreach (Vector3 vertex in _mesh.vertices)
+        {
+            Gizmos.DrawSphere(vertex, 1f);
+        }
     }
 
     private void CalculateParticles()
