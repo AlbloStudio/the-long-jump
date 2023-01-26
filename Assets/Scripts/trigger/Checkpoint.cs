@@ -8,6 +8,16 @@ namespace Assets.Scripts.trigger
     {
         public UnityEvent<Checkpoint, Collider2D> CheckPointPassedEvent { get; private set; } = new();
 
+        [Tooltip("The number to press to teleport to this checkpoint")]
+        [SerializeField] private int _number;
+
+        public int Number => _number;
+
+        private void Awake()
+        {
+            GetComponent<TMPro.TextMeshPro>().text = _number.ToString();
+        }
+
         private void OnTriggerEnter2D(Collider2D collided)
         {
             CheckPointPassedEvent.Invoke(this, collided);
