@@ -14,6 +14,8 @@ namespace Assets.Scripts.totem
         [Tooltip("The camera that will point when planning mode")]
         [SerializeField] private CinemachineVirtualCamera _planningCamera;
 
+        private MeshRenderer _safeAreaRenderer;
+
         private List<Item> _items;
         private bool _isPlanning = false;
         private Item _activeItem;
@@ -21,6 +23,8 @@ namespace Assets.Scripts.totem
         private void Awake()
         {
             _items = new List<Item>(GetComponentsInChildren<Item>(true));
+            _safeAreaRenderer = _safeArea.GetComponent<MeshRenderer>();
+            _safeAreaRenderer.enabled = false;
         }
 
         private void Update()
@@ -61,6 +65,8 @@ namespace Assets.Scripts.totem
         {
             _isPlanning = true;
 
+            _safeAreaRenderer.enabled = true;
+
             _planningCamera.gameObject.SetActive(true);
             foreach (Item item in _items)
             {
@@ -71,6 +77,8 @@ namespace Assets.Scripts.totem
         private void ExitPlanning()
         {
             _isPlanning = false;
+
+            _safeAreaRenderer.enabled = false;
 
             _planningCamera.gameObject.SetActive(false);
             foreach (Item item in _items)

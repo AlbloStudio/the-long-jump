@@ -82,14 +82,6 @@ public class TeleportRay : MonoBehaviour
 
     }
 
-    private void OnDrawGizmos()
-    {
-        foreach (Vector3 vertex in _mesh.vertices)
-        {
-            Gizmos.DrawSphere(vertex, 1f);
-        }
-    }
-
     private void CalculateParticles()
     {
         ParticleSystem.MainModule mainParticles = _particles.main;
