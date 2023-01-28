@@ -61,6 +61,6 @@ TagManager:
   - name: Platforms
     uniqueID: 1497381967
     locked: 0
-  - name: fore
+  - name: interactable
     uniqueID: 1665408557
     locked: 0
