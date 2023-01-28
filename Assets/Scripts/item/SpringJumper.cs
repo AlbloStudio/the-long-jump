@@ -18,6 +18,9 @@ namespace Assets.Scripts.item
         [Tooltip("The object to draw trajectory")]
         [SerializeField] private TrajectoryDrawer _trajectoryDrawerPrefab;
 
+        [Tooltip("If the spring should show force trajectory")]
+        [SerializeField] private bool _showTrajectory = false;
+
         private Animator _animator;
         private TrajectoryDrawer _trajectoryDrawer;
         private Vector2 _colliderBounds;
@@ -61,7 +64,11 @@ namespace Assets.Scripts.item
             {
                 case PlanningMode.Planning:
                     _colliderBounds = GetComponent<SpriteRenderer>().sprite.bounds.size;
-                    ActivateTrajectoryDrawer(true);
+                    if (_showTrajectory)
+                    {
+                        ActivateTrajectoryDrawer(true);
+                    }
+
                     SetColliderForClicking();
                     break;
 

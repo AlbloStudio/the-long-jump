@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Enemy
+  - BackParallax
   layers:
   - Default
   - TransparentFX
@@ -12,8 +13,8 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
+  - background
+  - lights
   - Level
   - 
   - 
@@ -34,8 +35,8 @@ TagManager:
   - 
   - 
   - 
-  - 
-  - 
+  - MainCamera
+  - ParallaxCamera
   - PlayerDrop
   - PlateformThrought
   m_SortingLayers:

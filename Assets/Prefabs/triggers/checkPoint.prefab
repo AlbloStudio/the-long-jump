@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 1022414925312821124}
   - component: {fileID: 3860724260937710864}
   - component: {fileID: 3860724260937710865}
-  - component: {fileID: 256060463579255787}
   - component: {fileID: 959525276}
   - component: {fileID: 959525275}
   m_Layer: 0
@@ -76,14 +75,6 @@ EdgeCollider2D:
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0
   m_UseAdjacentEndPoint: 0
---- !u!222 &256060463579255787
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3860724260937710866}
-  m_CullTransparentMesh: 1
 --- !u!23 &959525276
 MeshRenderer:
   m_ObjectHideFlags: 0

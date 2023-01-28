@@ -293,6 +293,7 @@ namespace Assets.Scripts.being
 
         public void Teleport(Vector2 position)
         {
+            _fallDamageFirstPosition = position.y;
             _body.velocity = Vector2.zero;
             transform.position = position;
         }
