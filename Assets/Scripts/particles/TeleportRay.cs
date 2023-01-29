@@ -16,8 +16,8 @@ public class TeleportRay : MonoBehaviour
 
     public TeleportPointSource teleport;
 
+    private MeshGenerator _meshGenerator;
     private MeshFilter _meshFilter;
-    private Mesh _mesh;
     private ParticleSystem _particles;
 
     private Color _initialColor;
@@ -26,8 +26,7 @@ public class TeleportRay : MonoBehaviour
     private void Awake()
     {
         _meshFilter = GetComponent<MeshFilter>();
-        _meshFilter.mesh = _mesh = new Mesh();
-        _mesh.name = "Teleport Ray";
+        _meshGenerator = GetComponent<MeshGenerator>();
 
         _particles = GetComponent<ParticleSystem>();
         _initialColor = _particles.startColor;
@@ -74,12 +73,9 @@ public class TeleportRay : MonoBehaviour
         Vector2 topLeft = new(points[0].x - _rayOffset.x, points[0].y + _rayOffset.y);
         Vector2 topRight = new(points[0].x + pointDistance - (_rayOffset.x * 2), points[0].y + _rayOffset.y);
         Vector2 bottomLeft = new(points[0].x - _rayOffset.x, points[0].y - _rayOffset.y);
-        Vector2 bottomRight = new(points[0].x + pointDistance - (_rayOffset.x * 2), points[0].y - _rayOffset.y);
 
-        Geometry.MeshData meshData = Geometry.CalculateRectangleMesh(topLeft, topRight, bottomLeft, bottomRight);
-        _mesh.vertices = meshData.Vertices;
-        _mesh.triangles = meshData.Triangles;
-
+        _meshGenerator.PlaneSize = new(topRight.x - topLeft.x, topLeft.y - bottomLeft.y);
+        _meshGenerator.GeneratePlane();
     }
 
     private void CalculateParticles()
@@ -87,7 +83,7 @@ public class TeleportRay : MonoBehaviour
         ParticleSystem.MainModule mainParticles = _particles.main;
         ParticleSystem.EmissionModule emission = _particles.emission;
 
-        float area = 2 * Vector2.Distance(_mesh.vertices[0], _mesh.vertices[2]) * _rayOffset.x;
+        float area = 2 * Vector2.Distance(_meshFilter.mesh.vertices[0], _meshFilter.mesh.vertices[1]) * _rayOffset.x;
 
         float rateModifier = teleport.IsFarAway() ? 0.2f : 1f;
         emission.rateOverTime = _particleEmissionRate * area * rateModifier;
