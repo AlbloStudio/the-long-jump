@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 5769711515830627795}
   - component: {fileID: 5769711515830627794}
   - component: {fileID: 5769711515830627793}
+  - component: {fileID: -7498947274986457515}
   m_Layer: 16
   m_Name: TeleporterRay
   m_TagString: Untagged
@@ -4901,8 +4902,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae34d4fd93949014aaec51ca6dc1f0db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sourcePoint: {fileID: 0}
-  targetPoint: {fileID: 0}
-  rayOffset: {x: 0.1, y: 0.02}
+  _rayOffset: {x: 0.1, y: 0.02}
   _particleEmissionRate: 200
   _particleSpeedModifier: 0.5
+  teleport: {fileID: 0}
+--- !u!114 &-7498947274986457515
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5769711515830627792}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7adb3f767d283c40aee325998083f5f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _planeSize: {x: 1, y: 1}
+  _planeResolution: 1
