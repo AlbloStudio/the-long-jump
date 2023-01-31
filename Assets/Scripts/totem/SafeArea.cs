@@ -12,6 +12,10 @@ namespace Assets.Scripts.totem
             _collider = GetComponent<BoxCollider2D>();
             _meshGenerator = GetComponent<MeshGenerator>();
 
+        }
+
+        private void Start()
+        {
             CalculateVertices();
         }
 
@@ -23,7 +27,6 @@ namespace Assets.Scripts.totem
             Vector2 topLeft = new(min.x, max.y);
             Vector2 topRight = new(max.x, max.y);
             Vector2 bottomLeft = new(min.x, min.y);
-            _ = new Vector2(max.x, min.y);
 
             _meshGenerator.PlaneSize = new(topRight.x - topLeft.x, topLeft.y - bottomLeft.y);
             _meshGenerator.Offset = min;

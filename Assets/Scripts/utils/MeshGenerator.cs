@@ -26,7 +26,6 @@ public class MeshGenerator : MonoBehaviour
 
         if (auto)
         {
-
             GeneratePlane();
         }
     }
