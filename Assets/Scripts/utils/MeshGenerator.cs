@@ -17,6 +17,7 @@ public class MeshGenerator : MonoBehaviour
     private readonly List<Vector3> _vertices = new();
     private readonly List<int> _triangles = new();
     private readonly List<Vector2> _uv = new();
+    private readonly List<Vector3> _normal = new();
 
     private void Awake()
     {
@@ -55,12 +56,14 @@ public class MeshGenerator : MonoBehaviour
             {
                 _vertices.Add(new Vector3(x * xPerStep, y * yPerStep, transform.position.z) + (Vector3)_offset);
                 _uv.Add(new Vector2(x / (float)resolution, y / (float)resolution));
+                _normal.Add(new Vector3(0, 0, -1));
 
             }
         }
 
         _mesh.vertices = _vertices.ToArray();
         _mesh.uv = _uv.ToArray();
+        _mesh.normals = _normal.ToArray();
     }
 
     private void GenerateTriangles(int resolution)
