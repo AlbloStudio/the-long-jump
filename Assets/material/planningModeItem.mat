@@ -55,6 +55,6 @@ Material:
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _Flip: {r: 1, g: 1, b: 1, a: 1}
-    - _PlanningColor: {r: 30.494114, g: 28.258944, b: 21.872742, a: 0}
+    - _PlanningColor: {r: 15.247057, g: 14.129472, b: 10.936371, a: 0}
     - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []
