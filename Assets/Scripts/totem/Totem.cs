@@ -19,6 +19,7 @@ namespace Assets.Scripts.totem
         private List<Item> _items;
         private bool _isPlanning = false;
         private Item _activeItem;
+        private Vector3 _clickOffset = Vector2.zero;
 
         private void Awake()
         {
@@ -96,6 +97,7 @@ namespace Assets.Scripts.totem
                 if (itemClicked)
                 {
                     _activeItem = itemClicked;
+                    _clickOffset = Camera.main.ScreenToWorldPoint(Input.mousePosition) - itemClicked.transform.position;
                 }
             }
             else if (Input.GetMouseButtonUp(0))
@@ -121,7 +123,7 @@ namespace Assets.Scripts.totem
                     Input.mousePosition.y,
                     Mathf.Abs(GeneralData.Instance.MainCamera.transform.position.z)
                 )
-            );
+            ) - _clickOffset;
 
             _activeItem.transform.position = new(mousePos.x, mousePos.y, _activeItem.transform.position.z);
         }

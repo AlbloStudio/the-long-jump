@@ -2865,9 +2865,10 @@ EdgeCollider2D:
   - {x: 89.06815, y: -71.28983}
   - {x: 89.247055, y: -72.10762}
   - {x: 89.38338, y: -72.56865}
-  - {x: 89.40965, y: -72.784355}
-  - {x: 89.43176, y: -77.357376}
-  - {x: 88.93034, y: -77.85983}
+  - {x: 89.40799, y: -72.863235}
+  - {x: 89.382065, y: -75.421196}
+  - {x: 89.431595, y: -77.34694}
+  - {x: 88.93045, y: -77.85983}
   - {x: 74.979645, y: -77.81933}
   - {x: 30.589272, y: -77.759766}
   - {x: 30.163277, y: -77.52046}
@@ -3004,7 +3005,27 @@ MonoBehaviour:
       spriteIndex: 0
       corner: 1
       m_CornerMode: 1
+    - position: {x: 88.88159, y: -75.40926, z: 0}
+      leftTangent: {x: 0, y: 0, z: 0}
+      rightTangent: {x: 0, y: 0, z: 0}
+      mode: 0
+      height: 1
+      bevelCutoff: 0
+      bevelSize: 0
+      spriteIndex: 0
+      corner: 1
+      m_CornerMode: 1
     - position: {x: 88.93176, y: -77.35983, z: 0}
+      leftTangent: {x: 0, y: 0, z: 0}
+      rightTangent: {x: 0, y: 0, z: 0}
+      mode: 0
+      height: 1
+      bevelCutoff: 0
+      bevelSize: 0
+      spriteIndex: 0
+      corner: 1
+      m_CornerMode: 1
+    - position: {x: 87.321625, y: -77.355156, z: 0}
       leftTangent: {x: 0, y: 0, z: 0}
       rightTangent: {x: 0, y: 0, z: 0}
       mode: 0
@@ -3412,6 +3433,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 53241480}
     m_Modifications:
+    - target: {fileID: -3485240791645294026, guid: 45f72025a338b2348b341e787960987e,
+        type: 3}
+      propertyPath: _isStatic
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -3485240791645294026, guid: 45f72025a338b2348b341e787960987e,
+        type: 3}
+      propertyPath: _planningModeMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: f857114be15862f48b4fe933ce424f0e, type: 2}
     - target: {fileID: 2702519934138434861, guid: 45f72025a338b2348b341e787960987e,
         type: 3}
       propertyPath: jumpForce
@@ -3529,8 +3560,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: -3485240791645294026, guid: 45f72025a338b2348b341e787960987e, type: 3}
+    - target: {fileID: 4886314674593625294, guid: 45f72025a338b2348b341e787960987e,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 1.6209106
+      objectReference: {fileID: 0}
+    - target: {fileID: 4886314674593625294, guid: 45f72025a338b2348b341e787960987e,
+        type: 3}
+      propertyPath: m_Offset.x
+      value: 0.0034484863
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 45f72025a338b2348b341e787960987e, type: 3}
 --- !u!1001 &513846420
 PrefabInstance:
@@ -7053,7 +7093,7 @@ PrefabInstance:
     - target: {fileID: 3329085921146582004, guid: 8d23cdf7f5e8b2f44b7a1cc94b336654,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3329085921146582004, guid: 8d23cdf7f5e8b2f44b7a1cc94b336654,
         type: 3}
@@ -14607,7 +14647,7 @@ PrefabInstance:
     - target: {fileID: 3731292633277035714, guid: f1ef87ea3a99eb5479c8177b48b7490e,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 8.892883
+      value: 7.92
       objectReference: {fileID: 0}
     - target: {fileID: 3731292633277035714, guid: f1ef87ea3a99eb5479c8177b48b7490e,
         type: 3}
