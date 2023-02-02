@@ -23,7 +23,10 @@ public class MeshGenerator : MonoBehaviour
     {
         _mesh = new Mesh();
         _meshFilter = GetComponent<MeshFilter>();
+    }
 
+    private void Update()
+    {
         if (auto)
         {
             GeneratePlane();
