@@ -38,6 +38,7 @@ public class MeshGenerator : MonoBehaviour
         _vertices.Clear();
         _triangles.Clear();
         _uv.Clear();
+        _normal.Clear();
 
         int resolution = Mathf.Clamp(_planeResolution, 1, 50);
 

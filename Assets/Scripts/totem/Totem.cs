@@ -14,16 +14,17 @@ namespace Assets.Scripts.totem
         [Tooltip("The camera that will point when planning mode")]
         [SerializeField] private CinemachineVirtualCamera _planningCamera;
 
+        [Tooltip("Items that work with this totem")]
+        [SerializeField] private List<Item> _items;
+
         private MeshRenderer _safeAreaRenderer;
 
-        private List<Item> _items;
         private bool _isPlanning = false;
         private Item _activeItem;
         private Vector3 _clickOffset = Vector2.zero;
 
         private void Awake()
         {
-            _items = new List<Item>(GetComponentsInChildren<Item>(true));
             _safeAreaRenderer = _safeArea.GetComponent<MeshRenderer>();
             _safeAreaRenderer.enabled = false;
         }
