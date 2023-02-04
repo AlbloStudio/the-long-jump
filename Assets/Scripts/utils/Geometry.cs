@@ -5,12 +5,6 @@ namespace Assets.Scripts.utils
 {
     public static class Geometry
     {
-        public class MeshData
-        {
-            public Vector3[] Vertices;
-            public int[] Triangles;
-        }
-
         public enum Position
         {
             top = 0,
