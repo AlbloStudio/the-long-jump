@@ -3,6 +3,5 @@
     <uie:Vector2Field label="Offset" name="offset" binding-path="_offset" />
     <uie:IntegerField label="Plane Resolution" value="42" name="planeResolution" binding-path="_planeResolution" />
     <ui:Toggle label="Auto Generate" name="auto" binding-path="_auto" />
-    <ui:Toggle label="RegenerateOnPlay" name="regenerateOnPlay" binding-path="_regenerateOnPlay" />
     <ui:Button text="Generate Mesh" display-tooltip-when-elided="true" name="generateMesh" style="-unity-text-align: middle-center;" />
 </ui:UXML>

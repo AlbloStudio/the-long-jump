@@ -4889,7 +4889,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5769711515830627792}
-  m_Mesh: {fileID: 0}
+  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!114 &5769711515830627793
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4919,4 +4919,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _planeSize: {x: 1, y: 1}
+  _offset: {x: 0, y: 0}
   _planeResolution: 1
+  _auto: 0
