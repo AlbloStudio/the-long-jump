@@ -65,5 +65,13 @@ namespace Assets.Scripts.utils
 
             return extreme;
         }
+
+        public static Vector2 GetRandomPointInArea(Collider2D area)
+        {
+            Vector2 center = area.bounds.center;
+            Vector2 size = area.bounds.size;
+
+            return center + new Vector2((Random.value - 0.5f) * size.x, (Random.value - 0.5f) * size.y);
+        }
     }
 }

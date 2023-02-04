@@ -1,0 +1,35 @@
+.slider-row {
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 4px;
+}
+.input-container {
+    flex-direction: row;
+    flex-grow: .6;
+    margin-right: 4px;
+}
+.player-property {
+    margin-bottom: 4px;
+}
+.player-property-label {
+    flex:1;
+    margin-left: 16;
+}
+.player-slider {
+    flex:3;
+    margin-right: 4px;
+}
+.player-property-progress-bar {
+    margin-left: 16px;
+    margin-right: 4px;
+}
+.player-int-field {
+    min-width: 48px;
+}
+.gun-field {
+    justify-content: space-between;
+    margin-left: 16px;
+    margin-right: 4px;
+    margin-top: 6px;
+    flex-grow: .6;
+}

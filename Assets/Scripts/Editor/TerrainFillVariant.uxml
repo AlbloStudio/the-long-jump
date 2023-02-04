@@ -1,0 +1,7 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="True">
+    <ui:Label text="Terrain Variant Filler" display-tooltip-when-elided="true" name="title" />
+    <uie:IntegerField label="Sprites to add" value="4" binding-path="_amountToAdd" name="amountToAdd" />
+    <uie:PropertyField binding-path="_variants" label="Sprites" name="variants" style="height: auto;" />
+    <ui:Button text="Add variants" display-tooltip-when-elided="true" name="addVariants" />
+    <ui:Button text="Reset variants" display-tooltip-when-elided="true" name="resetVariants" />
+</ui:UXML>
