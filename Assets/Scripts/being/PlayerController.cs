@@ -27,6 +27,11 @@ namespace Assets.Scripts.being
                 _shouldJump = false;
             }
 
+            if (Input.GetButtonUp("Reset"))
+            {
+                _controller.Kill();
+            }
+
             _xInput = Input.GetAxis("Horizontal");
         }
 

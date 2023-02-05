@@ -1,3 +1,4 @@
+using Cinemachine;
 using UnityEngine;
 using static Enum;
 
@@ -10,7 +11,7 @@ namespace Assets.Scripts.being
         private Animator _animator;
         private Rigidbody2D _body;
         private CharacterMover _controller;
-
+        private CinemachineBrain _cineBrain;
         private Facing _facing = Facing.Right;
 
         private void Awake()
@@ -18,6 +19,11 @@ namespace Assets.Scripts.being
             _controller = GetComponent<CharacterMover>();
             _animator = GetComponent<Animator>();
             _body = GetComponent<Rigidbody2D>();
+        }
+
+        private void Start()
+        {
+            _cineBrain = Camera.main.GetComponent<CinemachineBrain>();
         }
 
         private void FixedUpdate()
@@ -28,7 +34,7 @@ namespace Assets.Scripts.being
         private void Flip()
         {
             _facing = _facing is Facing.Left ? Facing.Right : Facing.Left;
-            transform.localScale = -transform.localScale;
+            transform.localScale = new(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
         }
 
         public void ManageAnimations()

@@ -40,14 +40,17 @@ TagManager:
   - PlayerDrop
   - PlateformThrought
   m_SortingLayers:
+  - name: Back
+    uniqueID: 3893185067
+    locked: 0
+  - name: noLight
+    uniqueID: 1460069377
+    locked: 0
   - name: Bottom
     uniqueID: 1622899613
     locked: 0
   - name: Sky
     uniqueID: 603909815
-    locked: 0
-  - name: Back
-    uniqueID: 3893185067
     locked: 0
   - name: Front
     uniqueID: 3405993979
@@ -63,7 +66,4 @@ TagManager:
     locked: 0
   - name: interactable
     uniqueID: 1665408557
-    locked: 0
-  - name: noLight
-    uniqueID: 1460069377
     locked: 0
