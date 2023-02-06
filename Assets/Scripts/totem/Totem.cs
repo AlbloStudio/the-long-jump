@@ -113,7 +113,9 @@ namespace Assets.Scripts.totem
 
             RaycastHit2D rayHit = Physics2D.GetRayIntersection(ray, Mathf.Infinity, LayerMask.GetMask("Jumper", "PlatformJumper"));
 
-            return rayHit.transform ? rayHit.transform.GetComponent<Item>() : null;
+            Item itemFound = rayHit.transform ? rayHit.transform.GetComponent<Item>() : null;
+
+            return _items.Contains(itemFound) && !itemFound.IsStatic ? itemFound : null;
         }
 
         private void Drag()

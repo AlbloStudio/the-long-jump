@@ -13,6 +13,8 @@ namespace Assets.Scripts.item
         [Tooltip("Can the item be moved?")]
         [SerializeField] private bool _isStatic = false;
 
+        public bool IsStatic => _isStatic;
+
         private Collider2D _safeArea;
         private Jumper _jumper;
         private Renderer _renderer;
@@ -48,8 +50,9 @@ namespace Assets.Scripts.item
             if (!_isStatic)
             {
                 gameObject.SetActive(true);
-                _jumper.SetPlanningMode(PlanningMode.Planning);
             }
+
+            _jumper.SetPlanningMode(PlanningMode.Planning);
 
             if (_planningModeMaterial)
             {
