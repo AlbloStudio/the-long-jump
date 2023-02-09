@@ -23,10 +23,14 @@ namespace Assets.Scripts.totem
         private Item _activeItem;
         private Vector3 _clickOffset = Vector2.zero;
 
+        private Camera _mainCamera;
+
         private void Awake()
         {
             _safeAreaRenderer = _safeArea.GetComponent<MeshRenderer>();
             _safeAreaRenderer.enabled = false;
+
+            _mainCamera = Camera.main;
         }
 
         private void Update()
@@ -98,7 +102,7 @@ namespace Assets.Scripts.totem
                 if (itemClicked)
                 {
                     _activeItem = itemClicked;
-                    _clickOffset = Camera.main.ScreenToWorldPoint(Input.mousePosition) - itemClicked.transform.position;
+                    _clickOffset = GetClickPos() - itemClicked.transform.position;
                 }
             }
             else if (Input.GetMouseButtonUp(0))
@@ -109,7 +113,7 @@ namespace Assets.Scripts.totem
 
         private Item ItemClicked()
         {
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            Ray ray = _mainCamera.ScreenPointToRay(Input.mousePosition);
 
             RaycastHit2D rayHit = Physics2D.GetRayIntersection(ray, Mathf.Infinity, LayerMask.GetMask("Jumper", "PlatformJumper"));
 
@@ -120,15 +124,20 @@ namespace Assets.Scripts.totem
 
         private void Drag()
         {
-            Vector3 mousePos = Camera.main.ScreenToWorldPoint(
-                new Vector3(
-                    Input.mousePosition.x,
-                    Input.mousePosition.y,
-                    Mathf.Abs(GeneralData.Instance.MainCamera.transform.position.z)
-                )
-            ) - _clickOffset;
+            Vector3 mousePos = GetClickPos() - _clickOffset;
 
             _activeItem.transform.position = new(mousePos.x, mousePos.y, _activeItem.transform.position.z);
+        }
+
+        private Vector3 GetClickPos()
+        {
+            return _mainCamera.ScreenToWorldPoint(
+                            new Vector3(
+                                Input.mousePosition.x,
+                                Input.mousePosition.y,
+                                Mathf.Abs(GeneralData.Instance.MainCamera.transform.position.z)
+                            )
+                        );
         }
     }
 }

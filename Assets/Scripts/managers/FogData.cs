@@ -39,17 +39,29 @@ namespace Assets.Scripts.managers
 
             foreach (GameObject backgroundObject in _backgroundObjects)
             {
-                if (utils.Cameras.IsObjectVisibleInCamera(backgroundObject, Camera.main))
+                // if (utils.Cameras.IsObjectVisibleInCamera(backgroundObject, Camera.main))
+                // {
+
+                float depth = backgroundObject.transform.position.z;
+
+                float additionX, additionY;
+
+                if (depth > 0)
                 {
 
-                    float depth = backgroundObject.transform.position.z;
                     float distanceRatio = Mathf.InverseLerp(0, Instance.Bounds.y, depth);
-
-                    float additionX = _horizontalParallaxSpeed * distanceRatio * distanceMadeWithCamera.x;
-                    float additionY = _verticalParallaxSpeed * distanceRatio * distanceMadeWithCamera.y;
-
-                    backgroundObject.transform.position += new Vector3(additionX, additionY, 0);
+                    additionX = _horizontalParallaxSpeed * distanceRatio * distanceMadeWithCamera.x;
+                    additionY = _verticalParallaxSpeed * distanceRatio * distanceMadeWithCamera.y;
                 }
+                else
+                {
+                    float distanceRatio = -Mathf.InverseLerp(0, Instance.Bounds.x, depth);
+                    additionX = _horizontalParallaxSpeed * distanceRatio * distanceMadeWithCamera.x;
+                    additionY = _verticalParallaxSpeed * distanceRatio * distanceMadeWithCamera.y;
+                }
+
+                backgroundObject.transform.position += new Vector3(additionX, additionY, 0);
+                // }
             }
 
             _lastCameraPosition = brain.transform.position;

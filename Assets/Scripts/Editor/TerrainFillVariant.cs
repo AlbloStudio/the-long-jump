@@ -1,3 +1,4 @@
+using Assets.Scripts.shading;
 using Assets.Scripts.utils;
 using System.Collections.Generic;
 using UnityEditor;
@@ -12,6 +13,7 @@ public class TerrainFillVariant : Editor
 
     private EdgeCollider2D _collider;
     private PolygonCollider2D _polygon;
+    private Renderer _renderer;
 
     public override VisualElement CreateInspectorGUI()
     {
@@ -42,6 +44,7 @@ public class TerrainFillVariant : Editor
                 continue;
             }
 
+            _renderer = terrainObject.GetComponent<Renderer>();
             Transform variantsFolder = terrainObject.transform.Find("variants");
 
             if (!variantsFolder)
@@ -68,10 +71,13 @@ public class TerrainFillVariant : Editor
 
                     int whichToAdd = Random.Range(0, terrainObject.Variants.Count);
                     renderer.sprite = terrainObject.Variants[whichToAdd];
-                    renderer.sortingOrder = 1;
+                    renderer.sortingOrder = _renderer.sortingOrder + 1;
+                    renderer.sortingLayerName = _renderer.sortingLayerName;
+                    renderer.sharedMaterial = _renderer.sharedMaterial;
                     renderer.transform.parent = variantsFolder;
-                    renderer.transform.position = point;
-                    Undo.RegisterCreatedObjectUndo(renderer, "variants");
+                    renderer.transform.position = new Vector3(point.x, point.y, _renderer.transform.position.z);
+
+                    _ = Others.AddComponent(renderer.gameObject, _renderer.GetComponent<Fog>());
 
                     amount--;
                 }

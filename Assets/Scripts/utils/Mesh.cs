@@ -12,7 +12,7 @@ namespace Assets.Scripts.utils
             public int[] Triangles;
         }
 
-        public static void GenerateMesh(int planeResolution, Vector2 planeSize, Transform origin, Vector3 offset, ref Mesh mesh)
+        public static void GenerateMesh(int planeResolution, Vector2 planeSize, Vector3 offset, float zPos, ref Mesh mesh)
         {
             if (!mesh)
             {
@@ -23,11 +23,11 @@ namespace Assets.Scripts.utils
 
             int resolution = Mathf.Clamp(planeResolution, 1, 50);
 
-            GenerateVertices(resolution, planeSize, origin, offset, ref mesh);
+            GenerateVertices(resolution, planeSize, offset, zPos, ref mesh);
             GenerateTriangles(resolution, ref mesh);
         }
 
-        private static void GenerateVertices(int resolution, Vector2 planeSize, Transform origin, Vector3 offset, ref Mesh mesh)
+        private static void GenerateVertices(int resolution, Vector2 planeSize, Vector3 offset, float zPos, ref Mesh mesh)
         {
             List<Vector3> _vertices = new();
             List<Vector2> _uv = new();
@@ -40,7 +40,7 @@ namespace Assets.Scripts.utils
             {
                 for (int x = 0; x <= resolution; x++)
                 {
-                    _vertices.Add(new Vector3(x * xPerStep, y * yPerStep, origin.position.z) + offset);
+                    _vertices.Add(new Vector3(x * xPerStep, y * yPerStep, zPos) + offset);
                     _uv.Add(new Vector2(x / (float)resolution, y / (float)resolution));
                     _normal.Add(new Vector3(0, 0, -1));
 

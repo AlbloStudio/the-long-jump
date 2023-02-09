@@ -23,6 +23,9 @@ public class MeshGeneratorInspector : Editor
         VisualElement planeResolution = customInspector.Query("planeResolution").First();
         planeResolution.RegisterCallback<ChangeEvent<int>>(OnIntChange);
 
+        VisualElement planeZ = customInspector.Query("planeZ").First();
+        planeZ.RegisterCallback<ChangeEvent<float>>(OnFloatChange);
+
         VisualElement planeSize = customInspector.Query("planeSize").First();
         planeSize.RegisterCallback<ChangeEvent<Vector2>>(OnVector2Change);
 
@@ -40,6 +43,11 @@ public class MeshGeneratorInspector : Editor
     }
 
     private void OnIntChange(ChangeEvent<int> evt)
+    {
+        OnDataChange();
+    }
+
+    private void OnFloatChange(ChangeEvent<float> evt)
     {
         OnDataChange();
     }
@@ -78,8 +86,8 @@ public class MeshGeneratorInspector : Editor
         MeshUtils.GenerateMesh(
             meshGenerator.PlaneResolution,
             meshGenerator.PlaneSize,
-            meshGenerator.transform,
             meshGenerator.Offset,
+            meshGenerator.PlaneZ,
             ref mesh
         );
 
