@@ -40,6 +40,12 @@ TagManager:
   - PlayerDrop
   - PlateformThrought
   m_SortingLayers:
+  - name: Atrezzo No Light
+    uniqueID: 2986162599
+    locked: 0
+  - name: Atrezzo
+    uniqueID: 688624877
+    locked: 0
   - name: Back
     uniqueID: 3893185067
     locked: 0
@@ -66,4 +72,7 @@ TagManager:
     locked: 0
   - name: interactable
     uniqueID: 1665408557
+    locked: 0
+  - name: AttrezzoFront
+    uniqueID: 2552993737
     locked: 0
