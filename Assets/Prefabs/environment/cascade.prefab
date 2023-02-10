@@ -4935,7 +4935,8 @@ MonoBehaviour:
   _planeSize: {x: 2, y: 40}
   _offset: {x: 0, y: 0}
   _planeResolution: 2
-  auto: 1
+  _planeZ: 0
+  _auto: 0
 --- !u!114 &3731292633277035707
 MonoBehaviour:
   m_ObjectHideFlags: 0

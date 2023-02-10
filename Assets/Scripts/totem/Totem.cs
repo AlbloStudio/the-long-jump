@@ -1,5 +1,4 @@
 using Assets.Scripts.item;
-using Assets.Scripts.managers;
 using Cinemachine;
 using System.Collections.Generic;
 using UnityEngine;
@@ -35,6 +34,7 @@ namespace Assets.Scripts.totem
 
         private void Update()
         {
+            print(GetClickPos());
             if (_isPlanning)
             {
                 HandleClickItemActivation();
@@ -135,7 +135,7 @@ namespace Assets.Scripts.totem
                             new Vector3(
                                 Input.mousePosition.x,
                                 Input.mousePosition.y,
-                                Mathf.Abs(GeneralData.Instance.MainCamera.transform.position.z)
+                                Mathf.Abs(_mainCamera.transform.position.z)
                             )
                         );
         }

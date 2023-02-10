@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Angles:
   - m_Start: -50
-    m_End: 21
+    m_End: 41
     m_Order: 0
     m_Sprites:
     - {fileID: 21300000, guid: 3a81b3da458941d4e80540dd549201a6, type: 3}
@@ -43,21 +43,21 @@ MonoBehaviour:
     - {fileID: 21300000, guid: cc38eb307edf1d64aa2c5dcf741b78f9, type: 3}
   - m_CornerType: 2
     m_Sprites:
-    - {fileID: 21300000, guid: 7eb84197f4b826f439316072c7266bc4, type: 3}
+    - {fileID: 21300000, guid: 81141b4652fe99f459d6680b745b0d5c, type: 3}
   - m_CornerType: 3
     m_Sprites:
     - {fileID: 21300000, guid: cfb4e5dea0824c046a286fde365df7d2, type: 3}
   - m_CornerType: 4
     m_Sprites:
-    - {fileID: 21300000, guid: e2345b85a234f094c8ed27f26643a711, type: 3}
+    - {fileID: 21300000, guid: 85d58c765e4310a40b48e9267f88dc65, type: 3}
   - m_CornerType: 5
     m_Sprites:
-    - {fileID: 21300000, guid: 24d6ea0f8c94a764481d0b509c77dbcc, type: 3}
+    - {fileID: 21300000, guid: 52c66d698992458498e35e241e18d083, type: 3}
   - m_CornerType: 6
     m_Sprites:
-    - {fileID: 21300000, guid: 0b25d52049f2acd40926119afbecdc61, type: 3}
+    - {fileID: 21300000, guid: 9c282d470c105df429f983d7d9eb197e, type: 3}
   - m_CornerType: 7
     m_Sprites:
-    - {fileID: 21300000, guid: d88d0554db6b9534e8b9f3ec660516d9, type: 3}
-  m_FillOffset: -0.021
+    - {fileID: 21300000, guid: 403cde3b8af7174438f5dd3ce711abf0, type: 3}
+  m_FillOffset: 0.5
   m_UseSpriteBorders: 1
