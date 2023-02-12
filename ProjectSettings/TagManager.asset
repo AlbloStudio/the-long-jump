@@ -55,6 +55,9 @@ TagManager:
   - name: Bottom
     uniqueID: 1622899613
     locked: 0
+  - name: BackProps
+    uniqueID: 1056432275
+    locked: 0
   - name: Back
     uniqueID: 3893185067
     locked: 0
@@ -72,6 +75,9 @@ TagManager:
     locked: 0
   - name: Front
     uniqueID: 3405993979
+    locked: 0
+  - name: FrontProps
+    uniqueID: 2729550861
     locked: 0
   - name: Platforms
     uniqueID: 1497381967

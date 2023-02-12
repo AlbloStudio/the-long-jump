@@ -34,7 +34,6 @@ namespace Assets.Scripts.totem
 
         private void Update()
         {
-            print(GetClickPos());
             if (_isPlanning)
             {
                 HandleClickItemActivation();
