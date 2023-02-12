@@ -47,8 +47,9 @@ namespace Assets.Scripts.being
         public string currentStateName = CharState.Airing.ToString();
 
         private Rigidbody2D _body;
-        private float _originalGravityScale;
+        private CharacterEffects _effects;
 
+        private float _originalGravityScale;
         private float _coyoteCounter;
         private float _jumpCounter;
         private float _fallDamageFirstPosition;
@@ -56,6 +57,7 @@ namespace Assets.Scripts.being
         private void Awake()
         {
             _body = GetComponent<Rigidbody2D>();
+            _effects = GetComponent<CharacterEffects>();
             _originalGravityScale = _body.gravityScale;
 
             _coyoteCounter = _coyoteTime;
@@ -260,6 +262,8 @@ namespace Assets.Scripts.being
             {
                 Kill();
             }
+
+            _effects.BurstIt();
         }
 
         private void OnImpulse()

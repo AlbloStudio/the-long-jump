@@ -39,9 +39,9 @@ namespace Assets.Scripts.being
 
         public void ManageAnimations()
         {
-            _animator.SetBool(CharAnimationNames.Grounded, _controller.state.IsInState(CharState.Grounded));
-            _animator.SetFloat(CharAnimationNames.VelocityX, Mathf.Abs(_body.velocity.x));
-            _animator.SetFloat(CharAnimationNames.VelocityY, _body.velocity.y);
+            // _animator.SetBool(CharAnimationNames.Grounded, _controller.state.IsInState(CharState.Grounded));
+            // _animator.SetFloat(CharAnimationNames.VelocityX, Mathf.Abs(_body.velocity.x));
+            // _animator.SetFloat(CharAnimationNames.VelocityY, _body.velocity.y);
 
             Vector2 velocity = _body.velocity;
             bool isTurningLeft = velocity.x < -_FLIP_MARGN && _facing is Facing.Right;
