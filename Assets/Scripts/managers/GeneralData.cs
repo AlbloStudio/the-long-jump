@@ -12,11 +12,15 @@ namespace Assets.Scripts.managers
         [Tooltip("Player feet for stuff like springs")]
         [SerializeField] private Collider2D _playerFeet;
 
-        [Tooltip("Main Camera")]
-        [SerializeField] private CinemachineVirtualCamera _mainCamera;
+        [Tooltip("Main Camera to point right")]
+        [SerializeField] private CinemachineVirtualCamera _mainCameraRight;
+
+        [Tooltip("Main Camera to point left")]
+        [SerializeField] private CinemachineVirtualCamera _mainCameraLeft;
 
         public CharacterMover Player => _player;
         public Collider2D PlayerFeet => _playerFeet;
-        public CinemachineVirtualCamera MainCamera => _mainCamera;
+        public CinemachineVirtualCamera MainCameraRight => _mainCameraRight;
+        public CinemachineVirtualCamera MainCameraLeft => _mainCameraLeft;
     }
 }
