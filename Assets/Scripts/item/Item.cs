@@ -57,14 +57,20 @@ namespace Assets.Scripts.item
             if (_planningModeMaterial)
             {
                 _renderer.sharedMaterial = _planningModeMaterial;
-                _light.enabled = true;
+                if (_light)
+                {
+                    _light.enabled = true;
+                }
             }
         }
 
         public void ExitPlanningMode()
         {
             _renderer.sharedMaterial = _originalMaterial;
-            _light.enabled = false;
+            if (_light)
+            {
+                _light.enabled = false;
+            }
 
             if (IsInSafeArea() || _isStatic)
             {
