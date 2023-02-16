@@ -1,4 +1,3 @@
-using Cinemachine;
 using UnityEngine;
 
 namespace Assets.Scripts.managers
@@ -21,50 +20,5 @@ namespace Assets.Scripts.managers
 
         public Texture2D Colors => _colors;
         public Vector2 Bounds => _bounds;
-
-        private GameObject[] _backgroundObjects;
-        private Vector3 _lastCameraPosition;
-
-        private void Awake()
-        {
-            _backgroundObjects = GameObject.FindGameObjectsWithTag("BackParallax");
-            _lastCameraPosition = Camera.main.transform.position;
-
-            CinemachineCore.CameraUpdatedEvent.AddListener(CameraUpdated);
-        }
-
-        private void CameraUpdated(CinemachineBrain brain)
-        {
-            Vector3 distanceMadeWithCamera = brain.transform.position - _lastCameraPosition;
-
-            foreach (GameObject backgroundObject in _backgroundObjects)
-            {
-                // if (utils.Cameras.IsObjectVisibleInCamera(backgroundObject, Camera.main))
-                // {
-
-                float depth = backgroundObject.transform.position.z;
-
-                float additionX, additionY;
-
-                if (depth > 0)
-                {
-
-                    float distanceRatio = Mathf.InverseLerp(0, Instance.Bounds.y, depth);
-                    additionX = _horizontalParallaxSpeed * distanceRatio * distanceMadeWithCamera.x;
-                    additionY = _verticalParallaxSpeed * distanceRatio * distanceMadeWithCamera.y;
-                }
-                else
-                {
-                    float distanceRatio = -Mathf.InverseLerp(0, Instance.Bounds.x, depth);
-                    additionX = _horizontalParallaxSpeed * distanceRatio * distanceMadeWithCamera.x;
-                    additionY = _verticalParallaxSpeed * distanceRatio * distanceMadeWithCamera.y;
-                }
-
-                backgroundObject.transform.position += new Vector3(additionX, additionY, 0);
-                // }
-            }
-
-            _lastCameraPosition = brain.transform.position;
-        }
     }
 }
