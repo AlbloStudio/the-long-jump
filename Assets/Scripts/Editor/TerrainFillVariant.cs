@@ -63,7 +63,6 @@ public class TerrainFillVariant : Editor
             while (amount > 0)
             {
                 Vector2 point = Geometry.GetRandomPointInArea(_polygon);
-
                 if (_polygon.OverlapPoint(point))
                 {
                     SpriteRenderer renderer = new GameObject().AddComponent<SpriteRenderer>();
