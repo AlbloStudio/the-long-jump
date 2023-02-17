@@ -1,0 +1,8 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="True">
+    <uie:Vector2Field label="Plane Size" name="planeSize" binding-path="_planeSize" />
+    <uie:Vector2Field label="Offset" name="offset" binding-path="_offset" />
+    <uie:IntegerField label="Plane Resolution" value="42" name="planeResolution" binding-path="_planeResolution" />
+    <uie:FloatField label="Z Pos" value="42,2" name="planeZ" binding-path="_planeZ" />
+    <ui:Toggle label="Auto Generate" name="auto" binding-path="_auto" />
+    <ui:Button text="Generate Mesh" display-tooltip-when-elided="true" name="generateMesh" style="-unity-text-align: middle-center;" />
+</ui:UXML>
