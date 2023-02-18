@@ -26,8 +26,15 @@ public class TerrainFillVariant : Editor
         Button addVariantsButton = (Button)customInspector.Query("addVariants").First();
         Button resetVariantsButton = (Button)customInspector.Query("resetVariants").First();
 
-        addVariantsButton.clicked += AddVariants;
-        resetVariantsButton.clicked += ResetVariants;
+        if (addVariantsButton != null)
+        {
+            addVariantsButton.clicked += AddVariants;
+        }
+
+        if (resetVariantsButton != null)
+        {
+            resetVariantsButton.clicked += ResetVariants;
+        }
 
         return customInspector;
     }
@@ -92,7 +99,7 @@ public class TerrainFillVariant : Editor
 
         foreach (Object terrain in terrainObjects)
         {
-            Terrain terrainObject = terrain as Terrain;
+            TerrainVariantGenerator terrainObject = terrain as TerrainVariantGenerator;
             Transform variantsFolder = terrainObject.transform.Find("variants");
 
             SpriteRenderer[] sprites = variantsFolder.GetComponentsInChildren<SpriteRenderer>();
