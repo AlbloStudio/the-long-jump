@@ -263,7 +263,7 @@ namespace Assets.Scripts.being
                 Kill();
             }
 
-            _effects.BurstIt();
+            _effects.BurstFall();
         }
 
         private void OnImpulse()
@@ -278,6 +278,8 @@ namespace Assets.Scripts.being
         {
             _body.sharedMaterial = _airPhysicsMaterial;
             _fallDamageFirstPosition = transform.position.y;
+
+            _effects.BurstJump();
         }
 
         private void OnDrawGizmos()
@@ -289,10 +291,16 @@ namespace Assets.Scripts.being
         {
             if (!CanMove())
             {
+                _effects.ActivateRun(0);
+
                 return;
             }
 
-            _body.velocity = new Vector2(move * 10f * _runSpeed, _body.velocity.y);
+            float speed = move * 10f * _runSpeed;
+
+            _effects.ActivateRun(speed);
+
+            _body.velocity = new Vector2(speed, _body.velocity.y);
         }
 
         public void Teleport(Vector2 position)
