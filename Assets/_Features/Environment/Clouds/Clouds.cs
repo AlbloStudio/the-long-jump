@@ -22,7 +22,7 @@ public class Clouds : MonoBehaviour
         if (_timeCount > +_timeForNewCloud)
         {
             var cloud = Instantiate(_clouds, Geometry.GetRandomPointInArea(_spawnArea), Quaternion.identity, transform);
-            GameObject.Destroy(cloud.gameObject, 10);
+            GameObject.Destroy(cloud.gameObject, 20);
             _timeCount = 0;
         }
     }
