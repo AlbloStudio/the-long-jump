@@ -170,7 +170,7 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1
+      scalar: 0
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -224,7 +224,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 0.754717, g: 0.754717, b: 0.754717, a: 0.6039216}
+      maxColor: {r: 0.754717, g: 0.754717, b: 0.754717, a: 0.3137255}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -286,7 +286,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1
+      scalar: 4.82
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -669,7 +669,7 @@ ParticleSystem:
     radiusThickness: 1
     donutRadius: 0.2
     m_Position: {x: 0, y: 0, z: 5}
-    m_Rotation: {x: 90, y: 0, z: 0}
+    m_Rotation: {x: 0, y: 0, z: 0}
     m_Scale: {x: 12.36, y: 1, z: 0}
     placementMode: 0
     m_MeshMaterialIndex: 0
@@ -4844,7 +4844,7 @@ ParticleSystemRenderer:
   m_RenderMode: 0
   m_MeshDistribution: 0
   m_SortMode: 1
-  m_MinParticleSize: 0.2
+  m_MinParticleSize: 0
   m_MaxParticleSize: 1
   m_CameraVelocityScale: 0
   m_VelocityScale: 0
@@ -4883,4 +4883,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d0943c3391e34f40af4af5b6de5c6d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _velocityRange: {x: 2, y: 0.5}
+  _velocityRange: {x: 0.1, y: 0.8}
+  _sizeRange: {x: 10, y: 20}
