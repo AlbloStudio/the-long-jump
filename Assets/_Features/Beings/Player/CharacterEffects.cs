@@ -7,6 +7,7 @@ public class CharacterEffects : MonoBehaviour
     [SerializeField] private ParticleSystem _jumpParticles;
     [SerializeField] private Vector2 fallRange = new(10, 20);
     [SerializeField] private Vector2 jumpRange = new(5, 10);
+
     [SerializeField] private float _runRatio = 0.1f;
 
     private void Awake()
@@ -31,6 +32,6 @@ public class CharacterEffects : MonoBehaviour
     public void ActivateRun(float moveSpeed)
     {
         ParticleSystem.EmissionModule emission = _runParticles.emission;
-        emission.rateOverTime = moveSpeed * _runRatio;
+        emission.rateOverTime = Mathf.Abs(moveSpeed * _runRatio);
     }
 }

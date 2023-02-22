@@ -134,9 +134,14 @@ namespace Assets.Scripts.being
 
         private void WhileGrounded(bool isGrounded)
         {
+
             if (!isGrounded)
             {
                 state.ChangeState(CharState.Coyoting);
+            }
+            else
+            {
+                _effects.ActivateRun(_body.velocity.x);
             }
         }
 
@@ -182,6 +187,7 @@ namespace Assets.Scripts.being
             switch (previousState)
             {
                 case CharState.Grounded:
+                    OnStoppedGrounded();
                     break;
 
                 case CharState.Coyoting:
@@ -226,6 +232,11 @@ namespace Assets.Scripts.being
                 default:
                     break;
             }
+        }
+
+        private void OnStoppedGrounded()
+        {
+            _effects.ActivateRun(0);
         }
 
         private void OnStoppedCoyoting()
@@ -291,14 +302,11 @@ namespace Assets.Scripts.being
         {
             if (!CanMove())
             {
-                _effects.ActivateRun(0);
 
                 return;
             }
 
             float speed = move * 10f * _runSpeed;
-
-            _effects.ActivateRun(speed);
 
             _body.velocity = new Vector2(speed, _body.velocity.y);
         }
