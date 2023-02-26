@@ -356,7 +356,7 @@ namespace Assets.Scripts.being
 
         public void Kill()
         {
-            transform.position = CheckpointManager.Instance.ActiveCheckpoint.transform.position;
+            Teleport(CheckpointManager.Instance.ActiveCheckpoint.transform.position);
         }
     }
 }
