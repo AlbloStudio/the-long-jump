@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 753896518935537495}
   - component: {fileID: 753896518935537494}
-  - component: {fileID: 753896518935537489}
+  - component: {fileID: 369498409}
   m_Layer: 0
   m_Name: DeathTeleporter
   m_TagString: Untagged
@@ -28,6 +28,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 9.297199, y: -4.6667943, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 753896519262006538}
   m_Father: {fileID: 0}
@@ -49,13 +50,36 @@ EdgeCollider2D:
   m_Offset: {x: 0, y: 0}
   m_EdgeRadius: 0
   m_Points:
-  - {x: -58.851166, y: -0.35000992}
-  - {x: 75.513626, y: -0.5243478}
+  - {x: -37.124756, y: 0.57899046}
+  - {x: 22.528551, y: 5.3111825}
+  - {x: 27.200455, y: 5.348111}
+  - {x: 46.955555, y: 0.61199665}
+  - {x: 50.323223, y: 3.113993}
+  - {x: 95.51189, y: 2.7603798}
+  - {x: 98.664215, y: -3.7058456}
+  - {x: 100.480545, y: -3.428642}
+  - {x: 103.6962, y: 0.270015}
+  - {x: 136.21957, y: 0.28925514}
+  - {x: 141.49983, y: -25.187021}
+  - {x: 164.1639, y: -25.133419}
+  - {x: 183.1751, y: -26.199968}
+  - {x: 192.33011, y: -28.5824}
+  - {x: 236.8486, y: -28.801315}
+  - {x: 243.56328, y: -27.502008}
+  - {x: 249.18303, y: -32.55598}
+  - {x: 258.7044, y: -29.645687}
+  - {x: 275.33118, y: -29.514416}
+  - {x: 276.57788, y: -30.648605}
+  - {x: 299.66647, y: -32.959396}
+  - {x: 318.46698, y: -85.57534}
+  - {x: 358.38116, y: -85.70441}
+  - {x: 358.46698, y: -86.071365}
+  - {x: 360.6223, y: -86.06331}
   m_AdjacentStartPoint: {x: 0, y: 0}
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0
   m_UseAdjacentEndPoint: 0
---- !u!114 &753896518935537489
+--- !u!114 &369498409
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -64,11 +88,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 753896518935537488}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a23408c91f3f00c489ff3c244e3f6b54, type: 3}
+  m_Script: {fileID: 11500000, guid: 0208455415682c245942cccd86206482, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  teleportTarget: {fileID: 753896519262006538}
-  objectToTeleport: {fileID: 0}
 --- !u!1 &753896519262006581
 GameObject:
   m_ObjectHideFlags: 0
@@ -93,8 +115,9 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 753896519262006581}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -14, y: 6.29, z: 0}
+  m_LocalPosition: {x: -11.797249, y: 4.107357, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 753896518935537495}
   m_RootOrder: 0
