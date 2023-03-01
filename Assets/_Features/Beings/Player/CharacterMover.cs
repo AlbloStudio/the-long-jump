@@ -48,6 +48,7 @@ namespace Assets.Scripts.being
 
         private Rigidbody2D _body;
         private CharacterEffects _effects;
+        private CharacterAnimator _animator;
 
         private float _originalGravityScale;
         private float _coyoteCounter;
@@ -58,6 +59,7 @@ namespace Assets.Scripts.being
         {
             _body = GetComponent<Rigidbody2D>();
             _effects = GetComponent<CharacterEffects>();
+            _animator = GetComponent<CharacterAnimator>();
             _originalGravityScale = _body.gravityScale;
 
             _coyoteCounter = _coyoteTime;
@@ -134,9 +136,14 @@ namespace Assets.Scripts.being
 
         private void WhileGrounded(bool isGrounded)
         {
+
             if (!isGrounded)
             {
                 state.ChangeState(CharState.Coyoting);
+            }
+            else
+            {
+                _effects.ActivateRun(_body.velocity.x);
             }
         }
 
@@ -182,6 +189,7 @@ namespace Assets.Scripts.being
             switch (previousState)
             {
                 case CharState.Grounded:
+                    OnStoppedGrounded();
                     break;
 
                 case CharState.Coyoting:
@@ -228,6 +236,11 @@ namespace Assets.Scripts.being
             }
         }
 
+        private void OnStoppedGrounded()
+        {
+            _effects.ActivateRun(0);
+        }
+
         private void OnStoppedCoyoting()
         {
             _body.gravityScale = _originalGravityScale;
@@ -263,7 +276,7 @@ namespace Assets.Scripts.being
                 Kill();
             }
 
-            _effects.BurstIt();
+            _effects.BurstFall();
         }
 
         private void OnImpulse()
@@ -272,12 +285,17 @@ namespace Assets.Scripts.being
 
             _body.sharedMaterial = _airPhysicsMaterial;
             _fallDamageFirstPosition = transform.position.y;
+
+            _animator.TriggerJump();
         }
 
         private void OnJump()
         {
             _body.sharedMaterial = _airPhysicsMaterial;
             _fallDamageFirstPosition = transform.position.y;
+
+            _effects.BurstJump();
+            _animator.TriggerJump();
         }
 
         private void OnDrawGizmos()
@@ -289,10 +307,13 @@ namespace Assets.Scripts.being
         {
             if (!CanMove())
             {
+
                 return;
             }
 
-            _body.velocity = new Vector2(move * 10f * _runSpeed, _body.velocity.y);
+            float speed = move * 10f * _runSpeed;
+
+            _body.velocity = new Vector2(speed, _body.velocity.y);
         }
 
         public void Teleport(Vector2 position)
@@ -340,7 +361,7 @@ namespace Assets.Scripts.being
 
         public void Kill()
         {
-            transform.position = CheckpointManager.Instance.ActiveCheckpoint.transform.position;
+            Teleport(CheckpointManager.Instance.ActiveCheckpoint.transform.position);
         }
     }
 }

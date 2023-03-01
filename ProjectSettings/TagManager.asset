@@ -46,6 +46,9 @@ TagManager:
   - name: Atrezzo No Light
     uniqueID: 2986162599
     locked: 0
+  - name: Fog
+    uniqueID: 2828061931
+    locked: 0
   - name: Atrezzo
     uniqueID: 688624877
     locked: 0
