@@ -24,6 +24,18 @@ public class Water : MonoBehaviour
     private void Awake()
     {
         _material = GetComponent<Renderer>().material;
+
+        Mesh mesh = GetComponent<MeshFilter>().mesh;
+
+        if (mesh)
+        {
+            ParticleSystemRenderer particleSystemRenderer = GetComponent<ParticleSystemRenderer>();
+            particleSystemRenderer.mesh = mesh;
+
+            ParticleSystem.ShapeModule shape = GetComponent<ParticleSystem>().shape;
+            shape.shapeType = ParticleSystemShapeType.Mesh;
+            shape.mesh = mesh;
+        }
     }
 
     private void Update()
@@ -37,6 +49,5 @@ public class Water : MonoBehaviour
         _material.SetFloat(_VerticalSpeed, _verticalSpeed);
 
         _material.mainTextureScale = _mainTextureScale;
-
     }
 }

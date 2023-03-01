@@ -32,7 +32,10 @@ public class MeshGeneratorInspector : Editor
         VisualElement offset = customInspector.Query("offset").First();
         offset?.RegisterCallback<ChangeEvent<Vector2>>(OnVector2Change);
 
-        generateMeshButton.clicked += GenerateAllPlanes;
+        if (generateMeshButton != null)
+        {
+            generateMeshButton.clicked += GenerateAllPlanes;
+        }
 
         return customInspector;
     }
