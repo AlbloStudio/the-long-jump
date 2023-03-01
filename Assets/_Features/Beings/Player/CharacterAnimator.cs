@@ -45,5 +45,10 @@ namespace Assets.Scripts.being
                 Flip();
             }
         }
+
+        public void TriggerJump()
+        {
+            _animator.SetTrigger(CharAnimationNames.Jump);
+        }
     }
 }

@@ -48,6 +48,7 @@ namespace Assets.Scripts.being
 
         private Rigidbody2D _body;
         private CharacterEffects _effects;
+        private CharacterAnimator _animator;
 
         private float _originalGravityScale;
         private float _coyoteCounter;
@@ -58,6 +59,7 @@ namespace Assets.Scripts.being
         {
             _body = GetComponent<Rigidbody2D>();
             _effects = GetComponent<CharacterEffects>();
+            _animator = GetComponent<CharacterAnimator>();
             _originalGravityScale = _body.gravityScale;
 
             _coyoteCounter = _coyoteTime;
@@ -283,6 +285,8 @@ namespace Assets.Scripts.being
 
             _body.sharedMaterial = _airPhysicsMaterial;
             _fallDamageFirstPosition = transform.position.y;
+
+            _animator.TriggerJump();
         }
 
         private void OnJump()
@@ -291,6 +295,7 @@ namespace Assets.Scripts.being
             _fallDamageFirstPosition = transform.position.y;
 
             _effects.BurstJump();
+            _animator.TriggerJump();
         }
 
         private void OnDrawGizmos()
