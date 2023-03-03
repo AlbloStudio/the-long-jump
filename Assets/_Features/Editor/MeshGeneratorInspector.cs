@@ -67,6 +67,11 @@ public class MeshGeneratorInspector : Editor
             {
                 GeneratePlane(meshGenerator);
             }
+
+            if (meshGenerator.ShouldUpdateCollider)
+            {
+                meshGenerator.UpdateCollider();
+            }
         }
     }
 

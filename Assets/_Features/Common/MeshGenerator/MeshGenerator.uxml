@@ -4,5 +4,6 @@
     <uie:IntegerField label="Plane Resolution" value="42" name="planeResolution" binding-path="_planeResolution" />
     <uie:FloatField label="Z Pos" value="42,2" name="planeZ" binding-path="_planeZ" />
     <ui:Toggle label="Auto Generate" name="auto" binding-path="_auto" />
+    <ui:Toggle label="Update Collider" name="updateCollider" binding-path="_updateCollider" />
     <ui:Button text="Generate Mesh" display-tooltip-when-elided="true" name="generateMesh" style="-unity-text-align: middle-center;" />
 </ui:UXML>
