@@ -14928,6 +14928,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 262400
   _groundCheck: {fileID: 8150739842128445502}
+  _trail: {fileID: 2707635049772714736}
+  _soul: {fileID: 608297888}
   _airPhysicsMaterial: {fileID: 6200000, guid: 3a9c14762e7261c41b2d85c6a919c07a, type: 2}
   _groundPhysicsMaterial: {fileID: 6200000, guid: d9f1e9dabb7106644abec133609cf608,
     type: 2}
