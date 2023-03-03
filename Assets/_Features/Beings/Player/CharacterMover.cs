@@ -1,4 +1,5 @@
 using Assets.Scripts.managers;
+using System.Collections;
 using UnityEngine;
 using static Enum;
 
@@ -54,6 +55,7 @@ namespace Assets.Scripts.being
         private float _coyoteCounter;
         private float _jumpCounter;
         private float _fallDamageFirstPosition;
+        private bool _isDead;
 
         private void Awake()
         {
@@ -273,7 +275,7 @@ namespace Assets.Scripts.being
             float fallDistance = _fallDamageFirstPosition - transform.position.y;
             if (fallDistance >= _fallDeath)
             {
-                Kill();
+                _ = StartCoroutine(KillByFallDamage());
             }
 
             _effects.BurstFall();
@@ -303,11 +305,21 @@ namespace Assets.Scripts.being
             Gizmos.DrawWireSphere(_groundCheck.position, _groundCheckRadius);
         }
 
+        private IEnumerator KillByFallDamage()
+        {
+            _animator.TriggerDeath();
+            _isDead = true;
+
+            yield return new WaitForSeconds(1);
+
+            Kill();
+            _isDead = false;
+        }
+
         public void Move(float move)
         {
             if (!CanMove())
             {
-
                 return;
             }
 
@@ -325,12 +337,12 @@ namespace Assets.Scripts.being
 
         public bool CanJump()
         {
-            return state.IsInState(CharState.Grounded, CharState.Coyoting);
+            return !_isDead && state.IsInState(CharState.Grounded, CharState.Coyoting);
         }
 
         public bool CanMove()
         {
-            return !state.IsInState(CharState.Impulsing);
+            return !_isDead && !state.IsInState(CharState.Impulsing);
         }
 
         public void Jump(float force = 1, Vector2? direction = null)

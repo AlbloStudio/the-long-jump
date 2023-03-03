@@ -50,5 +50,10 @@ namespace Assets.Scripts.being
         {
             _animator.SetTrigger(CharAnimationNames.Jump);
         }
+
+        public void TriggerDeath()
+        {
+            _animator.SetTrigger(CharAnimationNames.Death);
+        }
     }
 }
