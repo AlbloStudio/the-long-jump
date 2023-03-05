@@ -29,7 +29,7 @@ namespace Assets.Scripts.being
         [Tooltip(" A position marking where to check if the player is grounded")]
         [SerializeField] private Transform _groundCheck;
 
-        [SerializeField] private TrailRenderer _trail;
+        [SerializeField] private Renderer _trail;
         [SerializeField] private Light2D _soul;
 
         [Tooltip("The Physics Material to use when we are in the air")]
@@ -52,29 +52,24 @@ namespace Assets.Scripts.being
         public string currentStateName = CharState.Airing.ToString();
 
         private Rigidbody2D _body;
-        private Collider2D _collider;
         private Renderer _renderer;
         private CharacterEffects _effects;
         private CharacterAnimator _animator;
+        private Teleportable _teleportable;
 
         private float _originalGravityScale;
         private float _coyoteCounter;
         private float _jumpCounter;
         private float _fallDamageFirstPosition;
         private bool _isDead;
-        private bool _isTeleporting;
-        private Vector2 _teleportTarget;
-        private Vector2 _teleportSource;
-        private float _teleportAccounted;
-        private float _teleportTime;
 
         private void Awake()
         {
             _body = GetComponent<Rigidbody2D>();
-            _collider = GetComponent<Collider2D>();
             _renderer = GetComponent<Renderer>();
             _effects = GetComponent<CharacterEffects>();
             _animator = GetComponent<CharacterAnimator>();
+            _teleportable = GetComponent<Teleportable>();
             _originalGravityScale = _body.gravityScale;
 
             _coyoteCounter = _coyoteTime;
@@ -86,12 +81,6 @@ namespace Assets.Scripts.being
 
         private void FixedUpdate()
         {
-            if (_isTeleporting)
-            {
-                IsTeleporting();
-                return;
-            }
-
             currentStateName = state.CurrentState.ToString();
 
             Collider2D[] colliders = Physics2D.OverlapCircleAll(_groundCheck.transform.position, _groundCheckRadius, _whatIsGround);
@@ -347,43 +336,6 @@ namespace Assets.Scripts.being
             _body.velocity = new Vector2(speed, _body.velocity.y);
         }
 
-        public void Teleport(Vector2 position, float time = 1)
-        {
-            _fallDamageFirstPosition = position.y;
-            _body.velocity = Vector2.zero;
-
-            _renderer.enabled = false;
-
-            _isTeleporting = true;
-            _teleportSource = transform.position;
-            _teleportTarget = position;
-            _teleportTime = time;
-            _body.simulated = false;
-            _trail.enabled = false;
-            _soul.enabled = false;
-        }
-
-        public void IsTeleporting()
-        {
-            if (_isTeleporting)
-            {
-                _teleportAccounted += Time.fixedDeltaTime;
-
-                transform.position = Vector2.Lerp(_teleportSource, _teleportTarget, _teleportAccounted / _teleportTime);
-
-                if (_teleportAccounted >= _teleportTime)
-                {
-                    _isTeleporting = false;
-                    _teleportAccounted = 0;
-
-                    _renderer.enabled = true;
-                    _trail.enabled = true;
-                    _soul.enabled = true;
-                    _body.simulated = true;
-                }
-            }
-        }
-
         public bool CanJump()
         {
             return !_isDead && state.IsInState(CharState.Grounded, CharState.Coyoting);
@@ -423,6 +375,13 @@ namespace Assets.Scripts.being
         public void Kill()
         {
             Teleport(CheckpointManager.Instance.ActiveCheckpoint.transform.position);
+        }
+
+        public void Teleport(Vector2 position, float time = 1)
+        {
+            _fallDamageFirstPosition = transform.position.y;
+
+            _teleportable.Teleport(position, new Renderer[] { _renderer }, new Behaviour[] { _soul, this }, time);
         }
     }
 }

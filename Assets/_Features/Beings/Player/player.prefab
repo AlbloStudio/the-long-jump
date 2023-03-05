@@ -14760,8 +14760,9 @@ GameObject:
   - component: {fileID: 2707635049044036908}
   - component: {fileID: 8150739842411708000}
   - component: {fileID: 8150739841969104619}
-  - component: {fileID: 2707635049044036945}
   - component: {fileID: 2707635049044036907}
+  - component: {fileID: 6862669798706074845}
+  - component: {fileID: 2707635049044036945}
   m_Layer: 17
   m_Name: player
   m_TagString: Player
@@ -14937,6 +14938,36 @@ MonoBehaviour:
   _upwardsGravityScale: 3
   _fallDeath: 9
   currentStateName: airing
+--- !u!114 &2707635049044036907
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8150739842411708001}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b93f423ff4dc8b449bd598dcaa50b3e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _fallParticles: {fileID: 2707635049245141251}
+  _runParticles: {fileID: 1546208337}
+  _jumpParticles: {fileID: 901177957}
+  fallRange: {x: 10, y: 20}
+  jumpRange: {x: 2, y: 3}
+  _runRatio: 1
+--- !u!114 &6862669798706074845
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8150739842411708001}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4eb0e6fa0790c34f9bcd092160fa15b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!61 &2707635049044036945
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -14963,21 +14994,3 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.5371704, y: 1.9848804}
   m_EdgeRadius: 0
---- !u!114 &2707635049044036907
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8150739842411708001}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9b93f423ff4dc8b449bd598dcaa50b3e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _fallParticles: {fileID: 2707635049245141251}
-  _runParticles: {fileID: 1546208337}
-  _jumpParticles: {fileID: 901177957}
-  fallRange: {x: 10, y: 20}
-  jumpRange: {x: 2, y: 3}
-  _runRatio: 1
