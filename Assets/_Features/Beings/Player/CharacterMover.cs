@@ -374,14 +374,14 @@ namespace Assets.Scripts.being
 
         public void Kill()
         {
-            Teleport(CheckpointManager.Instance.ActiveCheckpoint.transform.position);
+            Teleport(CheckpointManager.Instance.ActiveCheckpoint.transform.position, gameObject);
         }
 
-        public void Teleport(Vector2 position, float time = 1)
+        public void Teleport(Vector2 position, GameObject teleportCause, float time = 1)
         {
             _fallDamageFirstPosition = transform.position.y;
 
-            _teleportable.Teleport(position, new Renderer[] { _renderer }, new Behaviour[] { _soul, this }, time);
+            _teleportable.Teleport(position, new Renderer[] { _renderer }, new Behaviour[] { _soul, this }, teleportCause, time);
         }
     }
 }

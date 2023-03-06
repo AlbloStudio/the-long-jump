@@ -1,10 +1,10 @@
+using System.Collections;
 using UnityEngine;
 
 public class Teleportable : MonoBehaviour
 {
     private Rigidbody2D _body;
 
-    private bool _isTeleporting;
     private Vector2 _teleportTarget;
     private Vector2 _teleportSource;
     private float _teleportAccounted;
@@ -12,6 +12,8 @@ public class Teleportable : MonoBehaviour
 
     private Renderer[] _objectsToDisable;
     private Behaviour[] _behavioursToDisable;
+    private GameObject _teleportCause;
+    private bool _isTeleporting = false;
 
     private void Awake()
     {
@@ -20,7 +22,7 @@ public class Teleportable : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (_isTeleporting)
+        if (_teleportCause != null)
         {
             IsTeleporting();
         }
@@ -40,18 +42,31 @@ public class Teleportable : MonoBehaviour
         }
     }
 
-    private void FinishTeleporting()
+    private IEnumerator FinishTeleporting()
     {
-        _isTeleporting = false;
         _teleportAccounted = 0;
 
         _body.simulated = true;
 
         SwitchRenderers(true);
+
+        _isTeleporting = false;
+
+        yield return new WaitForSeconds(1f);
+
+        _teleportCause = null;
+
     }
 
-    public void Teleport(Vector2 position, Renderer[] renderersToDisable, Behaviour[] behavioursToDisable, float time = 1)
+    public void Teleport(Vector2 position, Renderer[] renderersToDisable, Behaviour[] behavioursToDisable, GameObject cause, float time = 1)
     {
+        if (_teleportCause == cause)
+        {
+            return;
+        }
+
+        _isTeleporting = true;
+
         _objectsToDisable = renderersToDisable;
         _behavioursToDisable = behavioursToDisable;
 
@@ -60,7 +75,7 @@ public class Teleportable : MonoBehaviour
         _body.velocity = Vector2.zero;
         _body.simulated = false;
 
-        _isTeleporting = true;
+        _teleportCause = cause;
         _teleportSource = transform.position;
         _teleportTarget = position;
         _teleportTime = time;
@@ -76,7 +91,7 @@ public class Teleportable : MonoBehaviour
 
             if (_teleportAccounted >= _teleportTime)
             {
-                FinishTeleporting();
+                _ = StartCoroutine(FinishTeleporting());
             }
         }
     }

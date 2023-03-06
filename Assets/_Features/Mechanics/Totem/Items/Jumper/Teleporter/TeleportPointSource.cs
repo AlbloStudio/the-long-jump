@@ -68,7 +68,7 @@ namespace Assets.Scripts.item
 
             if (IsTeleportable())
             {
-                _controller.Teleport(_targetPoint.transform.position);
+                _controller.Teleport(_targetPoint.transform.position, gameObject);
             }
         }
 
