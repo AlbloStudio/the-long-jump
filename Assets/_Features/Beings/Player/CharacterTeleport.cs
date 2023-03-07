@@ -63,7 +63,7 @@ public class CharacterTeleport : MonoBehaviour
         Teleported.RemoveAllListeners();
     }
 
-    public void Teleport(Vector2 position, UnityAction onTeleported = null, bool hideWhileTeleporting = true, float time = 1)
+    public void Teleport(Vector2 position, Behaviour caller, UnityAction onTeleported = null, bool hideWhileTeleporting = true, float time = 1)
     {
         if (_isTeleporting)
         {
@@ -73,7 +73,7 @@ public class CharacterTeleport : MonoBehaviour
         _isTeleporting = true;
 
         _objectsToDisable = hideWhileTeleporting ? new Renderer[] { _renderer } : new Renderer[0]; ;
-        _behavioursToDisable = hideWhileTeleporting ? new Behaviour[] { _soul, this } : new Behaviour[0]; ;
+        _behavioursToDisable = hideWhileTeleporting ? new Behaviour[] { _soul, caller } : new Behaviour[0]; ;
 
         SwitchRenderers(false);
 

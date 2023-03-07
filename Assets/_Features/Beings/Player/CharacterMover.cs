@@ -377,7 +377,7 @@ namespace Assets.Scripts.being
         public void Teleport(Vector2 position, UnityAction onTeleported = null, bool hideWhileTeleporting = true, float time = 1)
         {
             _fallDamageFirstPosition = transform.position.y;
-            _charTeleporter.Teleport(position, onTeleported, hideWhileTeleporting, time);
+            _charTeleporter.Teleport(position, this, onTeleported, hideWhileTeleporting, time);
         }
     }
 }
