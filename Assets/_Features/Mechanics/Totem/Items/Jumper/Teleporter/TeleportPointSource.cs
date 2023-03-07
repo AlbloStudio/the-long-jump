@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using static Enum;
 
@@ -19,6 +20,8 @@ namespace Assets.Scripts.item
 
         private TeleportRay _rayPrefabInstance;
 
+        private bool _isTeleporting = false;
+
         private void Start()
         {
             if (_targetPoint != null)
@@ -30,7 +33,7 @@ namespace Assets.Scripts.item
 
         private void OnTriggerEnter2D(Collider2D other)
         {
-            if (other.gameObject == _controller.gameObject)
+            if (!_isTeleporting && other.gameObject == _controller.gameObject)
             {
                 TryTeleportation();
             }
@@ -68,8 +71,21 @@ namespace Assets.Scripts.item
 
             if (IsTeleportable())
             {
-                _controller.Teleport(_targetPoint.transform.position, gameObject);
+                _controller.Teleport(_targetPoint.transform.position, FinishTeleporation);
+                _isTeleporting = true;
             }
+        }
+
+        private void FinishTeleporation()
+        {
+            _ = StartCoroutine(YieldFinishTeleportation());
+        }
+
+        private IEnumerator YieldFinishTeleportation()
+        {
+            yield return new WaitForSeconds(0.3f);
+
+            _isTeleporting = false;
         }
 
         private bool IsTeleportable()

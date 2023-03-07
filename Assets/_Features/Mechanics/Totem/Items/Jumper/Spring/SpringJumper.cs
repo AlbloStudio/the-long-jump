@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 using static Enum;
 
 namespace Assets.Scripts.item
@@ -27,6 +28,8 @@ namespace Assets.Scripts.item
         private Vector2 _originalColliderSize;
         private Vector2 _originalColliderOffset;
 
+        private bool _isImpulsing = false;
+
         private new void Awake()
         {
             base.Awake();
@@ -49,12 +52,10 @@ namespace Assets.Scripts.item
 
         private void OnTriggerEnter2D(Collider2D collider)
         {
-            if (Mode == PlanningMode.Playing && collider == _controllerFeet)
-            {
-                _controller.transform.position = _boxCollider.bounds.center + _controller.transform.position - _controllerFeet.transform.position;
 
-                _controller.Impulse(_FORCE * _jumpForce, _direction);
-                _animator.SetTrigger(SpringAnimationNames.Activate);
+            if (Mode == PlanningMode.Playing && collider == _controllerFeet && !_isImpulsing)
+            {
+                EnterSpring();
             }
         }
 
@@ -83,6 +84,30 @@ namespace Assets.Scripts.item
                 default:
                     break;
             }
+        }
+
+        private void EnterSpring()
+        {
+            _isImpulsing = true;
+
+            Vector3 newPosition = _boxCollider.bounds.center + _controller.transform.position - _controllerFeet.transform.position;
+
+            _controller.Teleport(newPosition, ImpulseSpring, false);
+        }
+
+        private void ImpulseSpring()
+        {
+            _ = StartCoroutine(YieldImpulse());
+        }
+
+        private IEnumerator YieldImpulse()
+        {
+            _controller.Impulse(_FORCE * _jumpForce, _direction);
+            _animator.SetTrigger(SpringAnimationNames.Activate);
+
+            yield return new WaitForSeconds(0.3f);
+
+            _isImpulsing = false;
         }
 
         private void SetColliderForClicking()

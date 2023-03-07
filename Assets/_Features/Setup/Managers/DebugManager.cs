@@ -63,7 +63,7 @@ namespace Assets.Scripts.managers
 
                 if (System.Array.Find(_checkpoints, checkpoint => ((Checkpoint)checkpoint).Number == j))
                 {
-                    GeneralData.Instance.Player.Teleport(((Checkpoint)checkpointFound).transform.position, gameObject);
+                    GeneralData.Instance.Player.transform.position = ((Checkpoint)checkpointFound).transform.position;
                 }
             }
         }

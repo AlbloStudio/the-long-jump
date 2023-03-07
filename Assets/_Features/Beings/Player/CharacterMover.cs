@@ -1,7 +1,7 @@
 using Assets.Scripts.managers;
 using System.Collections;
 using UnityEngine;
-using UnityEngine.Rendering.Universal;
+using UnityEngine.Events;
 using static Enum;
 
 namespace Assets.Scripts.being
@@ -30,7 +30,6 @@ namespace Assets.Scripts.being
         [SerializeField] private Transform _groundCheck;
 
         [SerializeField] private Renderer _trail;
-        [SerializeField] private Light2D _soul;
 
         [Tooltip("The Physics Material to use when we are in the air")]
         [SerializeField] private PhysicsMaterial2D _airPhysicsMaterial;
@@ -52,10 +51,9 @@ namespace Assets.Scripts.being
         public string currentStateName = CharState.Airing.ToString();
 
         private Rigidbody2D _body;
-        private Renderer _renderer;
         private CharacterEffects _effects;
         private CharacterAnimator _animator;
-        private Teleportable _teleportable;
+        private CharacterTeleport _charTeleporter;
 
         private float _originalGravityScale;
         private float _coyoteCounter;
@@ -66,10 +64,9 @@ namespace Assets.Scripts.being
         private void Awake()
         {
             _body = GetComponent<Rigidbody2D>();
-            _renderer = GetComponent<Renderer>();
             _effects = GetComponent<CharacterEffects>();
             _animator = GetComponent<CharacterAnimator>();
-            _teleportable = GetComponent<Teleportable>();
+            _charTeleporter = GetComponent<CharacterTeleport>();
             _originalGravityScale = _body.gravityScale;
 
             _coyoteCounter = _coyoteTime;
@@ -374,14 +371,13 @@ namespace Assets.Scripts.being
 
         public void Kill()
         {
-            Teleport(CheckpointManager.Instance.ActiveCheckpoint.transform.position, gameObject);
+            Teleport(CheckpointManager.Instance.ActiveCheckpoint.transform.position);
         }
 
-        public void Teleport(Vector2 position, GameObject teleportCause, float time = 1)
+        public void Teleport(Vector2 position, UnityAction onTeleported = null, bool hideWhileTeleporting = true, float time = 1)
         {
             _fallDamageFirstPosition = transform.position.y;
-
-            _teleportable.Teleport(position, new Renderer[] { _renderer }, new Behaviour[] { _soul, this }, teleportCause, time);
+            _charTeleporter.Teleport(position, onTeleported, hideWhileTeleporting, time);
         }
     }
 }

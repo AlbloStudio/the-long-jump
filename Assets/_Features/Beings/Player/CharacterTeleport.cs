@@ -1,9 +1,13 @@
-using System.Collections;
 using UnityEngine;
+using UnityEngine.Events;
+using UnityEngine.Rendering.Universal;
 
-public class Teleportable : MonoBehaviour
+public class CharacterTeleport : MonoBehaviour
 {
+    [SerializeField] private Light2D _soul;
+
     private Rigidbody2D _body;
+    private Renderer _renderer;
 
     private Vector2 _teleportTarget;
     private Vector2 _teleportSource;
@@ -12,17 +16,19 @@ public class Teleportable : MonoBehaviour
 
     private Renderer[] _objectsToDisable;
     private Behaviour[] _behavioursToDisable;
-    private GameObject _teleportCause;
     private bool _isTeleporting = false;
+
+    public UnityEvent Teleported { get; private set; } = new();
 
     private void Awake()
     {
         _body = GetComponent<Rigidbody2D>();
+        _renderer = GetComponent<Renderer>();
     }
 
     private void FixedUpdate()
     {
-        if (_teleportCause != null)
+        if (_isTeleporting)
         {
             IsTeleporting();
         }
@@ -42,7 +48,7 @@ public class Teleportable : MonoBehaviour
         }
     }
 
-    private IEnumerator FinishTeleporting()
+    private void FinishTeleporting()
     {
         _teleportAccounted = 0;
 
@@ -52,33 +58,36 @@ public class Teleportable : MonoBehaviour
 
         _isTeleporting = false;
 
-        yield return new WaitForSeconds(1f);
+        Teleported.Invoke();
 
-        _teleportCause = null;
-
+        Teleported.RemoveAllListeners();
     }
 
-    public void Teleport(Vector2 position, Renderer[] renderersToDisable, Behaviour[] behavioursToDisable, GameObject cause, float time = 1)
+    public void Teleport(Vector2 position, UnityAction onTeleported = null, bool hideWhileTeleporting = true, float time = 1)
     {
-        if (_teleportCause == cause)
+        if (_isTeleporting)
         {
             return;
         }
 
         _isTeleporting = true;
 
-        _objectsToDisable = renderersToDisable;
-        _behavioursToDisable = behavioursToDisable;
+        _objectsToDisable = hideWhileTeleporting ? new Renderer[] { _renderer } : new Renderer[0]; ;
+        _behavioursToDisable = hideWhileTeleporting ? new Behaviour[] { _soul, this } : new Behaviour[0]; ;
 
         SwitchRenderers(false);
 
         _body.velocity = Vector2.zero;
         _body.simulated = false;
 
-        _teleportCause = cause;
         _teleportSource = transform.position;
         _teleportTarget = position;
         _teleportTime = time;
+
+        if (onTeleported != null)
+        {
+            Teleported.AddListener(onTeleported);
+        }
     }
 
     public void IsTeleporting()
@@ -91,7 +100,7 @@ public class Teleportable : MonoBehaviour
 
             if (_teleportAccounted >= _teleportTime)
             {
-                _ = StartCoroutine(FinishTeleporting());
+                FinishTeleporting();
             }
         }
     }
