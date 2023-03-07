@@ -33,7 +33,7 @@ namespace Assets.Scripts.item
 
         private void OnTriggerEnter2D(Collider2D other)
         {
-            if (!_isTeleporting && other.gameObject == _controller.gameObject)
+            if (!_isTeleporting && Mode == PlanningMode.Playing && other.gameObject == _controller.gameObject)
             {
                 TryTeleportation();
             }
@@ -64,16 +64,21 @@ namespace Assets.Scripts.item
 
         private void TryTeleportation()
         {
-            if (Mode != PlanningMode.Playing)
-            {
-                return;
-            }
-
             if (IsTeleportable())
             {
-                _controller.Teleport(_targetPoint.transform.position, FinishTeleporation);
+                Vector3 newPosition = transform.position + _controller.transform.position - _controllerFeet.transform.position;
+
+                _controller.Teleport(newPosition, DoTeleportation, false);
+
                 _isTeleporting = true;
             }
+        }
+
+        private void DoTeleportation()
+        {
+            Vector3 targetPosition = _targetPoint.transform.position + _controller.transform.position - _controllerFeet.transform.position;
+
+            _controller.Teleport(targetPosition, FinishTeleporation);
         }
 
         private void FinishTeleporation()

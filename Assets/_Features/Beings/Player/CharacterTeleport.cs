@@ -59,8 +59,6 @@ public class CharacterTeleport : MonoBehaviour
         _isTeleporting = false;
 
         Teleported.Invoke();
-
-        Teleported.RemoveAllListeners();
     }
 
     public void Teleport(Vector2 position, Behaviour caller, UnityAction onTeleported = null, bool hideWhileTeleporting = true, float time = 1)
@@ -86,6 +84,7 @@ public class CharacterTeleport : MonoBehaviour
 
         if (onTeleported != null)
         {
+            Teleported.RemoveAllListeners();
             Teleported.AddListener(onTeleported);
         }
     }

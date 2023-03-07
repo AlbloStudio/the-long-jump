@@ -138,7 +138,6 @@ namespace Assets.Scripts.item
         {
             if (_trajectoryDrawerPrefab != null)
             {
-
                 _trajectoryDrawer.gameObject.SetActive(activate);
             }
         }
