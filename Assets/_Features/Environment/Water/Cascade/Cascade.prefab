@@ -4923,11 +4923,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad5c72d6d3c8afc438d776d0836be465, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _amplitude: 0.5
-  _speed: 0.2
-  _anchor: 0.3
+  _amplitude: 0.29
+  _speed: 1.52
+  _anchor: 1.1
+  _anchorX: -0.935
   _alpha: 0.6
-  _foamThickness: 0.005
+  _foamThickness: 0
   _horizontalSpeed: 0
   _verticalSpeed: -4
   _mainTextureScale: {x: 2, y: 12}
