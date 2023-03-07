@@ -14930,7 +14930,6 @@ MonoBehaviour:
     m_Bits: 262400
   _groundCheck: {fileID: 8150739842128445502}
   _trail: {fileID: 2707635049772714736}
-  _soul: {fileID: 608297888}
   _airPhysicsMaterial: {fileID: 6200000, guid: 3a9c14762e7261c41b2d85c6a919c07a, type: 2}
   _groundPhysicsMaterial: {fileID: 6200000, guid: d9f1e9dabb7106644abec133609cf608,
     type: 2}
@@ -14965,9 +14964,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 8150739842411708001}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a4eb0e6fa0790c34f9bcd092160fa15b, type: 3}
+  m_Script: {fileID: 11500000, guid: 2a9ac2ba94811284c9621849c8bcf4aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _soul: {fileID: 608297888}
 --- !u!61 &2707635049044036945
 BoxCollider2D:
   m_ObjectHideFlags: 0
