@@ -53,7 +53,7 @@ namespace Assets.Scripts.being
         private Rigidbody2D _body;
         private CharacterEffects _effects;
         private CharacterAnimator _animator;
-        private CharacterTeleport _charTeleporter;
+        private CharacterCommander _charCommander;
 
         private float _originalGravityScale;
         private float _coyoteCounter;
@@ -66,7 +66,8 @@ namespace Assets.Scripts.being
             _body = GetComponent<Rigidbody2D>();
             _effects = GetComponent<CharacterEffects>();
             _animator = GetComponent<CharacterAnimator>();
-            _charTeleporter = GetComponent<CharacterTeleport>();
+            _charCommander = GetComponent<CharacterCommander>();
+
             _originalGravityScale = _body.gravityScale;
 
             _coyoteCounter = _coyoteTime;
@@ -314,7 +315,6 @@ namespace Assets.Scripts.being
         {
             _animator.TriggerDeath();
             _isDead = true;
-
             yield return new WaitForSeconds(1);
 
             Kill();
@@ -371,13 +371,25 @@ namespace Assets.Scripts.being
 
         public void Kill()
         {
-            Teleport(CheckpointManager.Instance.ActiveCheckpoint.transform.position, gameObject);
+            AddTeleportCommand(CheckpointManager.Instance.ActiveCheckpoint.transform.position);
         }
 
-        public void Teleport(Vector2 position, GameObject caller, UnityAction onTeleported = null, bool hideWhileTeleporting = true, float time = 1)
+        public void AddTeleportCommand(Vector3 position, UnityAction onTeleported = null, bool showWhileTeleporting = false, float time = 1)
         {
-            _fallDamageFirstPosition = position.y;
-            _charTeleporter.Teleport(position, this, caller, onTeleported, hideWhileTeleporting, time);
+
+            CommanderCase commanderCase = new()
+            {
+                Target = position,
+                OnEnd = () =>
+                {
+                    _fallDamageFirstPosition = transform.position.y;
+                    onTeleported?.Invoke();
+                },
+                ShouldShow = showWhileTeleporting,
+                Time = time,
+            };
+
+            _charCommander.AddCommand(commanderCase);
         }
     }
 }

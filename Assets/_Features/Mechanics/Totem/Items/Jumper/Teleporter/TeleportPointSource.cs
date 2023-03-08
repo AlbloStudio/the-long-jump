@@ -67,18 +67,13 @@ namespace Assets.Scripts.item
             if (IsTeleportable())
             {
                 Vector3 newPosition = transform.position + _controller.transform.position - _controllerFeet.transform.position;
+                Vector3 targetPosition = _targetPoint.transform.position + _controller.transform.position - _controllerFeet.transform.position;
 
-                _controller.Teleport(newPosition, gameObject, DoTeleportation, false);
+                _controller.AddTeleportCommand(newPosition, null, true);
+                _controller.AddTeleportCommand(targetPosition, FinishTeleporation, false);
 
                 _isTeleporting = true;
             }
-        }
-
-        private void DoTeleportation()
-        {
-            Vector3 targetPosition = _targetPoint.transform.position + _controller.transform.position - _controllerFeet.transform.position;
-
-            _controller.Teleport(targetPosition, gameObject, FinishTeleporation);
         }
 
         private void FinishTeleporation()
