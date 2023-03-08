@@ -1,6 +1,49 @@
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.Rendering.Universal;
+
+public class TeleportCase
+{
+    public GameObject Caller { get; private set; }
+    public UnityAction OnTeleport { get; private set; }
+
+    private float _teleportAccounted = 0;
+
+    public UnityEvent Teleported { get; private set; } = new();
+
+    public Vector2 TeleportSource { get; set; }
+    public Vector2 TeleportTarget { get; set; }
+    public float TeleportTime { get; set; }
+
+    public bool done = false;
+
+    public TeleportCase(GameObject caller, UnityAction onTeleport)
+    {
+        Caller = caller;
+        OnTeleport = onTeleport;
+
+        if (onTeleport != null)
+        {
+            Teleported.AddListener(onTeleport);
+        }
+    }
+
+    public Vector2 ProgressTeleport()
+    {
+        _teleportAccounted += Time.deltaTime;
+
+        Vector2 newPos = Vector2.Lerp(TeleportSource, TeleportTarget, _teleportAccounted / TeleportTime);
+
+        if (_teleportAccounted >= TeleportTime)
+        {
+            done = true;
+        }
+
+        return newPos;
+    }
+}
 
 public class CharacterTeleport : MonoBehaviour
 {
@@ -9,16 +52,10 @@ public class CharacterTeleport : MonoBehaviour
     private Rigidbody2D _body;
     private Renderer _renderer;
 
-    private Vector2 _teleportTarget;
-    private Vector2 _teleportSource;
-    private float _teleportAccounted;
-    private float _teleportTime;
-
     private Renderer[] _objectsToDisable;
     private Behaviour[] _behavioursToDisable;
-    private bool _isTeleporting = false;
 
-    public UnityEvent Teleported { get; private set; } = new();
+    private List<TeleportCase> teleportCases = new();
 
     private void Awake()
     {
@@ -26,9 +63,14 @@ public class CharacterTeleport : MonoBehaviour
         _renderer = GetComponent<Renderer>();
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
-        if (_isTeleporting)
+        if (teleportCases.Exists(c => c.done))
+        {
+            FinishTeleporting();
+        }
+
+        if (teleportCases.Count > 0)
         {
             IsTeleporting();
         }
@@ -50,57 +92,47 @@ public class CharacterTeleport : MonoBehaviour
 
     private void FinishTeleporting()
     {
-        _teleportAccounted = 0;
+        List<TeleportCase> caseCopy = new(teleportCases.Where(teleportCase => teleportCase.done).ToList());
 
-        _body.simulated = true;
-
-        SwitchRenderers(true);
-
-        _isTeleporting = false;
-
-        Teleported.Invoke();
-    }
-
-    public void Teleport(Vector2 position, Behaviour caller, UnityAction onTeleported = null, bool hideWhileTeleporting = true, float time = 1)
-    {
-        if (_isTeleporting)
+        foreach (TeleportCase teleportCase in caseCopy.Where(teleportCase => teleportCase.done))
         {
-            return;
+            teleportCase.Teleported.Invoke();
         }
 
-        _isTeleporting = true;
+        teleportCases = teleportCases.Where(teleportCase => !teleportCase.done).ToList();
+
+        if (teleportCases.Count == 0)
+        {
+            _body.simulated = true;
+
+            SwitchRenderers(true);
+        }
+    }
+
+    public void Teleport(Vector2 position, Behaviour source, GameObject caller, UnityAction onTeleported = null, bool hideWhileTeleporting = true, float time = 1)
+    {
+        TeleportCase teleportCase = new(caller, onTeleported);
 
         _objectsToDisable = hideWhileTeleporting ? new Renderer[] { _renderer } : new Renderer[0]; ;
-        _behavioursToDisable = hideWhileTeleporting ? new Behaviour[] { _soul, caller } : new Behaviour[0]; ;
+        _behavioursToDisable = hideWhileTeleporting ? new Behaviour[] { _soul, source } : new Behaviour[0]; ;
 
         SwitchRenderers(false);
 
         _body.velocity = Vector2.zero;
         _body.simulated = false;
 
-        _teleportSource = transform.position;
-        _teleportTarget = position;
-        _teleportTime = time;
+        teleportCase.TeleportSource = transform.position;
+        teleportCase.TeleportTarget = position;
+        teleportCase.TeleportTime = time;
 
-        if (onTeleported != null)
-        {
-            Teleported.RemoveAllListeners();
-            Teleported.AddListener(onTeleported);
-        }
+        teleportCases.Add(teleportCase);
     }
 
     public void IsTeleporting()
     {
-        if (_isTeleporting)
+        foreach (TeleportCase teleportCase in teleportCases)
         {
-            _teleportAccounted += Time.fixedDeltaTime;
-
-            transform.position = Vector2.Lerp(_teleportSource, _teleportTarget, _teleportAccounted / _teleportTime);
-
-            if (_teleportAccounted >= _teleportTime)
-            {
-                FinishTeleporting();
-            }
+            transform.position = teleportCase.ProgressTeleport();
         }
     }
 }

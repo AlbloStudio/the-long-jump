@@ -92,7 +92,7 @@ namespace Assets.Scripts.item
 
             Vector3 newPosition = _boxCollider.bounds.center + _controller.transform.position - _controllerFeet.transform.position;
 
-            _controller.Teleport(newPosition, ImpulseSpring, false);
+            _controller.Teleport(newPosition, gameObject, ImpulseSpring, false);
         }
 
         private void ImpulseSpring()

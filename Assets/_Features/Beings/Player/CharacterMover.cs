@@ -371,13 +371,13 @@ namespace Assets.Scripts.being
 
         public void Kill()
         {
-            Teleport(CheckpointManager.Instance.ActiveCheckpoint.transform.position);
+            Teleport(CheckpointManager.Instance.ActiveCheckpoint.transform.position, gameObject);
         }
 
-        public void Teleport(Vector2 position, UnityAction onTeleported = null, bool hideWhileTeleporting = true, float time = 1)
+        public void Teleport(Vector2 position, GameObject caller, UnityAction onTeleported = null, bool hideWhileTeleporting = true, float time = 1)
         {
-            _fallDamageFirstPosition = transform.position.y;
-            _charTeleporter.Teleport(position, this, onTeleported, hideWhileTeleporting, time);
+            _fallDamageFirstPosition = position.y;
+            _charTeleporter.Teleport(position, this, caller, onTeleported, hideWhileTeleporting, time);
         }
     }
 }

@@ -68,7 +68,7 @@ namespace Assets.Scripts.item
             {
                 Vector3 newPosition = transform.position + _controller.transform.position - _controllerFeet.transform.position;
 
-                _controller.Teleport(newPosition, DoTeleportation, false);
+                _controller.Teleport(newPosition, gameObject, DoTeleportation, false);
 
                 _isTeleporting = true;
             }
@@ -78,7 +78,7 @@ namespace Assets.Scripts.item
         {
             Vector3 targetPosition = _targetPoint.transform.position + _controller.transform.position - _controllerFeet.transform.position;
 
-            _controller.Teleport(targetPosition, FinishTeleporation);
+            _controller.Teleport(targetPosition, gameObject, FinishTeleporation);
         }
 
         private void FinishTeleporation()
