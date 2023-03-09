@@ -285,7 +285,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1.2
+      scalar: 2
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -4929,9 +4929,6 @@ MonoBehaviour:
   _anchorX: -0.935
   _alpha: 0.6
   _foamThickness: 0
-  _horizontalSpeed: 0
-  _verticalSpeed: -4
-  _mainTextureScale: {x: 2, y: 12}
 --- !u!114 &3731292633277035705
 MonoBehaviour:
   m_ObjectHideFlags: 0
