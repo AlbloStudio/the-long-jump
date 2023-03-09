@@ -1,11 +1,9 @@
 using Assets.Scripts.managers;
 using System.Collections.Generic;
 using UnityEngine;
-using System.Linq;
 
 namespace Assets.Scripts.shading
 {
-    [ExecuteAlways]
     public class Fog : MonoBehaviour
     {
         private static readonly int Depth = Shader.PropertyToID("_Depth");
@@ -19,42 +17,16 @@ namespace Assets.Scripts.shading
 
         private void Start()
         {
-            if (Application.IsPlaying(gameObject))
-            {
-                _renderer = GetComponent<Renderer>();
+            _renderer = GetComponent<Renderer>();
 
-                _materials = new List<Material>(_renderer.materials);
-                _colorsTexture = Gradient2Texture.Create(new[] { FogData.Instance.Colors });
-                _frontColorsTexture = Gradient2Texture.Create(new[] { FogData.Instance.FrontColors });
-            }
+            _materials = new List<Material>(_renderer.materials);
+            _colorsTexture = Gradient2Texture.Create(new[] { FogData.Instance.Colors });
+            _frontColorsTexture = Gradient2Texture.Create(new[] { FogData.Instance.FrontColors });
         }
 
         private void Update()
         {
-            if (!Application.IsPlaying(gameObject))
-            {
-                _renderer = GetComponent<Renderer>();
-
-                if (FogData.Instance.FogInEditor)
-                {
-                    Gradient colors = FogData.Instance.Colors;
-                    Gradient frontColors = FogData.Instance.FrontColors;
-
-                    _colorsTexture = Gradient2Texture.Create(new[] { colors });
-                    _frontColorsTexture = Gradient2Texture.Create(new[] { frontColors });
-
-                    _materials = new List<Material>(_renderer.materials);
-                    SetShaderValues();
-                }
-                else
-                {
-                    _renderer.materials = _renderer.sharedMaterials.Select(m => m = FogData.Instance.FoggyMaterial).ToArray();
-                }
-            }
-            else
-            {
-                SetShaderValues();
-            }
+            SetShaderValues();
         }
 
         private void SetShaderValues()

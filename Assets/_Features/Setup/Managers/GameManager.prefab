@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 112490240}
   - component: {fileID: 112490244}
   - component: {fileID: 112490248}
+  - component: {fileID: 6028414461559392444}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -48,10 +49,67 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75171b89ff8bbe244b01c3883539f16f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _colors: {fileID: 2800000, guid: deb1f860ee7d9684388cd1c159f95117, type: 3}
-  _bounds: {x: -3.5, y: 13.5}
-  _horizontalParallaxSpeed: 0
-  _verticalParallaxSpeed: 0
+  _colors:
+    serializedVersion: 2
+    key0: {r: 0.35686275, g: 0.4666667, b: 0.7019608, a: 1}
+    key1: {r: 0.35686275, g: 0.4666667, b: 0.7019608, a: 1}
+    key2: {r: 0.4392157, g: 0.6156863, b: 0.6784314, a: 0.5019608}
+    key3: {r: 0.4392157, g: 0.6156863, b: 0.6784314, a: 0.72156864}
+    key4: {r: 0.29411766, g: 0.25882354, b: 0.18431373, a: 0.72156864}
+    key5: {r: 0.1882353, g: 0.9490196, b: 0.7490196, a: 0.72156864}
+    key6: {r: 0.1882353, g: 0.9490196, b: 0.7490196, a: 0.72156864}
+    key7: {r: 0.1882353, g: 0.9490196, b: 0.7490196, a: 0.72156864}
+    ctime0: 193
+    ctime1: 20432
+    ctime2: 43754
+    ctime3: 65535
+    ctime4: 65535
+    ctime5: 0
+    ctime6: 0
+    ctime7: 0
+    atime0: 0
+    atime1: 65535
+    atime2: 65535
+    atime3: 0
+    atime4: 0
+    atime5: 0
+    atime6: 0
+    atime7: 0
+    m_Mode: 0
+    m_NumColorKeys: 4
+    m_NumAlphaKeys: 2
+  _frontColors:
+    serializedVersion: 2
+    key0: {r: 0.33962262, g: 0.18466553, b: 0.10412958, a: 1}
+    key1: {r: 0.14150941, g: 0.07413526, b: 0.042052325, a: 1}
+    key2: {r: 0.14117648, g: 0.10980393, b: 0.098039225, a: 0}
+    key3: {r: 0, g: 0, b: 0, a: 0}
+    key4: {r: 0, g: 0, b: 0, a: 0}
+    key5: {r: 0, g: 0, b: 0, a: 0}
+    key6: {r: 0, g: 0, b: 0, a: 0}
+    key7: {r: 0, g: 0, b: 0, a: 0}
+    ctime0: 0
+    ctime1: 10216
+    ctime2: 65535
+    ctime3: 0
+    ctime4: 0
+    ctime5: 0
+    ctime6: 0
+    ctime7: 0
+    atime0: 0
+    atime1: 65535
+    atime2: 0
+    atime3: 0
+    atime4: 0
+    atime5: 0
+    atime6: 0
+    atime7: 0
+    m_Mode: 0
+    m_NumColorKeys: 3
+    m_NumAlphaKeys: 2
+  _bounds: {x: -4, y: 8}
+  _foggyMaterial: {fileID: 2100000, guid: 129e668d4b062ba45a4cc881e6f165fe, type: 2}
+  _fogInEditor: 0
 --- !u!114 &6426651382107607222
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -66,8 +124,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _player: {fileID: 0}
   _playerFeet: {fileID: 0}
-  _mainCameraRight: {fileID: 0}
-  _mainCameraLeft: {fileID: 0}
 --- !u!114 &112490240
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -104,3 +160,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a83af4cc79a81c43b8b9cc0301e7eb6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &6028414461559392444
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6426651382107607226}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af2fd38cd9b076c4c864d1b9070f513a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _windSpeed: 0.4
+  _windStrength: 0.4

@@ -20,7 +20,5 @@ namespace Assets.Scripts.managers
         public Gradient Colors => _colors;
         public Gradient FrontColors => _frontColors;
         public Vector2 Bounds => _bounds;
-        public Material FoggyMaterial => _foggyMaterial;
-        public bool FogInEditor => _fogInEditor;
     }
 }
