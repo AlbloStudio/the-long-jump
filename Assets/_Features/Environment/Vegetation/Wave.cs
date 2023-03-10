@@ -16,11 +16,16 @@ public class Wave : MonoBehaviour
         _renderer = GetComponent<Renderer>();
 
         _materials = new List<Material>(_renderer.materials);
+        SetShaderValues(false);
 
-        SetShaderValues();
     }
 
-    private void SetShaderValues()
+    private void Update()
+    {
+        SetShaderValues(true);
+    }
+
+    private void SetShaderValues(bool isStart)
     {
         WindData windData = WindData.Instance;
 
@@ -28,8 +33,10 @@ public class Wave : MonoBehaviour
         {
             material.SetFloat(WindSpeed, windData.WindSpeed);
             material.SetFloat(WindStrength, windData.WindStrength);
-            material.SetFloat(Granularity, windData.Granularity);
-            material.SetFloat(Seed, Random.Range(0f, 1000f));
+            if (isStart)
+            {
+                material.SetFloat(Granularity, windData.Granularity);
+            }
         });
     }
 }
