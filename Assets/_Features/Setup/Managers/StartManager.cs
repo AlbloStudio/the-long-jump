@@ -95,7 +95,7 @@ public class StartManager : MonoBehaviour
 
     public void OnPressStart()
     {
-        if (!_activateStartSequence)
+        if (!_activateStartSequence || !_state.IsInState(StartState.Ready))
         {
             return;
         }

@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4047508611978453856}
   - component: {fileID: 5325956314474088607}
   - component: {fileID: 1466787466697255379}
+  - component: {fileID: 3665230863847165195}
   m_Layer: 16
   m_Name: TeleportSource
   m_TagString: Untagged
@@ -70,7 +71,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: f857114be15862f48b4fe933ce424f0e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -89,9 +90,9 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1665408557
-  m_SortingLayer: 3
+  m_SortingLayer: 5
   m_SortingOrder: 0
-  m_Sprite: {fileID: -997027263, guid: 88ce52560c668354cbbc9dbdf5398c3f, type: 3}
+  m_Sprite: {fileID: -241031401, guid: 3a960690a3d8514459f20d22813ea018, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -114,8 +115,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2407c7cf0697c743b191be56090030c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mode: 1
-  targetPoint: {fileID: 0}
+  _targetPoint: {fileID: 0}
   _maxTeleportingLength: 20
   _rayPrefab: {fileID: 5769711515830627793, guid: 0a66c4dd9014c5e46805b13f6eacabfe,
     type: 3}
+--- !u!95 &3665230863847165195
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8044821020109087051}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: f36a963611577634689c5d60f0b2f970, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0

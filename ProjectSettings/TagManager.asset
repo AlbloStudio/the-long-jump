@@ -73,9 +73,6 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: Player
-    uniqueID: 1860162699
-    locked: 0
   - name: Front
     uniqueID: 3405993979
     locked: 0
@@ -87,6 +84,9 @@ TagManager:
     locked: 0
   - name: interactable
     uniqueID: 1665408557
+    locked: 0
+  - name: Player
+    uniqueID: 1860162699
     locked: 0
   - name: PArticles
     uniqueID: 2635794723
