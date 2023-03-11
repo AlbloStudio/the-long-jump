@@ -24,8 +24,9 @@ public static class Enum
 
     public enum StartState
     {
-        Ready = 0,
-        Starting = 1,
-        Started = 2,
+        Awaking = 0,
+        Ready = 1,
+        Starting = 2,
+        Started = 3,
     }
 }
