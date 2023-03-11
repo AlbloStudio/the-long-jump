@@ -69,6 +69,7 @@ namespace Assets.Scripts.item
                 Vector3 newPosition = transform.position + _controller.transform.position - _controllerFeet.transform.position;
                 Vector3 targetPosition = _targetPoint.transform.position + _controller.transform.position - _controllerFeet.transform.position;
 
+                _controller.EnterTeleport();
                 _controller.AddTeleportCommand(newPosition, null, true);
                 _controller.AddTeleportCommand(targetPosition, FinishTeleporation, false);
 
@@ -78,6 +79,8 @@ namespace Assets.Scripts.item
 
         private void FinishTeleporation()
         {
+            _controller.ExitTeleport();
+
             _ = StartCoroutine(YieldFinishTeleportation());
         }
 

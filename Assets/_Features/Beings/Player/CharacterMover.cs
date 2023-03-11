@@ -375,7 +375,7 @@ namespace Assets.Scripts.being
             AddTeleportCommand(CheckpointManager.Instance.ActiveCheckpoint.transform.position);
         }
 
-        public void AddTeleportCommand(Vector3 position, UnityAction onTeleported = null, bool showWhileTeleporting = false, float time = 1)
+        public void AddTeleportCommand(Vector3 position, UnityAction onTeleported = null, bool showWhileTeleporting = false, float time = 0.5f)
         {
 
             CommanderCase commanderCase = new()
@@ -391,6 +391,16 @@ namespace Assets.Scripts.being
             };
 
             _charCommander.AddCommand(commanderCase);
+        }
+
+        public void EnterTeleport()
+        {
+            _animator.EnterTeleport();
+        }
+
+        public void ExitTeleport()
+        {
+            _animator.ExitTeleport();
         }
     }
 }

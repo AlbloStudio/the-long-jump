@@ -55,5 +55,15 @@ namespace Assets.Scripts.being
         {
             _animator.SetTrigger(CharAnimationNames.Death);
         }
+
+        public void EnterTeleport()
+        {
+            _animator.SetTrigger(CharAnimationNames.EnterTeleport);
+        }
+
+        public void ExitTeleport()
+        {
+            _animator.SetTrigger(CharAnimationNames.ExitTeleport);
+        }
     }
 }
