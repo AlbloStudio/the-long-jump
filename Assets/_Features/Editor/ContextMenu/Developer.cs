@@ -14,7 +14,7 @@ public class Developer : MonoBehaviour
     private static void PutPlayerBack()
     {
         Undo.RecordObject(GeneralData.Instance.Player.transform, "Put player back");
-        GeneralData.Instance.Player.transform.position = new Vector3(2, 10, 0);
+        GeneralData.Instance.Player.transform.position = new Vector3(2, 20, 0);
     }
 
     private static void OnSceneGUI(SceneView sceneView)

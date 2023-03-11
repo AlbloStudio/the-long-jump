@@ -46,6 +46,7 @@ namespace Assets.Scripts.being
         [Tooltip("how much in units you have to fall to die")]
         [SerializeField] private float _fallDeath = 5f;
 
+        public float FallDeath { get => _fallDeath; set => _fallDeath = value; }
         public bool IsGrounded { get; private set; } = false;
         public StateMachine<CharState> state = new(CharState.Airing);
         public string currentStateName = CharState.Airing.ToString();

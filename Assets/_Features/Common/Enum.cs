@@ -21,4 +21,11 @@ public static class Enum
         Playing = 1,
         Planning = 2,
     }
+
+    public enum StartState
+    {
+        Ready = 0,
+        Starting = 1,
+        Started = 2,
+    }
 }
