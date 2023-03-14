@@ -397,7 +397,7 @@ namespace Assets.Scripts.being
             burst?.Invoke();
 
             AddTeleportCommand(transform.position, null, animationName != -1, deathTime); ;
-            AddTeleportCommand(CheckpointManager.Instance.ActiveCheckpoint.transform.position, () => _isDead = false);
+            AddTeleportCommand(CheckpointManager.Instance.ActiveCheckpoint.SpawnPoint, () => _isDead = false);
         }
 
         public void AddTeleportCommand(Vector3 position, UnityAction onTeleported = null, bool showWhileTeleporting = false, float time = 0.5f)

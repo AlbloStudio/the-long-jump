@@ -8,9 +8,11 @@ namespace Assets.Scripts.trigger
     {
         [Tooltip("The number to press to teleport to this checkpoint")]
         [SerializeField] private int _number;
+        [SerializeField] private Transform _spawnPoint;
 
         public UnityEvent<Checkpoint, Collider2D> CheckPointPassedEvent { get; private set; } = new();
         public int Number => _number;
+        public Vector3 SpawnPoint => _spawnPoint.position;
 
         private EdgeCollider2D _collider;
 

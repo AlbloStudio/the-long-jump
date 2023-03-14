@@ -7,6 +7,7 @@ namespace Assets.Scripts.managers
     public class CheckpointManager : Singleton<CheckpointManager>
     {
         public Checkpoint ActiveCheckpoint { get; private set; }
+        public Vector3 SpawnPoint => ActiveCheckpoint.SpawnPoint;
 
         private void Awake()
         {
