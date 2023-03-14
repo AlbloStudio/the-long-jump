@@ -1,5 +1,4 @@
 using Assets.Scripts.managers;
-using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
 using static Enum;
@@ -282,7 +281,7 @@ namespace Assets.Scripts.being
             float fallDistance = _fallDamageFirstPosition - transform.position.y;
             if (fallDistance >= _fallDeath)
             {
-                _ = StartCoroutine(KillByFallDamage());
+                Kill(CharAnimationNames.Death);
             }
 
             _effects.BurstFall();
@@ -310,16 +309,6 @@ namespace Assets.Scripts.being
         private void OnDrawGizmos()
         {
             Gizmos.DrawWireSphere(_groundCheck.position, _groundCheckRadius);
-        }
-
-        private IEnumerator KillByFallDamage()
-        {
-            _animator.TriggerDeath();
-            _isDead = true;
-            yield return new WaitForSeconds(1);
-
-            Kill();
-            _isDead = false;
         }
 
         public void Move(float move)
@@ -370,14 +359,26 @@ namespace Assets.Scripts.being
             state.ChangeState(CharState.Impulsing);
         }
 
-        public void Kill()
+        public void Kill(int animationName = -1, float deathTime = 1f)
         {
-            AddTeleportCommand(CheckpointManager.Instance.ActiveCheckpoint.transform.position);
+            if (_isDead)
+            {
+                return;
+            }
+
+            _isDead = true;
+
+            if (animationName != -1)
+            {
+                _animator.TriggerDeath(animationName);
+            }
+
+            AddTeleportCommand(transform.position, null, animationName != -1, deathTime); ;
+            AddTeleportCommand(CheckpointManager.Instance.ActiveCheckpoint.transform.position, () => _isDead = false);
         }
 
         public void AddTeleportCommand(Vector3 position, UnityAction onTeleported = null, bool showWhileTeleporting = false, float time = 0.5f)
         {
-
             CommanderCase commanderCase = new()
             {
                 Target = position,

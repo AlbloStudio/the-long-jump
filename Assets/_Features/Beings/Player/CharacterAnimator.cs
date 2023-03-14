@@ -51,9 +51,9 @@ namespace Assets.Scripts.being
             _animator.SetTrigger(CharAnimationNames.Jump);
         }
 
-        public void TriggerDeath()
+        public void TriggerDeath(int animationName)
         {
-            _animator.SetTrigger(CharAnimationNames.Death);
+            _animator.SetTrigger(animationName);
         }
 
         public void EnterTeleport()
