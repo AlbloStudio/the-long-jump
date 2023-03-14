@@ -5,8 +5,10 @@ public class CharacterEffects : MonoBehaviour
     [SerializeField] private ParticleSystem _fallParticles;
     [SerializeField] private ParticleSystem _runParticles;
     [SerializeField] private ParticleSystem _jumpParticles;
+    [SerializeField] private ParticleSystem _drownParticles;
     [SerializeField] private Vector2 fallRange = new(10, 20);
     [SerializeField] private Vector2 jumpRange = new(5, 10);
+    [SerializeField] private Vector2 drownRange = new(70, 120);
 
     [SerializeField] private float _runRatio = 0.1f;
 
@@ -27,6 +29,11 @@ public class CharacterEffects : MonoBehaviour
     public void BurstJump()
     {
         _jumpParticles.Emit(Random.Range(Mathf.RoundToInt(jumpRange.x), Mathf.RoundToInt(jumpRange.y)));
+    }
+
+    public void BurstDrown()
+    {
+        _drownParticles.Emit(Random.Range(Mathf.RoundToInt(drownRange.x), Mathf.RoundToInt(drownRange.y)));
     }
 
     public void ActivateRun(float moveSpeed)

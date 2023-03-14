@@ -29,4 +29,19 @@ public static class Enum
         Starting = 2,
         Started = 3,
     }
+
+    public enum DeathType
+    {
+        Fall = 0,
+        Abism = 1,
+        Drown = 2,
+        Spikes = 3,
+        Reset = 4,
+    }
+
+    public enum CollisionType
+    {
+        Collision = 0,
+        Trigger = 1
+    }
 }

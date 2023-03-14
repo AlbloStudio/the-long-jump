@@ -281,7 +281,7 @@ namespace Assets.Scripts.being
             float fallDistance = _fallDamageFirstPosition - transform.position.y;
             if (fallDistance >= _fallDeath)
             {
-                Kill(CharAnimationNames.Death);
+                Kill(DeathType.Fall);
             }
 
             _effects.BurstFall();
@@ -359,19 +359,42 @@ namespace Assets.Scripts.being
             state.ChangeState(CharState.Impulsing);
         }
 
-        public void Kill(int animationName = -1, float deathTime = 1f)
+        public void Kill(DeathType type, float deathTime = 1f)
         {
             if (_isDead)
             {
                 return;
             }
 
+            _body.velocity = Vector2.zero;
+
             _isDead = true;
+
+            int animationName = -1;
+            UnityAction burst = null;
+            switch (type)
+            {
+                case DeathType.Fall:
+                    animationName = CharAnimationNames.Death;
+                    break;
+                case DeathType.Abism:
+                    break;
+                case DeathType.Drown:
+                    burst = _effects.BurstDrown;
+                    break;
+                case DeathType.Reset:
+                    break;
+                case DeathType.Spikes:
+                default:
+                    break;
+            }
 
             if (animationName != -1)
             {
                 _animator.TriggerDeath(animationName);
             }
+
+            burst?.Invoke();
 
             AddTeleportCommand(transform.position, null, animationName != -1, deathTime); ;
             AddTeleportCommand(CheckpointManager.Instance.ActiveCheckpoint.transform.position, () => _isDead = false);

@@ -1,5 +1,6 @@
 using Assets.Scripts.managers;
 using UnityEngine;
+using static Enum;
 
 namespace Assets.Scripts.trigger
 {
@@ -9,7 +10,7 @@ namespace Assets.Scripts.trigger
         {
             if (collided.transform.Equals(GeneralData.Instance.Player.transform))
             {
-                GeneralData.Instance.Player.Kill();
+                GeneralData.Instance.Player.Kill(DeathType.Abism);
             }
         }
     }

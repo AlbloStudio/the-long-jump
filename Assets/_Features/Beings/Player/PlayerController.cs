@@ -1,4 +1,5 @@
 using UnityEngine;
+using static Enum;
 
 namespace Assets.Scripts.being
 {
@@ -29,7 +30,7 @@ namespace Assets.Scripts.being
 
             if (Input.GetButtonUp("Reset"))
             {
-                _controller.Kill(-1, 0.2f);
+                _controller.Kill(DeathType.Reset, 0.2f);
             }
 
             _xInput = Input.GetAxis("Horizontal");
