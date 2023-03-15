@@ -1,3 +1,5 @@
+using Assets.Scripts.being;
+using Assets.Scripts.managers;
 using UnityEngine;
 
 namespace Assets.Scripts.totem
@@ -6,17 +8,19 @@ namespace Assets.Scripts.totem
     {
         private BoxCollider2D _collider;
         private MeshGenerator _meshGenerator;
+        private CharacterMover _char;
 
         private void Awake()
         {
             _collider = GetComponent<BoxCollider2D>();
             _meshGenerator = GetComponent<MeshGenerator>();
-
         }
 
         private void Start()
         {
             CalculateVertices();
+
+            _char = GeneralData.Instance.Player;
         }
 
         private void CalculateVertices()
@@ -31,6 +35,23 @@ namespace Assets.Scripts.totem
             _meshGenerator.PlaneSize = new(topRight.x - topLeft.x, topLeft.y - bottomLeft.y);
             _meshGenerator.Offset = min;
             _meshGenerator.GeneratePlane();
+        }
+
+        private void OnTriggerEnter2D(Collider2D other)
+        {
+            if (other.gameObject == _char.gameObject)
+            {
+                _char.SwitchTrailEmission(true);
+            }
+        }
+
+        private void OnTriggerExit2D(Collider2D other)
+        {
+            print("exiting");
+            if (other.gameObject == _char.gameObject)
+            {
+                _char.SwitchTrailEmission(false);
+            }
         }
     }
 }

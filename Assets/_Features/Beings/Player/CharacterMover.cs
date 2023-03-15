@@ -28,7 +28,7 @@ namespace Assets.Scripts.being
         [Tooltip(" A position marking where to check if the player is grounded")]
         [SerializeField] private Transform _groundCheck;
 
-        [SerializeField] private Renderer _trail;
+        [SerializeField] private TrailRenderer _trail;
 
         [Tooltip("The Physics Material to use when we are in the air")]
         [SerializeField] private PhysicsMaterial2D _airPhysicsMaterial;
@@ -366,6 +366,8 @@ namespace Assets.Scripts.being
                 return;
             }
 
+            _trail.emitting = false;
+
             _body.velocity = Vector2.zero;
 
             _isDead = true;
@@ -425,6 +427,14 @@ namespace Assets.Scripts.being
         public void ExitTeleport()
         {
             _animator.ExitTeleport();
+        }
+
+        public void SwitchTrailEmission(bool shouldEmit)
+        {
+            if (!_isDead)
+            {
+                _trail.emitting = shouldEmit;
+            }
         }
     }
 }

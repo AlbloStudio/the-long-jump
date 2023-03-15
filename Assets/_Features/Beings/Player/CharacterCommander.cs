@@ -69,9 +69,13 @@ public class CharacterCommander : MonoBehaviour
             _currentCommanderCase.Source = transform.position;
         }
 
-        SwitchRenderers(_currentCommanderCase.ShouldShow);
+        if (!_currentCommanderCase.ShouldShow)
+        {
+            SwitchRenderers(false);
+            _body.simulated = false;
+        }
+
         _body.velocity = Vector2.zero;
-        _body.simulated = false;
 
         _currentCommanderCase?.OnStart?.Invoke();
     }
@@ -83,6 +87,7 @@ public class CharacterCommander : MonoBehaviour
         _currentCommanderCase?.OnEnd?.Invoke();
 
         SwitchRenderers(true);
+
         _body.simulated = true;
 
         _currentCommanderCase = null;
