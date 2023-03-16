@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 112490248}
   - component: {fileID: 6028414461559392444}
   - component: {fileID: 5825288594291568310}
+  - component: {fileID: 1199848606388162641}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -188,5 +189,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f44d43b68b7c6444fa179157a21fe346, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _activateStartSequence: 0
+  _fadeInTime: 3
+  _fadeOutTime: 2
+  _initialCharPosition: {x: 2, y: 20, z: 0}
+  _canvas: {fileID: 0}
   _startButton: {fileID: 0}
   _blurVolume: {fileID: 0}
+  _startVirtualCamera: {fileID: 0}
+--- !u!114 &1199848606388162641
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6426651382107607226}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9cc9e60862fb0364a8a1899fed5e9450, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
