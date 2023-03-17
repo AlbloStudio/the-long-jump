@@ -44,4 +44,11 @@ public static class Enum
         Collision = 0,
         Trigger = 1
     }
+
+    public enum PlayerSounds
+    {
+        Jump = 0,
+        Grounded = 1,
+        Drown = 2,
+    }
 }

@@ -54,6 +54,7 @@ namespace Assets.Scripts.being
         private CharacterEffects _effects;
         private CharacterAnimator _animator;
         private CharacterCommander _charCommander;
+        private PlayerAudioSource _audioSource;
 
         private float _originalGravityScale;
         private float _coyoteCounter;
@@ -67,6 +68,7 @@ namespace Assets.Scripts.being
             _effects = GetComponent<CharacterEffects>();
             _animator = GetComponent<CharacterAnimator>();
             _charCommander = GetComponent<CharacterCommander>();
+            _audioSource = GetComponent<PlayerAudioSource>();
 
             _originalGravityScale = _body.gravityScale;
 
@@ -285,6 +287,7 @@ namespace Assets.Scripts.being
             }
 
             _effects.BurstFall();
+            _audioSource.PlaySound(PlayerSounds.Grounded);
         }
 
         private void OnImpulse()
@@ -304,6 +307,7 @@ namespace Assets.Scripts.being
 
             _effects.BurstJump();
             _animator.TriggerJump();
+            _audioSource.PlaySound(PlayerSounds.Jump);
         }
 
         private void OnDrawGizmos()
@@ -383,6 +387,7 @@ namespace Assets.Scripts.being
                     break;
                 case DeathType.Drown:
                     burst = _effects.BurstDrown;
+                    _audioSource.PlaySound(PlayerSounds.Drown);
                     break;
                 case DeathType.Reset:
                     break;
