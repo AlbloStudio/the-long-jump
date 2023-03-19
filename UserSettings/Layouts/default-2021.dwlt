@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1920
     height: 997
   m_ShowMode: 4
-  m_Title: Scene
+  m_Title: Hierarchy
   m_RootView: {fileID: 2}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
@@ -100,7 +100,7 @@ MonoBehaviour:
   m_MinSize: {x: 400, y: 200}
   m_MaxSize: {x: 32384, y: 16192}
   vertical: 0
-  controlID: 36
+  controlID: 48
 --- !u!114 &5
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -146,7 +146,7 @@ MonoBehaviour:
   m_MinSize: {x: 100, y: 200}
   m_MaxSize: {x: 8096, y: 16192}
   vertical: 1
-  controlID: 93
+  controlID: 143
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -166,8 +166,8 @@ MonoBehaviour:
     y: 0
     width: 227
     height: 947
-  m_MinSize: {x: 200, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 202, y: 221}
+  m_MaxSize: {x: 4002, y: 4021}
   m_ActualView: {fileID: 12}
   m_Panes:
   - {fileID: 12}
@@ -270,8 +270,8 @@ MonoBehaviour:
     y: 546
     width: 907
     height: 401
-  m_MinSize: {x: 200, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 201, y: 221}
+  m_MaxSize: {x: 4001, y: 4021}
   m_ActualView: {fileID: 15}
   m_Panes:
   - {fileID: 15}
@@ -311,7 +311,7 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: ba4bf4ff5623f7ffe2e8f7ffeee1f9ff004dfbffba9efeff1aebffff26ebffff54ebffffbef0ffff3ef9ffff0cfbffffaa5d0000565e0000ae5e0000586000002a6100008c61000086630000086600005a66000088660000286700004e6700000468000054680000986f000084700000227100002e7100003071000096710000
+      m_ExpandedIDs: 2e16feffc62dfeff0a54feff8e56feff8ad5ffffdce7ffffe4e7ffffe6e7fffff6e7ffff04e8ffff12e8ffff14e8ffff30e8ffff60e8ffffc4e8ffffd0e8ffff60e9ffffc6e9ffffdae9ffff4eeaffff8ceaffff2cebffff6cebffffb0ebffffdaebffffaeecffffe0ecfffffcecffff10edffff40edfffff2edffff80eeffffb8eeffffdeeeffff22efffff2eefffffb6effffffaefffff64f0ffffb2f0fffff8f0ffff0cf1ffff40f1ffff70f1ffff84f1ffffbaf1ffffc6f1ffff32f2ffff46f2ffffa2f2ffffd0f2ffff20f3ffff96f3ffffc0f3ffff46f4ffff94f4fffff2f4ffff0ef5ffff50f5ffff5ef5ffff20f6ffff82f6ffffd8f6ffff36f7ffff50f7ffffbcf7ffff00f8ffff44f8ffffdaf8ffff1ef9ffff5af9ffff92f9ffff54faffff9afaffff765d0000885d0000ba5d0000ca5d0000465e00009c5e0000c05e0000485f0000745f0000ac5f0000ae5f0000d85f0000e45f0000186000003460000046600000626000006660000092600000aa600000ba600000e46000001a6100003e6100004a61000084610000d8610000e06100005a62000088620000ac620000c262000040630000726300007a6300004264000062640000046500001c650000406500004465000050650000ec65000008660000126600005e660000ee6600000867000028670000686700007c670000806700008a670000ae670000ba670000c2670000f0670000f4670000fc670000006800009e680000a2680000a6680000c4680000e2680000ec680000fc6800003069000034690000866900008e69000092690000ea690000046a0000126a00003c6a0000486a00007c6a0000806a0000846a0000b46a0000c26a0000d66a0000fc6a0000006b00002c6b0000306b0000646b0000746b0000ea6b0000486c0000726c00007a6c0000826c0000966c0000a46c0000386d00006a6d0000b86d0000c86d0000e06d0000126e0000386e00003c6e00004e6e0000ac6e0000ca6e0000ce6e0000d26e0000666f0000826f0000a06f0000a46f00002a7000005e7000006270000084700000bc700000d4700000e07000004a710000627100006e7100007a710000d2710000dc710000f0710000047200003a72000048720000587200005c72000090720000a2720000c0720000cc720000e4720000f07200001673000030730000387300003c730000607300006673000076730000827300008e73000090730000b2730000c0730000c2730000f4730000f8730000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -419,22 +419,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/_Features/Props/Plant1
+    - Assets/_Features/Props/RockSmall
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 16
   m_LastFolders:
-  - Assets/_Features/Props/Plant1
+  - Assets/_Features/Props/RockSmall
   m_LastFoldersGridSize: 16
   m_LastProjectPath: D:\Proyectos de Unity\The Long Jump
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 14780000
-    m_LastClickedID: 30740
-    m_ExpandedIDs: 00000000d8770000da770000de770000e0770000e2770000e4770000e6770000f8770000028e000000ca9a3b
+    m_SelectedIDs: 9a7a0000
+    m_LastClickedID: 31386
+    m_ExpandedIDs: 00000000547a0000567a0000587a00005a7a00005c7a00005e7a0000607a0000627a0000647a000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -462,7 +462,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000d8770000da770000dc770000de770000e0770000e2770000e4770000e6770000
+    m_ExpandedIDs: 00000000547a0000567a0000587a00005a7a00005c7a00005e7a0000607a0000627a0000647a0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -489,7 +489,7 @@ MonoBehaviour:
   m_ListAreaState:
     m_SelectedInstanceIDs: 
     m_LastClickedInstanceID: 0
-    m_HadKeyboardFocusLastEvent: 1
+    m_HadKeyboardFocusLastEvent: 0
     m_ExpandedInstanceIDs: 2ca40000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -892,9 +892,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 185.62154, y: -134.66377, z: -1.642545}
+    m_Target: {x: 31.392118, y: 5.201583, z: 0.013122246}
     speed: 2
-    m_Value: {x: 185.62154, y: -134.66377, z: -1.642545}
+    m_Value: {x: 31.392118, y: 5.201583, z: 0.013122246}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -925,7 +925,7 @@ MonoBehaviour:
       m_Fade:
         m_Target: 0
         speed: 2
-        m_Value: 1
+        m_Value: 0
       m_Color: {r: 0.5, g: 0.5, b: 0.5, a: 0.4}
       m_Pivot: {x: 0, y: 0, z: 0}
       m_Size: {x: 1, y: 1}
@@ -943,12 +943,11 @@ MonoBehaviour:
   m_Rotation:
     m_Target: {x: 0, y: 0, z: 0, w: 1}
     speed: 2
-    m_Value: {x: 0.0000000062754246, y: -0.000000037217525, z: 0.0000000045529607,
-      w: 1}
+    m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 170.29443
+    m_Target: 15.297352
     speed: 2
-    m_Value: 170.29443
+    m_Value: 15.297352
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -966,7 +965,7 @@ MonoBehaviour:
     m_FarClip: 10000
     m_DynamicClip: 1
     m_OcclusionCulling: 0
-  m_LastSceneViewRotation: {x: 0.098289646, y: -0.5829243, z: 0.07131133, w: 0.8034014}
+  m_LastSceneViewRotation: {x: -0.08717229, y: 0.89959055, z: -0.21045254, w: -0.3726226}
   m_LastSceneViewOrtho: 0
   m_ReplacementShader: {fileID: 0}
   m_ReplacementString: 
