@@ -5044,7 +5044,6 @@ GameObject:
   - component: {fileID: 451175721206856863}
   - component: {fileID: 451175721206856862}
   - component: {fileID: 451175721206856861}
-  - component: {fileID: 2369820379212971519}
   m_Layer: 0
   m_Name: CameraBrain
   m_TagString: MainCamera
@@ -5191,11 +5190,3 @@ MonoBehaviour:
   m_CameraActivatedEvent:
     m_PersistentCalls:
       m_Calls: []
---- !u!81 &2369820379212971519
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 451175721206856850}
-  m_Enabled: 1

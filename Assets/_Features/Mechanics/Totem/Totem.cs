@@ -17,6 +17,7 @@ namespace Assets.Scripts.totem
         [SerializeField] private List<Item> _items;
 
         private MeshRenderer _safeAreaRenderer;
+        private AudioSource _audioSource;
 
         private bool _isPlanning = false;
         private Item _activeItem;
@@ -28,6 +29,8 @@ namespace Assets.Scripts.totem
         {
             _safeAreaRenderer = _safeArea.GetComponent<MeshRenderer>();
             _safeAreaRenderer.enabled = false;
+
+            _audioSource = GetComponent<AudioSource>();
 
             _mainCamera = Camera.main;
         }
@@ -50,6 +53,7 @@ namespace Assets.Scripts.totem
             if (IsTriggeringWithPlayer(other))
             {
                 EnterPlanning();
+                _audioSource.Play();
             }
         }
 
@@ -58,6 +62,7 @@ namespace Assets.Scripts.totem
             if (IsTriggeringWithPlayer(other))
             {
                 ExitPlanning();
+                _audioSource.Stop();
             }
         }
 

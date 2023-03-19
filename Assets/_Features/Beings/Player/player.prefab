@@ -19648,6 +19648,7 @@ GameObject:
   - component: {fileID: 4247628860875042205}
   - component: {fileID: 8150739842411708000}
   - component: {fileID: 2707635049044036907}
+  - component: {fileID: 9013418943851581566}
   m_Layer: 17
   m_Name: player
   m_TagString: Player
@@ -19994,3 +19995,11 @@ MonoBehaviour:
   jumpRange: {x: 2, y: 3}
   drownRange: {x: 30, y: 60}
   _runRatio: 1
+--- !u!81 &9013418943851581566
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8150739842411708001}
+  m_Enabled: 1

@@ -10,7 +10,7 @@ public class PlayerAudioSource : MonoBehaviour
     [SerializeField] private AudioClip _drownClip;
 
     private AudioSource _audioSource;
-    private AudioTrigger<PlayerSounds> _trigger;
+    private AudioTriggerByNames<PlayerSounds> _trigger;
 
     private void Awake()
     {
@@ -23,11 +23,11 @@ public class PlayerAudioSource : MonoBehaviour
             {PlayerSounds.Drown, _drownClip},
         };
 
-        _trigger = new AudioTrigger<PlayerSounds>(_audioSource, audios);
+        _trigger = new AudioTriggerByNames<PlayerSounds>(_audioSource, audios);
     }
 
     public void PlaySound(PlayerSounds type)
     {
-        _trigger.PlaySound(type);
+        _trigger.PlaySoundByName(type, new Vector2(0.95f, 1.05f));
     }
 }
