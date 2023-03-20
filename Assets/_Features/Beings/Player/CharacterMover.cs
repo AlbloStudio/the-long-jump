@@ -55,6 +55,7 @@ namespace Assets.Scripts.being
         private CharacterAnimator _animator;
         private CharacterCommander _charCommander;
         private PlayerAudioSource _audioSource;
+        private GroundHitAudioSource _groundHitSource;
 
         private float _originalGravityScale;
         private float _coyoteCounter;
@@ -69,6 +70,7 @@ namespace Assets.Scripts.being
             _animator = GetComponent<CharacterAnimator>();
             _charCommander = GetComponent<CharacterCommander>();
             _audioSource = GetComponent<PlayerAudioSource>();
+            _groundHitSource = _groundCheck.GetComponent<GroundHitAudioSource>();
 
             _originalGravityScale = _body.gravityScale;
 
@@ -289,6 +291,7 @@ namespace Assets.Scripts.being
 
             _effects.BurstFall();
             _audioSource.PlaySound(PlayerSounds.Grounded);
+            _groundHitSource.PlaySound();
         }
 
         private void OnImpulse()
