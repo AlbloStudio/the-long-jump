@@ -50,5 +50,6 @@ public static class Enum
         Jump = 0,
         Grounded = 1,
         Drown = 2,
+        Death = 3,
     }
 }

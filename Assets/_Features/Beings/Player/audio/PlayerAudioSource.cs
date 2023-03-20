@@ -8,6 +8,7 @@ public class PlayerAudioSource : MonoBehaviour
     [SerializeField] private AudioClip _jumpClip;
     [SerializeField] private AudioClip _groundedClip;
     [SerializeField] private AudioClip _drownClip;
+    [SerializeField] private AudioClip _deathClip;
 
     private AudioSource _audioSource;
     private AudioTriggerByNames<PlayerSounds> _trigger;
@@ -21,6 +22,7 @@ public class PlayerAudioSource : MonoBehaviour
             {PlayerSounds.Jump, _jumpClip},
             {PlayerSounds.Grounded, _groundedClip},
             {PlayerSounds.Drown, _drownClip},
+            {PlayerSounds.Death, _deathClip},
         };
 
         _trigger = new AudioTriggerByNames<PlayerSounds>(_audioSource, audios);

@@ -19921,6 +19921,7 @@ MonoBehaviour:
   _jumpClip: {fileID: 8300000, guid: d561c4515552d3c4ba7478c666a5ed8c, type: 3}
   _groundedClip: {fileID: 8300000, guid: a1cfd77e6cfe07840845d480221b9480, type: 3}
   _drownClip: {fileID: 8300000, guid: 92da63d74b6668743af7344043daa45d, type: 3}
+  _deathClip: {fileID: 8300000, guid: ea4fbbd9a354b0045951a8125390f664, type: 3}
 --- !u!114 &8150739841969104619
 MonoBehaviour:
   m_ObjectHideFlags: 0

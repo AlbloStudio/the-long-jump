@@ -283,6 +283,7 @@ namespace Assets.Scripts.being
             float fallDistance = _fallDamageFirstPosition - transform.position.y;
             if (fallDistance >= _fallDeath)
             {
+                _audioSource.PlaySound(PlayerSounds.Death);
                 Kill(DeathType.Fall);
             }
 
