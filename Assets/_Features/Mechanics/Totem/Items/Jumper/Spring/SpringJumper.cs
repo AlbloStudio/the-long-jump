@@ -9,6 +9,8 @@ namespace Assets.Scripts.item
         private BoxCollider2D _boxCollider;
 
         private const float _FORCE = 600f;
+        private const float _MIN_FORCE = 1f;
+        private const float _MAX_FORCE = 7f;
 
         [Tooltip("How strong is the spring")]
         [SerializeField] private float _jumpForce = 1.5f;
@@ -22,11 +24,16 @@ namespace Assets.Scripts.item
         [Tooltip("If the spring should show force trajectory")]
         [SerializeField] private bool _showTrajectory = false;
 
+        [SerializeField] private Color _maxColor = new(1f, 0.3f, 0f, 1f);
+
+        private SpriteRenderer _renderer;
         private Animator _animator;
         private TrajectoryDrawer _trajectoryDrawer;
         private Vector2 _colliderBounds;
         private Vector2 _originalColliderSize;
         private Vector2 _originalColliderOffset;
+
+        private Color _minColor = new(1f, 1f, 1f, 1f);
 
         private bool _isImpulsing = false;
 
@@ -36,11 +43,14 @@ namespace Assets.Scripts.item
 
             _animator = GetComponent<Animator>();
 
+            _renderer = GetComponent<SpriteRenderer>();
+            _colliderBounds = _renderer.sprite.bounds.size;
+            float normalizedForce = Mathf.Clamp01((_jumpForce - _MIN_FORCE) / (_MAX_FORCE - _MIN_FORCE));
+            _renderer.color = Color.Lerp(_minColor, _maxColor, normalizedForce);
+
             _boxCollider = GetComponent<BoxCollider2D>();
             _originalColliderSize = _boxCollider.size;
             _originalColliderOffset = _boxCollider.offset;
-
-            _colliderBounds = GetComponent<SpriteRenderer>().sprite.bounds.size;
 
             InitTrajectoryDrawer();
         }
