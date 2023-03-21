@@ -12,13 +12,14 @@ public class TeleportRay : MonoBehaviour
     [SerializeField] private float _particleEmissionRate = 200f;
 
     [Tooltip("How fast particles move from source to target")]
-    [SerializeField] private float _particleSpeedModifier = 0.5f;
+    [SerializeField] private float _particleSpeedModifier = 5f;
 
     public TeleportPointSource teleport;
 
     private MeshGenerator _meshGenerator;
     private MeshFilter _meshFilter;
     private ParticleSystem _particles;
+    private BoxCollider2D _collider;
 
     private Color _initialColor;
 
@@ -27,12 +28,12 @@ public class TeleportRay : MonoBehaviour
     {
         _meshFilter = GetComponent<MeshFilter>();
         _meshGenerator = GetComponent<MeshGenerator>();
+        _collider = GetComponent<BoxCollider2D>();
 
         _particles = GetComponent<ParticleSystem>();
         _initialColor = _particles.startColor;
     }
 
-    [System.Obsolete]
     private void Update()
     {
         transform.SetPositionAndRotation(teleport.transform.position, Rotation.LookAt2D(transform.position, teleport.TargetPoint.transform.position));
@@ -76,6 +77,9 @@ public class TeleportRay : MonoBehaviour
 
         _meshGenerator.PlaneSize = new(topRight.x - topLeft.x, topLeft.y - bottomLeft.y);
         _meshGenerator.GeneratePlane();
+
+        _collider.size = new Vector2(Vector2.Distance(topRight, topLeft), 1);
+        _collider.offset = new Vector2(_collider.size.x / 2, 0.17f);
     }
 
     private void CalculateParticles()
