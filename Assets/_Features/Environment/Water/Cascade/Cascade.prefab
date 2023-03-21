@@ -9662,7 +9662,7 @@ MonoBehaviour:
   _speed: 1.52
   _anchor: 1.1
   _anchorX: -0.935
-  _alpha: 0.6
+  _alpha: 0.815
   _foamThickness: 0
 --- !u!114 &3731292633277035705
 MonoBehaviour:

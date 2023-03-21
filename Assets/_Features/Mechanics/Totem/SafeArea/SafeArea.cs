@@ -47,7 +47,6 @@ namespace Assets.Scripts.totem
 
         private void OnTriggerExit2D(Collider2D other)
         {
-            print("exiting");
             if (other.gameObject == _char.gameObject)
             {
                 _char.SwitchTrailEmission(false);
