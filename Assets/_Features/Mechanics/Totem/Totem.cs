@@ -87,6 +87,7 @@ namespace Assets.Scripts.totem
         private void ExitPlanning()
         {
             _isPlanning = false;
+            _activeItem = null;
 
             _safeAreaRenderer.enabled = false;
 
