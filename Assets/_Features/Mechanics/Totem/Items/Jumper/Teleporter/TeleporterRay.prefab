@@ -15,7 +15,8 @@ GameObject:
   - component: {fileID: 5769711515830627794}
   - component: {fileID: 5769711515830627793}
   - component: {fileID: -7498947274986457515}
-  m_Layer: 16
+  - component: {fileID: 4967989310150820599}
+  m_Layer: 0
   m_Name: TeleporterRay
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -45,7 +46,7 @@ ParticleSystem:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5769711515830627792}
   serializedVersion: 8
-  lengthInSec: 2
+  lengthInSec: 10
   simulationSpeed: 1
   stopAction: 0
   cullingMode: 0
@@ -53,7 +54,7 @@ ParticleSystem:
   ringBufferLoopRange: {x: 0, y: 1}
   emitterVelocityMode: 1
   looping: 1
-  prewarm: 0
+  prewarm: 1
   playOnAwake: 1
   useUnscaledTime: 0
   autoRandomSeed: 1
@@ -120,7 +121,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 2
+      scalar: 10
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -289,7 +290,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.06
+      scalar: 0.31
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -673,7 +674,7 @@ ParticleSystem:
     donutRadius: 0.2
     m_Position: {x: 0, y: 0, z: 0}
     m_Rotation: {x: 0, y: 0, z: 0}
-    m_Scale: {x: 1, y: 1, z: 0}
+    m_Scale: {x: 1, y: 4, z: 1}
     placementMode: 2
     m_MeshMaterialIndex: 0
     m_MeshNormalOffset: 0
@@ -741,7 +742,7 @@ ParticleSystem:
     m_SpriteRenderer: {fileID: 0}
     m_UseMeshMaterialIndex: 0
     m_UseMeshColors: 0
-    alignToDirection: 0
+    alignToDirection: 1
     m_Texture: {fileID: 10300, guid: 0000000000000000f000000000000000, type: 0}
     m_TextureClipChannel: 3
     m_TextureClipThreshold: 0
@@ -749,9 +750,9 @@ ParticleSystem:
     m_TextureColorAffectsParticles: 0
     m_TextureAlphaAffectsParticles: 0
     m_TextureBilinearFiltering: 0
-    randomDirectionAmount: 1
+    randomDirectionAmount: 0
     sphericalDirectionAmount: 0
-    randomPositionAmount: 0.1
+    randomPositionAmount: 0
     radius:
       value: 1
       mode: 0
@@ -872,7 +873,7 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 100
+      scalar: 266.2582
       minScalar: 10
       maxCurve:
         serializedVersion: 2
@@ -1518,7 +1519,7 @@ ParticleSystem:
     x:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0
+      scalar: -0.22437218
       minScalar: 0.3
       maxCurve:
         serializedVersion: 2
@@ -1571,7 +1572,7 @@ ParticleSystem:
     y:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0
+      scalar: -4.994963
       minScalar: 0.3
       maxCurve:
         serializedVersion: 2
@@ -3821,15 +3822,16 @@ ParticleSystem:
     collidesWithDynamic: 1
     interiorCollisions: 0
   TriggerModule:
-    enabled: 0
+    enabled: 1
     serializedVersion: 2
-    inside: 1
-    outside: 0
+    inside: 0
+    outside: 1
     enter: 0
     exit: 0
     colliderQueryMode: 0
     radiusScale: 1
-    primitives: []
+    primitives:
+    - {fileID: 4967989310150820599}
   SubModule:
     serializedVersion: 2
     enabled: 0
@@ -4808,7 +4810,7 @@ ParticleSystemRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1665408557
-  m_SortingLayer: 3
+  m_SortingLayer: 4
   m_SortingOrder: -1
   m_RenderMode: 0
   m_MeshDistribution: 0
@@ -4860,7 +4862,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10308, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 10758, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4902,9 +4904,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae34d4fd93949014aaec51ca6dc1f0db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _rayOffset: {x: 0.1, y: 0.02}
+  _rayOffset: {x: -3.32, y: 0}
   _particleEmissionRate: 200
-  _particleSpeedModifier: 0.5
+  _particleSpeedModifier: 5
   teleport: {fileID: 0}
 --- !u!114 &-7498947274986457515
 MonoBehaviour:
@@ -4918,7 +4920,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7adb3f767d283c40aee325998083f5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _planeSize: {x: 1, y: 1}
+  _planeSize: {x: 2.29, y: 1}
   _offset: {x: 0, y: 0}
   _planeResolution: 1
+  _planeZ: 0
   _auto: 0
+  _updateCollider: 1
+--- !u!61 &4967989310150820599
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5769711515830627792}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 1.145, y: 0.5}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 2.29, y: 1}
+  m_EdgeRadius: 0
