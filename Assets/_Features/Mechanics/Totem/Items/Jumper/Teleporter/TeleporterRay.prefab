@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 5769711515830627793}
   - component: {fileID: -7498947274986457515}
   - component: {fileID: 4967989310150820599}
+  - component: {fileID: 6134463032170061472}
   m_Layer: 0
   m_Name: TeleporterRay
   m_TagString: Untagged
@@ -46,7 +47,7 @@ ParticleSystem:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5769711515830627792}
   serializedVersion: 8
-  lengthInSec: 10
+  lengthInSec: 3
   simulationSpeed: 1
   stopAction: 0
   cullingMode: 0
@@ -121,7 +122,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 10
+      scalar: 3
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -674,8 +675,8 @@ ParticleSystem:
     donutRadius: 0.2
     m_Position: {x: 0, y: 0, z: 0}
     m_Rotation: {x: 0, y: 0, z: 0}
-    m_Scale: {x: 1, y: 4, z: 1}
-    placementMode: 2
+    m_Scale: {x: 1, y: 1, z: 0}
+    placementMode: 1
     m_MeshMaterialIndex: 0
     m_MeshNormalOffset: 0
     m_MeshSpawn:
@@ -742,7 +743,7 @@ ParticleSystem:
     m_SpriteRenderer: {fileID: 0}
     m_UseMeshMaterialIndex: 0
     m_UseMeshColors: 0
-    alignToDirection: 1
+    alignToDirection: 0
     m_Texture: {fileID: 10300, guid: 0000000000000000f000000000000000, type: 0}
     m_TextureClipChannel: 3
     m_TextureClipThreshold: 0
@@ -750,7 +751,7 @@ ParticleSystem:
     m_TextureColorAffectsParticles: 0
     m_TextureAlphaAffectsParticles: 0
     m_TextureBilinearFiltering: 0
-    randomDirectionAmount: 0
+    randomDirectionAmount: 1
     sphericalDirectionAmount: 0
     randomPositionAmount: 0
     radius:
@@ -873,7 +874,7 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 266.2582
+      scalar: 3496.0105
       minScalar: 10
       maxCurve:
         serializedVersion: 2
@@ -1320,8 +1321,8 @@ ParticleSystem:
       maxColor: {r: 1, g: 1, b: 1, a: 1}
       maxGradient:
         serializedVersion: 2
-        key0: {r: 0.8490566, g: 0.6628409, b: 0.244304, a: 1}
-        key1: {r: 0.68235296, g: 0.53333336, b: 0.20392159, a: 1}
+        key0: {r: 0.9960785, g: 0.69803923, b: 0.21960786, a: 1}
+        key1: {r: 0.6313726, g: 0.2784314, b: 0.06666667, a: 1}
         key2: {r: 0, g: 0, b: 0, a: 0}
         key3: {r: 0, g: 0, b: 0, a: 0}
         key4: {r: 0, g: 0, b: 0, a: 0}
@@ -1349,8 +1350,8 @@ ParticleSystem:
         m_NumAlphaKeys: 2
       minGradient:
         serializedVersion: 2
-        key0: {r: 1, g: 0.6839622, b: 0.6839622, a: 1}
-        key1: {r: 0.8000001, g: 0.5529412, b: 0.5529412, a: 1}
+        key0: {r: 0.9960785, g: 0.9960785, b: 0.3803922, a: 1}
+        key1: {r: 0.8117648, g: 0.64705884, b: 0.5411765, a: 1}
         key2: {r: 0, g: 0, b: 0, a: 0}
         key3: {r: 0, g: 0, b: 0, a: 0}
         key4: {r: 0, g: 0, b: 0, a: 0}
@@ -1493,25 +1494,11 @@ ParticleSystem:
     tilesY: 1
     animationType: 0
     rowIndex: 0
-    cycles: 1
+    cycles: 1.26
     uvChannelMask: -1
     rowMode: 1
     sprites:
-    - sprite: {fileID: -576491840, guid: f338b0554a176a84186c492e456e7c29, type: 3}
-    - sprite: {fileID: -1488400526, guid: f338b0554a176a84186c492e456e7c29, type: 3}
-    - sprite: {fileID: -984010348, guid: f338b0554a176a84186c492e456e7c29, type: 3}
-    - sprite: {fileID: 1661172151, guid: f338b0554a176a84186c492e456e7c29, type: 3}
-    - sprite: {fileID: -1388501264, guid: f338b0554a176a84186c492e456e7c29, type: 3}
-    - sprite: {fileID: 1776203419, guid: f338b0554a176a84186c492e456e7c29, type: 3}
-    - sprite: {fileID: -1916068071, guid: f338b0554a176a84186c492e456e7c29, type: 3}
-    - sprite: {fileID: -1310195334, guid: f338b0554a176a84186c492e456e7c29, type: 3}
-    - sprite: {fileID: -1908447424, guid: f338b0554a176a84186c492e456e7c29, type: 3}
-    - sprite: {fileID: 1493482653, guid: f338b0554a176a84186c492e456e7c29, type: 3}
-    - sprite: {fileID: -1628149410, guid: f338b0554a176a84186c492e456e7c29, type: 3}
-    - sprite: {fileID: -1140455982, guid: f338b0554a176a84186c492e456e7c29, type: 3}
-    - sprite: {fileID: -898157549, guid: f338b0554a176a84186c492e456e7c29, type: 3}
-    - sprite: {fileID: 2026345388, guid: f338b0554a176a84186c492e456e7c29, type: 3}
-    - sprite: {fileID: 730477243, guid: f338b0554a176a84186c492e456e7c29, type: 3}
+    - sprite: {fileID: 21300000, guid: 994b7f987cff7d4439c5f4253c1efdf1, type: 3}
     flipU: 0
     flipV: 0
   VelocityModule:
@@ -1519,7 +1506,7 @@ ParticleSystem:
     x:
       serializedVersion: 2
       minMaxState: 0
-      scalar: -0.22437218
+      scalar: -7.9999948
       minScalar: 0.3
       maxCurve:
         serializedVersion: 2
@@ -1572,7 +1559,7 @@ ParticleSystem:
     y:
       serializedVersion: 2
       minMaxState: 0
-      scalar: -4.994963
+      scalar: -0.0091552455
       minScalar: 0.3
       maxCurve:
         serializedVersion: 2
@@ -4904,9 +4891,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae34d4fd93949014aaec51ca6dc1f0db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _rayOffset: {x: -3.32, y: 0}
-  _particleEmissionRate: 200
-  _particleSpeedModifier: 5
+  _rayOffset: {x: 0, y: 0.1}
+  _particleEmissionRate: 20
+  _particleSpeedModifier: 8
   teleport: {fileID: 0}
 --- !u!114 &-7498947274986457515
 MonoBehaviour:
@@ -4952,3 +4939,14 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.29, y: 1}
   m_EdgeRadius: 0
+--- !u!210 &6134463032170061472
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5769711515830627792}
+  m_Enabled: 1
+  m_SortingLayerID: 1665408557
+  m_SortingLayer: 4
+  m_SortingOrder: -1

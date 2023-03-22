@@ -23,6 +23,9 @@ public class TeleportRay : MonoBehaviour
 
     private Color _initialColor;
 
+    private bool _isFarAway = false;
+    private bool _isObstructed = false;
+
     [System.Obsolete]
     private void Awake()
     {
@@ -40,6 +43,9 @@ public class TeleportRay : MonoBehaviour
 
         if (teleport.transform.hasChanged || teleport.TargetPoint.transform.hasChanged)
         {
+            teleport.transform.hasChanged = false;
+            teleport.TargetPoint.transform.hasChanged = false;
+
             RenderRay();
         }
     }
@@ -76,6 +82,7 @@ public class TeleportRay : MonoBehaviour
         Vector2 bottomLeft = new(points[0].x - _rayOffset.x, points[0].y - _rayOffset.y);
 
         _meshGenerator.PlaneSize = new(topRight.x - topLeft.x, topLeft.y - bottomLeft.y);
+        _meshGenerator.Offset = new(0, bottomLeft.y);
         _meshGenerator.GeneratePlane();
 
         _collider.size = new Vector2(Vector2.Distance(topRight, topLeft), 1);
@@ -87,17 +94,20 @@ public class TeleportRay : MonoBehaviour
         ParticleSystem.MainModule mainParticles = _particles.main;
         ParticleSystem.EmissionModule emission = _particles.emission;
 
-        float area = 2 * Vector2.Distance(_meshFilter.mesh.vertices[0], _meshFilter.mesh.vertices[1]) * _rayOffset.x;
+        _isFarAway = teleport.IsFarAway();
+        _isObstructed = teleport.IsObstructed();
 
-        float rateModifier = teleport.IsFarAway() ? 0.2f : 1f;
-        emission.rateOverTime = _particleEmissionRate * area * rateModifier;
+        float area = 2 * Vector2.Distance(_meshFilter.mesh.vertices[0], _meshFilter.mesh.vertices[1]);
+
+        float rateModifier = _isFarAway ? 0.2f : 1f;
+        float emissionRate = _particleEmissionRate * area * rateModifier;
+        emission.rateOverTime = _isFarAway ? emissionRate / 10 : emissionRate;
 
         Vector2 particlesDireciton = Vector3.Normalize(teleport.TargetPoint.transform.position - teleport.transform.position);
         ParticleSystem.VelocityOverLifetimeModule vel = _particles.velocityOverLifetime;
-        vel.x = particlesDireciton.x * _particleSpeedModifier;
-        vel.y = particlesDireciton.y * _particleSpeedModifier;
+        vel.x = _isFarAway ? 0 : particlesDireciton.x * _particleSpeedModifier;
+        vel.y = _isFarAway ? 0 : particlesDireciton.y * _particleSpeedModifier;
 
-        mainParticles.startColor = teleport.IsObstructed() ? Color.black : _initialColor;
-        mainParticles.gravityModifier = teleport.IsFarAway() ? 0.3f : 0;
+        mainParticles.startColor = _isObstructed ? new Color(0, 0, 0, _isFarAway ? 0.5f : 0.15f) : _initialColor;
     }
 }
