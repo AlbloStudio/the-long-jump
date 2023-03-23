@@ -25,6 +25,7 @@ public class TeleportRay : MonoBehaviour
 
     private bool _isFarAway = false;
     private bool _isObstructed = false;
+    private float _initialLifeTime;
 
     [System.Obsolete]
     private void Awake()
@@ -35,6 +36,7 @@ public class TeleportRay : MonoBehaviour
 
         _particles = GetComponent<ParticleSystem>();
         _initialColor = _particles.startColor;
+        _initialLifeTime = _particles.main.startLifetime.constant;
     }
 
     private void Update()
@@ -101,7 +103,8 @@ public class TeleportRay : MonoBehaviour
 
         float rateModifier = _isFarAway ? 0.2f : 1f;
         float emissionRate = _particleEmissionRate * area * rateModifier;
-        emission.rateOverTime = _isFarAway ? emissionRate / 10 : emissionRate;
+        emission.rateOverTime = emissionRate;
+        mainParticles.startLifetime = _isFarAway ? 0.1f : _initialLifeTime;
 
         Vector2 particlesDireciton = Vector3.Normalize(teleport.TargetPoint.transform.position - teleport.transform.position);
         ParticleSystem.VelocityOverLifetimeModule vel = _particles.velocityOverLifetime;
