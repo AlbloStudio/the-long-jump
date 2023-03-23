@@ -85,5 +85,10 @@ namespace Assets.Scripts.item
                 _jumper.SetPlanningMode(PlanningMode.Waiting);
             }
         }
+
+        public void ResetPosition()
+        {
+            transform.position = _originalPosition;
+        }
     }
 }

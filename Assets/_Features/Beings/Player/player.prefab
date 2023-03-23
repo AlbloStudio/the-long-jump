@@ -20088,6 +20088,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9cef459bdcf15d4e8f2082e846ebd0d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _timeToResetObjects: 1
 --- !u!114 &2707635049044036907
 MonoBehaviour:
   m_ObjectHideFlags: 0

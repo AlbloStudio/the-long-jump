@@ -1,4 +1,6 @@
+using Assets.Scripts.being;
 using Assets.Scripts.item;
+using Assets.Scripts.managers;
 using Cinemachine;
 using System.Collections.Generic;
 using UnityEngine;
@@ -22,6 +24,7 @@ namespace Assets.Scripts.totem
         private bool _isPlanning = false;
         private Item _activeItem;
         private Vector3 _clickOffset = Vector2.zero;
+        private PlayerController _playerController;
 
         private Camera _mainCamera;
 
@@ -31,6 +34,8 @@ namespace Assets.Scripts.totem
             _safeAreaRenderer.enabled = false;
 
             _audioSource = GetComponent<AudioSource>();
+
+            _playerController = GeneralData.Instance.Player.GetComponent<PlayerController>();
 
             _mainCamera = Camera.main;
         }
@@ -54,6 +59,7 @@ namespace Assets.Scripts.totem
             {
                 EnterPlanning();
                 _audioSource.Play();
+                _playerController.SetTotem(this);
             }
         }
 
@@ -63,6 +69,7 @@ namespace Assets.Scripts.totem
             {
                 ExitPlanning();
                 _audioSource.Stop();
+                _playerController.SetTotem(null);
             }
         }
 
@@ -143,6 +150,14 @@ namespace Assets.Scripts.totem
                                 Mathf.Abs(_mainCamera.transform.position.z)
                             )
                         );
+        }
+
+        public void ResetObjects()
+        {
+            foreach (Item item in _items)
+            {
+                item.ResetPosition();
+            }
         }
     }
 }
