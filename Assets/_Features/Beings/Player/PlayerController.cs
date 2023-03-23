@@ -47,7 +47,7 @@ namespace Assets.Scripts.being
         {
             if (Input.GetButtonUp("Reset"))
             {
-                bool isNotResettingObjects = _resetObjectsCount <= _timeToResetObjects / 7.5f;
+                bool isNotResettingObjects = _resetObjectsCount <= 0.2f;
                 if (isNotResettingObjects)
                 {
                     _controller.Kill(DeathType.Reset, 0.2f);
