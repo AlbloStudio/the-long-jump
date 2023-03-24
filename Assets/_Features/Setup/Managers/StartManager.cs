@@ -25,7 +25,7 @@ public class StartManager : MonoBehaviour
     private CharacterMover _char;
     private Rigidbody2D _charBody;
 
-    private readonly StateMachine<StartState> _state = new(StartState.Awaking);
+    private readonly StateMachine<StartState> _state = new(StartState.FadeIn);
     private Vector2 _dofRange = new(25, 1);
     private Vector2 _textAlphaRangeStart = new(1, 0);
     private Vector2 _textAlphaRangeAwake = new(-0.5f, 1);
@@ -50,6 +50,8 @@ public class StartManager : MonoBehaviour
             return;
         }
 
+        InputManager.Instance.CanPause = false;
+
         StartButtonProps();
         StartVolumeProps();
         StartCharProps();
@@ -62,7 +64,7 @@ public class StartManager : MonoBehaviour
             return;
         }
 
-        if (_state.IsInState(StartState.Awaking))
+        if (_state.IsInState(StartState.FadeIn))
         {
             _timeAccounted += Time.deltaTime;
 
@@ -70,11 +72,11 @@ public class StartManager : MonoBehaviour
 
             if (_timeAccounted >= _fadeInTime)
             {
-                OnAwake();
+                OnReady();
             }
         }
 
-        if (_state.IsInState(StartState.Starting))
+        if (_state.IsInState(StartState.FadeOut))
         {
             _timeAccounted += Time.deltaTime;
 
@@ -91,18 +93,27 @@ public class StartManager : MonoBehaviour
                 OnDone();
             }
         }
+
+        if (_state.IsInState(StartState.FadeIn, StartState.Ready) && Input.GetButtonUp("Submit"))
+        {
+            OnPressStart();
+        }
     }
 
     public void OnPressStart()
     {
-        if (!_activateStartSequence || !_state.IsInState(StartState.Ready))
+        if (!_activateStartSequence)
         {
             return;
         }
 
+        _startButton.onClick.RemoveAllListeners();
+
+        OnReady();
+
         _charBody.simulated = true;
 
-        _state.ChangeState(StartState.Starting);
+        _state.ChangeState(StartState.FadeOut);
     }
 
     private void StartButtonProps()
@@ -143,7 +154,7 @@ public class StartManager : MonoBehaviour
         _minFloatParameter.value = GetIncrement(_dofRange, _fadeOutTime);
     }
 
-    private void OnAwake()
+    private void OnReady()
     {
         _timeAccounted = 0;
         _state.ChangeState(StartState.Ready);
@@ -152,10 +163,13 @@ public class StartManager : MonoBehaviour
     private void OnDone()
     {
         _timeAccounted = 0;
-        _state.ChangeState(StartState.Started);
-        _char.GetComponent<CharacterMover>().FallDeath = _fallDeath;
+        _state.ChangeState(StartState.Done);
+
+        _char.FallDeath = _fallDeath;
 
         _canvas.enabled = false;
+
+        InputManager.Instance.CanPause = true;
     }
 
     private float GetIncrement(Vector2 range, float time)
