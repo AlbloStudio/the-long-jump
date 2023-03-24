@@ -388,6 +388,7 @@ namespace Assets.Scripts.being
                     animationName = CharAnimationNames.Death;
                     break;
                 case DeathType.Abism:
+                    _audioSource.PlaySound(PlayerSounds.Scream);
                     break;
                 case DeathType.Drown:
                     burst = _effects.BurstDrown;

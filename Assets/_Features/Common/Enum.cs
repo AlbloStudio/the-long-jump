@@ -51,5 +51,6 @@ public static class Enum
         Grounded = 1,
         Drown = 3,
         Death = 4,
+        Scream = 5,
     }
 }
