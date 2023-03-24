@@ -8,8 +8,6 @@ public class Water : MonoBehaviour
     private static readonly int _AnchorX = Shader.PropertyToID("_AnchorX");
     private static readonly int _Alpha = Shader.PropertyToID("_Alpha");
     private static readonly int _FoamThickness = Shader.PropertyToID("_FoamThickness");
-    private static readonly int _HorizontalSpeed = Shader.PropertyToID("_HorizontalSpeed");
-    private static readonly int _VerticalSpeed = Shader.PropertyToID("_VerticalSpeed");
 
     [SerializeField][Range(0, 10)] private float _amplitude = 0.5f;
     [SerializeField][Range(0, 10)] private float _speed = 0.2f;
@@ -19,6 +17,8 @@ public class Water : MonoBehaviour
     [SerializeField][Range(0, 0.3f)] private float _foamThickness = 0.005f;
 
     private Material _material;
+
+    private AudioSourceManager _audios;
 
     private void Awake()
     {
@@ -35,6 +35,8 @@ public class Water : MonoBehaviour
             shape.shapeType = ParticleSystemShapeType.Mesh;
             shape.mesh = mesh;
         }
+
+        _audios = GetComponent<AudioSourceManager>();
     }
 
     private void Update()
@@ -45,5 +47,10 @@ public class Water : MonoBehaviour
         _material.SetFloat(_AnchorX, _anchorX);
         _material.SetFloat(_Alpha, _alpha);
         _material.SetFloat(_FoamThickness, _foamThickness);
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        _audios.PlayRandomSound();
     }
 }
