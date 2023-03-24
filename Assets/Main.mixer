@@ -60,6 +60,20 @@ AudioMixerEffectController:
   m_SendTarget: {fileID: 0}
   m_EnableWetMix: 0
   m_Bypass: 0
+--- !u!244 &-6502511909045185875
+AudioMixerEffectController:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_EffectID: 8004dc65f262bbb4ab29505b885b5c48
+  m_EffectName: Attenuation
+  m_MixLevel: 53a26b2692c08aa47b0aadab2c81addb
+  m_Parameters: []
+  m_SendTarget: {fileID: 0}
+  m_EnableWetMix: 0
+  m_Bypass: 0
 --- !u!243 &-6363813810694937247
 AudioMixerGroupController:
   m_ObjectHideFlags: 0
@@ -77,6 +91,25 @@ AudioMixerGroupController:
   - {fileID: 477354024918814313}
   - {fileID: -6533935127119889683}
   - {fileID: 4301889061029191454}
+  m_UserColorIndex: 0
+  m_Mute: 0
+  m_Solo: 0
+  m_BypassEffects: 0
+--- !u!243 &-2960532075776080767
+AudioMixerGroupController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Spring
+  m_AudioMixer: {fileID: 24100000}
+  m_GroupID: 3b7aa43cf33e1aa448d33709e2a02863
+  m_Children: []
+  m_Volume: 6f83a9ea12e679d4fa0d02bc1680f2d0
+  m_Pitch: 69dfd64d52b09a741bbfbd432d6c3a97
+  m_Send: 00000000000000000000000000000000
+  m_Effects:
+  - {fileID: -6502511909045185875}
   m_UserColorIndex: 0
   m_Mute: 0
   m_Solo: 0
@@ -118,6 +151,7 @@ AudioMixerController:
     - c89d963c231193a4b9b7c0511108b743
     - ecf8a8e30da710245bdb9cc426178100
     - e401e93dfb82acf4ea38375e3eba07ba
+    - 3b7aa43cf33e1aa448d33709e2a02863
     name: View
   m_CurrentViewIndex: 0
   m_TargetSnapshot: {fileID: 24500006}
@@ -135,6 +169,7 @@ AudioMixerGroupController:
   - {fileID: 3226484645343046014}
   - {fileID: -6363813810694937247}
   - {fileID: 1583441491442588248}
+  - {fileID: -2960532075776080767}
   m_Volume: 3d75e5035d2d34b4f878483adcc20c68
   m_Pitch: e7d99bba622efd64c908d23c97911e4f
   m_Send: 00000000000000000000000000000000
@@ -206,6 +241,7 @@ AudioMixerSnapshotController:
     c8634eb9dd95cc64384d7588c820a915: 533
     00af5b2ae35b490458e8b443b41ee039: -2891
     e7d99bba622efd64c908d23c97911e4f: 1
+    6f83a9ea12e679d4fa0d02bc1680f2d0: -6.991066
     cdb0220bd63a4d840925166cdc7b8e2b: 26.5
     d15d7c4b9a1d0dc4398c09d530f9796c: -5909
     0d6ddd5b71022654c8bfc800c87368eb: 0.046

@@ -27,6 +27,7 @@ namespace Assets.Scripts.item
         [SerializeField] private Color _maxColor = new(1f, 0.3f, 0f, 1f);
 
         private SpriteRenderer _renderer;
+        private AudioSourceManager _audioSource;
         private Animator _animator;
         private TrajectoryDrawer _trajectoryDrawer;
         private Vector2 _colliderBounds;
@@ -51,6 +52,8 @@ namespace Assets.Scripts.item
             _boxCollider = GetComponent<BoxCollider2D>();
             _originalColliderSize = _boxCollider.size;
             _originalColliderOffset = _boxCollider.offset;
+
+            _audioSource = GetComponent<AudioSourceManager>();
 
             InitTrajectoryDrawer();
         }
@@ -114,6 +117,7 @@ namespace Assets.Scripts.item
         {
             _controller.Impulse(_FORCE * _jumpForce, _direction);
             _animator.SetTrigger(SpringAnimationNames.Activate);
+            _audioSource.PlayRandomSound();
 
             yield return new WaitForSeconds(0.3f);
 
