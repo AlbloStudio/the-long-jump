@@ -32,7 +32,6 @@ public class PlayerAudioSource : MonoBehaviour
 
     public void PlaySound(PlayerSounds type)
     {
-        print("triggering");
         _trigger.PlaySoundByName(type, new Vector2(0.90f, 1.1f));
     }
 }
