@@ -24,10 +24,10 @@ public static class Enum
 
     public enum StartState
     {
-        FadeIn = 0,
-        Ready = 1,
-        FadeOut = 2,
-        Done = 3,
+        FadingIn = 0,
+        FadedIn = 1,
+        FadingOut = 2,
+        FadedOut = 3,
     }
 
     public enum DeathType

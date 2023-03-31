@@ -15,8 +15,7 @@ GameObject:
   - component: {fileID: 112490244}
   - component: {fileID: 112490248}
   - component: {fileID: 6028414461559392444}
-  - component: {fileID: 5825288594291568310}
-  - component: {fileID: 1199848606388162641}
+  - component: {fileID: 4854130138056492617}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -84,7 +83,7 @@ MonoBehaviour:
     serializedVersion: 2
     key0: {r: 0.33962262, g: 0.18466553, b: 0.10412958, a: 1}
     key1: {r: 0.14150941, g: 0.07413526, b: 0.042052325, a: 1}
-    key2: {r: 0.14117648, g: 0.10980393, b: 0.098039225, a: 0}
+    key2: {r: 0.11320752, g: 0.09107088, b: 0.08276965, a: 0}
     key3: {r: 0, g: 0, b: 0, a: 0}
     key4: {r: 0, g: 0, b: 0, a: 0}
     key5: {r: 0, g: 0, b: 0, a: 0}
@@ -109,7 +108,7 @@ MonoBehaviour:
     m_Mode: 0
     m_NumColorKeys: 3
     m_NumAlphaKeys: 2
-  _bounds: {x: -4, y: 8}
+  _bounds: {x: -3.6, y: 8}
   _foggyMaterial: {fileID: 2100000, guid: 129e668d4b062ba45a4cc881e6f165fe, type: 2}
   _fogInEditor: 0
 --- !u!114 &6426651382107607222
@@ -177,7 +176,7 @@ MonoBehaviour:
   _windSpeed: 0.88
   _windStrength: 0.4
   _granularity: 1
---- !u!114 &5825288594291568310
+--- !u!114 &4854130138056492617
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -186,27 +185,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 6426651382107607226}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f44d43b68b7c6444fa179157a21fe346, type: 3}
+  m_Script: {fileID: 11500000, guid: abc4bb1915d8218439f678c2d5476356, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _activateStartSequence: 0
-  _fadeInTime: 3
-  _fadeOutTime: 2
-  _initialCharPosition: {x: 2, y: 20, z: 0}
-  _canvas: {fileID: 0}
-  _startButton: {fileID: 0}
   _blurVolume: {fileID: 0}
-  _startVirtualCamera: {fileID: 0}
---- !u!114 &1199848606388162641
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6426651382107607226}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9cc9e60862fb0364a8a1899fed5e9450, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CanPause: 1
