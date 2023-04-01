@@ -5,6 +5,6 @@ public class MenuManager : Singleton<MenuManager>
 {
     [SerializeField] private Volume _blurVolume;
 
-    public MenuHandler CurrentMenuHandler { get; private set; }
+    public MenuHandler CurrentMenuHandler;
     public Volume BlurVolume => _blurVolume;
 }

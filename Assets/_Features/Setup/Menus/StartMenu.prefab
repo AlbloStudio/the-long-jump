@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f44d43b68b7c6444fa179157a21fe346, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fadeTimes: {x: 3, y: 1.5}
+  _fadeTimes: {x: 0.01, y: 1.5}
   _activationTriggerCollider: {fileID: 0}
   _activationButton: 
   _canvasGroup: {fileID: 0}

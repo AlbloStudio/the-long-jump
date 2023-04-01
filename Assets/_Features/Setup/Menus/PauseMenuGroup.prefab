@@ -19,7 +19,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1490008062193773085
 RectTransform:
   m_ObjectHideFlags: 0
@@ -121,22 +121,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1490008062193773085}
     m_Modifications:
-    - target: {fileID: 7926687920189626186, guid: 0de91b4c78589b649bb2dd19c8a4fced,
-        type: 3}
-      propertyPath: m_text
-      value: 'Use your mouse to place Items
-
-
-        Reset Player: Press X
-
-        Reset
-        Items: Hold X'
-      objectReference: {fileID: 0}
-    - target: {fileID: 7926687921259199652, guid: 0de91b4c78589b649bb2dd19c8a4fced,
-        type: 3}
-      propertyPath: m_Transition
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 7926687921259199653, guid: 0de91b4c78589b649bb2dd19c8a4fced,
         type: 3}
       propertyPath: m_Pivot.x
@@ -155,32 +139,32 @@ PrefabInstance:
     - target: {fileID: 7926687921259199653, guid: 0de91b4c78589b649bb2dd19c8a4fced,
         type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7926687921259199653, guid: 0de91b4c78589b649bb2dd19c8a4fced,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7926687921259199653, guid: 0de91b4c78589b649bb2dd19c8a4fced,
         type: 3}
       propertyPath: m_AnchorMin.x
-      value: 0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7926687921259199653, guid: 0de91b4c78589b649bb2dd19c8a4fced,
         type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7926687921259199653, guid: 0de91b4c78589b649bb2dd19c8a4fced,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 500
+      value: -32
       objectReference: {fileID: 0}
     - target: {fileID: 7926687921259199653, guid: 0de91b4c78589b649bb2dd19c8a4fced,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 100
+      value: -480
       objectReference: {fileID: 0}
     - target: {fileID: 7926687921259199653, guid: 0de91b4c78589b649bb2dd19c8a4fced,
         type: 3}

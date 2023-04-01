@@ -122,6 +122,8 @@ public class MenuHandler : MonoBehaviour
         _minFloatParameter.value = _dofRange.x;
 
         _canvasGroup.gameObject.SetActive(false);
+
+        MenuManager.Instance.CurrentMenuHandler = null;
     }
 
     private float GetIncrement(Vector2 range, float time)
@@ -131,10 +133,21 @@ public class MenuHandler : MonoBehaviour
 
     public void ActivateMenu()
     {
+        if (
+            MenuManager.Instance.CurrentMenuHandler != null &&
+            MenuManager.Instance.CurrentMenuHandler != this
+           )
+        {
+            return;
+        }
+
+        MenuManager.Instance.CurrentMenuHandler = this;
+
         _canvasGroup.gameObject.SetActive(true);
         _canvasGroup.alpha = 0;
 
         _state.ChangeState(StartState.FadingIn);
+
         OnFadingIn();
     }
 

@@ -19,6 +19,8 @@ public class StartMenuHandler : MenuHandler
         StartButtonProps();
         StartCharProps();
 
+        GeneralData.Instance.StartCamera.enabled = true;
+
         ActivateMenu();
     }
 
