@@ -52,7 +52,7 @@ namespace Assets.Scripts.item
         public bool IsObstructed()
         {
             Vector3 directionToNextPoint = Vector3.Normalize(_targetPoint.transform.position - transform.position);
-            RaycastHit2D[] inBetweenHits = Physics2D.RaycastAll(transform.position, directionToNextPoint, GetDistanceBetweenTeleporters(), LayerMask.GetMask("Level", "Jumper", "PlatformJumper"));
+            RaycastHit2D[] inBetweenHits = Physics2D.RaycastAll(transform.position, directionToNextPoint, GetDistanceBetweenTeleporters(), LayerMask.GetMask("Level", "LevelParticlesCollision", "Jumper", "PlatformJumper"));
 
             return inBetweenHits.Length > 2;
         }

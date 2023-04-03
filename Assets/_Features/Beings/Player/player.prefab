@@ -20054,7 +20054,7 @@ MonoBehaviour:
   _jumpTime: 0.1
   _whatIsGround:
     serializedVersion: 2
-    m_Bits: 262400
+    m_Bits: 262912
   _groundCheck: {fileID: 8150739842128445502}
   _trail: {fileID: 2707635049772714736}
   _airPhysicsMaterial: {fileID: 6200000, guid: 3a9c14762e7261c41b2d85c6a919c07a, type: 2}
