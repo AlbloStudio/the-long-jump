@@ -4,6 +4,13 @@ using UnityEngine;
 
 public class Developer : MonoBehaviour
 {
+    [MenuItem("Developer / Select Player")]
+    private static void SelectPlayer()
+    {
+        Undo.RecordObject(GeneralData.Instance.Player.transform, "Select Player");
+        Selection.objects = new GameObject[] { GeneralData.Instance.Player.gameObject };
+    }
+
     [MenuItem("Developer / Place player on clicked position")]
     private static void PlacePlayerOnClick()
     {
