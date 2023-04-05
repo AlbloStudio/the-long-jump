@@ -45,6 +45,8 @@ namespace Assets.Scripts.being
         [Tooltip("how much in units you have to fall to die")]
         [SerializeField] private float _fallDeath = 5f;
 
+        [SerializeField] private GameObject _bodyParts;
+
         public float FallDeath { get => _fallDeath; set => _fallDeath = value; }
         public bool IsGrounded { get; private set; } = false;
         public StateMachine<CharState> state = new(CharState.Airing);
@@ -397,6 +399,8 @@ namespace Assets.Scripts.being
                 case DeathType.Reset:
                     break;
                 case DeathType.Spikes:
+                    _ = Instantiate(_bodyParts, transform.position, Quaternion.identity);
+                    break;
                 default:
                     break;
             }
