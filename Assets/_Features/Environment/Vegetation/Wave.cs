@@ -6,7 +6,6 @@ public class Wave : MonoBehaviour
     private static readonly int WindSpeed = Shader.PropertyToID("_WindSpeed");
     private static readonly int WindStrength = Shader.PropertyToID("_WindStrength");
     private static readonly int Granularity = Shader.PropertyToID("_Granularity");
-    private static readonly int Seed = Shader.PropertyToID("_Seed");
 
     private List<Material> _materials;
     private Renderer _renderer;
