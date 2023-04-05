@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using Assets.Scripts.being;
 using Assets.Scripts.managers;
+using System.Collections;
 
 public class StartMenuHandler : MenuHandler
 {
@@ -34,14 +35,16 @@ public class StartMenuHandler : MenuHandler
         }
     }
 
-    protected override void WhileFadedIn()
+    protected override IEnumerator WhileFadedIn()
     {
-        base.WhileFadedIn();
+        _ = StartCoroutine(base.WhileFadedIn());
 
         if (Input.GetButtonUp("Submit"))
         {
             OnPressStart();
         }
+
+        yield return null;
     }
 
     protected override void OnFadedOut()

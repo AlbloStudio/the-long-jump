@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class PauseMenuHandler : MenuHandler
@@ -28,13 +29,15 @@ public class PauseMenuHandler : MenuHandler
         }
     }
 
-    protected override void WhileFadedIn()
+    protected override IEnumerator WhileFadedIn()
     {
-        base.WhileFadedIn();
+        _ = StartCoroutine(base.WhileFadedIn());
 
         if (Input.GetButtonDown("Pause"))
         {
             DeactivateMenu();
         }
+
+        yield return null;
     }
 }

@@ -15,8 +15,6 @@ namespace Assets.Scripts.managers
 
         [SerializeField] private Material _foggyMaterial;
 
-        [SerializeField] private bool _fogInEditor = false;
-
         public Gradient Colors => _colors;
         public Gradient FrontColors => _frontColors;
         public Vector2 Bounds => _bounds;

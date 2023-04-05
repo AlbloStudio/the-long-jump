@@ -1,3 +1,5 @@
+using Assets.Scripts.managers;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
@@ -5,8 +7,9 @@ using static Enum;
 
 public class MenuHandler : MonoBehaviour
 {
+    [SerializeField] protected Vector2 _dofRange = new(1f, 25f);
+    // [SerializeField] protected Vector2 _blackRange = new(1f, 25f);
     [SerializeField] protected Vector2 _fadeTimes = new(3f, 1.5f);
-    [SerializeField] private Collider2D _activationTriggerCollider;
     [SerializeField] private string _activationButton;
     [SerializeField] private CanvasGroup _canvasGroup;
 
@@ -15,12 +18,14 @@ public class MenuHandler : MonoBehaviour
 
     private DepthOfField _depthOfField;
     private ClampedFloatParameter _minFloatParameter;
-    private Vector2 _dofRange = new(1f, 25f);
+    private Collider2D _activationTriggerCollider;
 
     protected virtual void Awake()
     {
         _ = MenuManager.Instance.BlurVolume.profile.TryGet(out _depthOfField);
         _minFloatParameter = _depthOfField.focalLength;
+
+        _activationTriggerCollider = GetComponent<Collider2D>();
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -30,7 +35,7 @@ public class MenuHandler : MonoBehaviour
             return;
         }
 
-        bool activatedByTrigger = other == _activationTriggerCollider;
+        bool activatedByTrigger = GeneralData.Instance.Player.GetComponent<Collider2D>() == other;
         if (activatedByTrigger)
         {
             ActivateMenu();
@@ -49,7 +54,7 @@ public class MenuHandler : MonoBehaviour
         }
         else if (_state.IsInState(StartState.FadedIn))
         {
-            WhileFadedIn();
+            _ = StartCoroutine(WhileFadedIn());
         }
         else if (_state.IsInState(StartState.FadingOut))
         {
@@ -83,9 +88,9 @@ public class MenuHandler : MonoBehaviour
         }
     }
 
-    protected virtual void WhileFadedIn()
+    protected virtual IEnumerator WhileFadedIn()
     {
-        //--
+        yield return null;
     }
 
     protected virtual void WhileFadedOut()
