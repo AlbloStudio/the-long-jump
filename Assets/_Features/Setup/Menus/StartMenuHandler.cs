@@ -22,7 +22,7 @@ public class StartMenuHandler : MenuHandler
 
         GeneralData.Instance.StartCamera.enabled = true;
 
-        ActivateMenu();
+        _ = StartCoroutine(ActivateMenu());
     }
 
     protected override void WhileFadingIn()

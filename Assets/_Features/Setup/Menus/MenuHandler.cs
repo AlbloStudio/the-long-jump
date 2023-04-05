@@ -7,8 +7,8 @@ using static Enum;
 
 public class MenuHandler : MonoBehaviour
 {
+    [SerializeField] protected float _activateAfterTime = 0;
     [SerializeField] protected Vector2 _dofRange = new(1f, 25f);
-    // [SerializeField] protected Vector2 _blackRange = new(1f, 25f);
     [SerializeField] protected Vector2 _fadeTimes = new(3f, 1.5f);
     [SerializeField] private string _activationButton;
     [SerializeField] private CanvasGroup _canvasGroup;
@@ -38,7 +38,7 @@ public class MenuHandler : MonoBehaviour
         bool activatedByTrigger = GeneralData.Instance.Player.GetComponent<Collider2D>() == other;
         if (activatedByTrigger)
         {
-            ActivateMenu();
+            _ = StartCoroutine(ActivateMenu());
         }
     }
 
@@ -97,7 +97,7 @@ public class MenuHandler : MonoBehaviour
     {
         if (_activationButton != "" && Input.GetButtonDown(_activationButton))
         {
-            ActivateMenu();
+            _ = StartCoroutine(ActivateMenu());
         }
     }
 
@@ -136,15 +136,17 @@ public class MenuHandler : MonoBehaviour
         return Mathf.Lerp(range.x, range.y, _fadeTimeCount / time);
     }
 
-    public void ActivateMenu()
+    public IEnumerator ActivateMenu()
     {
         if (
             MenuManager.Instance.CurrentMenuHandler != null &&
             MenuManager.Instance.CurrentMenuHandler != this
            )
         {
-            return;
+            yield return null;
         }
+
+        yield return new WaitForSeconds(_activateAfterTime);
 
         MenuManager.Instance.CurrentMenuHandler = this;
 

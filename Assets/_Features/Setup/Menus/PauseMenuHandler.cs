@@ -25,7 +25,7 @@ public class PauseMenuHandler : MenuHandler
 
         if (CanPause && Input.GetButtonDown("Pause"))
         {
-            ActivateMenu();
+            _ = StartCoroutine(ActivateMenu());
         }
     }
 
