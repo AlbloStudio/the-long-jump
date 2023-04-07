@@ -1,4 +1,5 @@
 using Assets.Scripts.managers;
+using UnityEditor.Animations;
 using UnityEngine;
 using UnityEngine.Events;
 using static Enum;
@@ -45,6 +46,8 @@ namespace Assets.Scripts.being
         [Tooltip("how much in units you have to fall to die")]
         [SerializeField] private float _fallDeath = 5f;
 
+        [SerializeField] private AnimatorController _berserkAnimator;
+
         [SerializeField] private GameObject _bodyParts;
 
         public float FallDeath { get => _fallDeath; set => _fallDeath = value; }
@@ -52,9 +55,10 @@ namespace Assets.Scripts.being
         public StateMachine<CharState> state = new(CharState.Airing);
         public string currentStateName = CharState.Airing.ToString();
 
+        private Animator _animatorComponent;
         private Rigidbody2D _body;
         private CharacterEffects _effects;
-        private CharacterAnimator _animator;
+        private CharacterAnimator _charAnimator;
         private CharacterCommander _charCommander;
         private PlayerAudioSource _audioSource;
         private GroundHitAudioSource _groundHitSource;
@@ -69,9 +73,10 @@ namespace Assets.Scripts.being
         {
             _body = GetComponent<Rigidbody2D>();
             _effects = GetComponent<CharacterEffects>();
-            _animator = GetComponent<CharacterAnimator>();
+            _charAnimator = GetComponent<CharacterAnimator>();
             _charCommander = GetComponent<CharacterCommander>();
             _audioSource = GetComponent<PlayerAudioSource>();
+            _animatorComponent = GetComponent<Animator>();
             _groundHitSource = _groundCheck.GetComponent<GroundHitAudioSource>();
 
             _originalGravityScale = _body.gravityScale;
@@ -303,7 +308,7 @@ namespace Assets.Scripts.being
             _body.sharedMaterial = _airPhysicsMaterial;
             _fallDamageFirstPosition = transform.position.y;
 
-            _animator.TriggerJump();
+            _charAnimator.TriggerJump();
         }
 
         private void OnJump()
@@ -312,7 +317,7 @@ namespace Assets.Scripts.being
             _fallDamageFirstPosition = transform.position.y;
 
             _effects.BurstJump();
-            _animator.TriggerJump();
+            _charAnimator.TriggerJump();
             _audioSource.PlaySound(PlayerSounds.Jump);
         }
 
@@ -407,7 +412,7 @@ namespace Assets.Scripts.being
 
             if (animationName != -1)
             {
-                _animator.TriggerDeath(animationName);
+                _charAnimator.TriggerDeath(animationName);
             }
 
             burst?.Invoke();
@@ -435,12 +440,12 @@ namespace Assets.Scripts.being
 
         public void EnterTeleport()
         {
-            _animator.EnterTeleport();
+            _charAnimator.EnterTeleport();
         }
 
         public void ExitTeleport()
         {
-            _animator.ExitTeleport();
+            _charAnimator.ExitTeleport();
         }
 
         public void SwitchTrailEmission(bool shouldEmit)
@@ -449,6 +454,11 @@ namespace Assets.Scripts.being
             {
                 _trail.emitting = shouldEmit;
             }
+        }
+
+        public void GoBerserk()
+        {
+            _animatorComponent.runtimeAnimatorController = _berserkAnimator;
         }
     }
 }

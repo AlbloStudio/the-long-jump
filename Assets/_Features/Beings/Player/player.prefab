@@ -334,7 +334,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 0.509434, g: 0.509434, b: 0.509434, a: 1}
+      maxColor: {r: 1, g: 1, b: 1, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -4965,7 +4965,7 @@ ParticleSystem:
   m_GameObject: {fileID: 1546208336}
   serializedVersion: 8
   lengthInSec: 1
-  simulationSpeed: 1
+  simulationSpeed: 1.2
   stopAction: 0
   cullingMode: 0
   ringBufferMode: 0
@@ -5146,7 +5146,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 0.509434, g: 0.509434, b: 0.509434, a: 1}
+      maxColor: {r: 1, g: 1, b: 1, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -5790,7 +5790,7 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 10
+      scalar: 20
       minScalar: 10
       maxCurve:
         serializedVersion: 2
@@ -6229,7 +6229,7 @@ ParticleSystem:
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
-        key1: {r: 1, g: 1, b: 1, a: 1}
+        key1: {r: 1, g: 1, b: 1, a: 0}
         key2: {r: 0, g: 0, b: 0, a: 0}
         key3: {r: 0, g: 0, b: 0, a: 0}
         key4: {r: 0, g: 0, b: 0, a: 0}
@@ -9684,7 +9684,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 6305b99506d808c4eae7a8f86453e848, type: 2}
+  - {fileID: 2100000, guid: 63d065e6de89c424ebba0964cec02551, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -9709,7 +9709,7 @@ ParticleSystemRenderer:
   m_MeshDistribution: 0
   m_SortMode: 0
   m_MinParticleSize: 0
-  m_MaxParticleSize: 0.5
+  m_MaxParticleSize: 0.9
   m_CameraVelocityScale: 0
   m_VelocityScale: 0
   m_LengthScale: 2
@@ -14828,7 +14828,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 0.509434, g: 0.509434, b: 0.509434, a: 1}
+      maxColor: {r: 1, g: 1, b: 1, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -18413,7 +18413,7 @@ ParticleSystem:
     subEmitters:
     - serializedVersion: 3
       emitter: {fileID: 0}
-      type: 0
+      type: 1
       properties: 0
       emitProbability: 1
   LightsModule:
@@ -19523,7 +19523,7 @@ TrailRenderer:
     colorGradient:
       serializedVersion: 2
       key0: {r: 1, g: 1, b: 1, a: 1}
-      key1: {r: 1, g: 0, b: 0, a: 1}
+      key1: {r: 0.7830189, g: 0.5371385, b: 0, a: 1}
       key2: {r: 0, g: 0, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}
@@ -19831,7 +19831,7 @@ SpriteRenderer:
   m_SortingLayerID: 1860162699
   m_SortingLayer: 5
   m_SortingOrder: 0
-  m_Sprite: {fileID: -1451603853, guid: f7bd1dc494192d24da32d6ccdcf02868, type: 3}
+  m_Sprite: {fileID: 1016738731, guid: 646e222c129d0864aaec2d8bca32f1f4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -19935,7 +19935,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1
-  m_Pitch: 1
+  m_Pitch: 0.9515466
   Loop: 0
   Mute: 0
   Spatialize: 0
@@ -19978,7 +19978,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 0.5
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -20008,7 +20008,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 1
+      value: 1.1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -20048,7 +20048,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _coyoteTime: 0.07
-  _runSpeed: 40
+  _runSpeed: 50
   _groundCheckRadius: 0.26
   _jumpForce: 500
   _jumpTime: 0.1
@@ -20063,6 +20063,9 @@ MonoBehaviour:
   _downwardsGravityScale: 5
   _upwardsGravityScale: 3
   _fallDeath: 9
+  _berserkAnimator: {fileID: 9100000, guid: 8805a0a6391158b48ae83c4356e0440d, type: 2}
+  _bodyParts: {fileID: 4595015515968048123, guid: e2dc044f1b97d344e913f8b1e4252e19,
+    type: 3}
   currentStateName: airing
 --- !u!114 &4247628860875042205
 MonoBehaviour:

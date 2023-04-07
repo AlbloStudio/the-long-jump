@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8689708647273740048}
   - component: {fileID: 8689708647273740054}
   - component: {fileID: 8689708647273740049}
-  - component: {fileID: 4336973168752147195}
+  - component: {fileID: 1578179471}
   m_Layer: 0
   m_Name: camTrigger
   m_TagString: Untagged
@@ -26,7 +26,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8689708647273740051}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 376.9223, y: -103.68202, z: 1.6074266}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -69,7 +69,7 @@ EdgeCollider2D:
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0
   m_UseAdjacentEndPoint: 0
---- !u!114 &4336973168752147195
+--- !u!114 &1578179471
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -78,6 +78,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 8689708647273740051}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3423d0d299f8b9145b727906d325b148, type: 3}
+  m_Script: {fileID: 11500000, guid: 0d91542b4d3f11c4bbf6f0a7447d5f1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _objectsToMakeAppear:
+  - {fileID: 0}
+  - {fileID: 0}
+  _objectsToMakeDisappear:
+  - {fileID: 0}
+  _earthQuakeAudioSource: {fileID: 0}
+  _earthQuakeParticles: {fileID: 0}
+  _earthQuakeParticlesEmission: 50
