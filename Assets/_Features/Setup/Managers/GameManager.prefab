@@ -15,7 +15,8 @@ GameObject:
   - component: {fileID: 112490244}
   - component: {fileID: 112490248}
   - component: {fileID: 6028414461559392444}
-  - component: {fileID: 4854130138056492617}
+  - component: {fileID: 8290391112466424087}
+  - component: {fileID: 5525292092750379306}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -110,7 +111,6 @@ MonoBehaviour:
     m_NumAlphaKeys: 2
   _bounds: {x: -3.6, y: 8}
   _foggyMaterial: {fileID: 2100000, guid: 129e668d4b062ba45a4cc881e6f165fe, type: 2}
-  _fogInEditor: 0
 --- !u!114 &6426651382107607222
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -125,6 +125,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _player: {fileID: 0}
   _playerFeet: {fileID: 0}
+  _startCamera: {fileID: 0}
 --- !u!114 &112490240
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -176,7 +177,19 @@ MonoBehaviour:
   _windSpeed: 0.88
   _windStrength: 0.4
   _granularity: 1
---- !u!114 &4854130138056492617
+--- !u!114 &8290391112466424087
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6426651382107607226}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16e21292e5527d9459ba560b6a7c07f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &5525292092750379306
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -189,3 +202,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _blurVolume: {fileID: 0}
+  CurrentMenuHandler: {fileID: 0}

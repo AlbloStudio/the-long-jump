@@ -1,5 +1,4 @@
 using Assets.Scripts.managers;
-using UnityEditor.Animations;
 using UnityEngine;
 using UnityEngine.Events;
 using static Enum;
@@ -46,7 +45,7 @@ namespace Assets.Scripts.being
         [Tooltip("how much in units you have to fall to die")]
         [SerializeField] private float _fallDeath = 5f;
 
-        [SerializeField] private AnimatorController _berserkAnimator;
+        [SerializeField] private RuntimeAnimatorController _berserkAnimator;
 
         [SerializeField] private GameObject _bodyParts;
 

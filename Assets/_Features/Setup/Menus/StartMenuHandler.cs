@@ -3,11 +3,13 @@ using UnityEngine.UI;
 using Assets.Scripts.being;
 using Assets.Scripts.managers;
 using System.Collections;
+using Cinemachine;
 
 public class StartMenuHandler : MenuHandler
 {
     [SerializeField] private Vector3 _initialCharPosition = new(2, 20, 0);
     [SerializeField] private Button _startButton;
+    [SerializeField] private CinemachineVirtualCamera _startCamera;
 
     private CharacterMover _char;
     private Rigidbody2D _charBody;
@@ -20,7 +22,7 @@ public class StartMenuHandler : MenuHandler
         StartButtonProps();
         StartCharProps();
 
-        GeneralData.Instance.StartCamera.enabled = true;
+        _startCamera.enabled = true;
 
         _ = StartCoroutine(ActivateMenu());
     }
@@ -52,6 +54,7 @@ public class StartMenuHandler : MenuHandler
         base.OnFadedOut();
 
         _char.FallDeath = _fallDeath;
+        _startCamera.enabled = false;
     }
 
     public void OnPressStart()
