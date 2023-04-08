@@ -27,7 +27,6 @@ public class TeleportRay : MonoBehaviour
     private bool _isObstructed = false;
     private float _initialLifeTime;
 
-    [System.Obsolete]
     private void Awake()
     {
         _meshFilter = GetComponent<MeshFilter>();
@@ -35,7 +34,7 @@ public class TeleportRay : MonoBehaviour
         _collider = GetComponent<BoxCollider2D>();
 
         _particles = GetComponent<ParticleSystem>();
-        _initialColor = _particles.startColor;
+        _initialColor = _particles.main.startColor.color;
         _initialLifeTime = _particles.main.startLifetime.constant;
     }
 

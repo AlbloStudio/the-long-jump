@@ -67,5 +67,19 @@ namespace Assets.Scripts.utils
 
             return center + new Vector2((Random.value - 0.5f) * size.x, (Random.value - 0.5f) * size.y);
         }
+
+        public static float CalculateFacingArea(Mesh m)
+        {
+            Vector3[] mVertices = m.vertices;
+            Vector3 result = Vector3.zero;
+            for (int p = mVertices.Length - 1, q = 0; q < mVertices.Length; p = q++)
+            {
+                result += Vector3.Cross(mVertices[q], mVertices[p]);
+            }
+
+            Debug.Log(result);
+            result *= 0.5f;
+            return result.magnitude;
+        }
     }
 }
