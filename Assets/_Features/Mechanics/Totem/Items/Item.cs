@@ -38,6 +38,14 @@ namespace Assets.Scripts.item
             }
         }
 
+        private void Start()
+        {
+            if (_isStatic)
+            {
+                _jumper.SetPlanningMode(PlanningMode.Playing);
+            }
+        }
+
         private bool IsInSafeArea()
         {
             return _safeArea.bounds.Contains(new(transform.position.x, transform.position.y, _safeArea.transform.position.z));

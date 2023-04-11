@@ -1,71 +1,37 @@
-using Assets.Scripts.trigger;
 using UnityEngine;
 
 namespace Assets.Scripts.managers
 {
     public class DebugManager : Singleton<DebugManager>
     {
-        public Checkpoint ActiveCheckpoint { get; private set; }
-
-        private string _added = "";
-        private bool _activeReturnKey;
-        private bool isInDebugMode;
-        private Object[] _checkpoints;
-
-        private void Awake()
-        {
-            _checkpoints = Resources.FindObjectsOfTypeAll(typeof(Checkpoint));
-        }
-
         private void Update()
         {
-            if (Input.GetKeyDown(KeyCode.F1))
+            if (Input.GetKeyDown(KeyCode.End))
             {
-                isInDebugMode = !isInDebugMode;
+                TryToTeleportForward();
+            }
+
+            if (Input.GetKeyDown(KeyCode.Home))
+            {
+                TryToTeleportBackward();
             }
         }
 
-        private void OnGUI()
+        private void TryToTeleportForward()
         {
-            if (!isInDebugMode)
-            {
-                return;
-            }
-
-            _added = GUILayout.TextField(_added, 25, GUILayout.Width(300));
-
-            if (GUI.changed)
-            {
-                _activeReturnKey = true;
-            }
-
-            if (_activeReturnKey)
-            {
-                if (PressedEnter())
-                {
-                    _activeReturnKey = false;
-
-                    TryToTeleport();
-                }
-            }
+            TryToTeleport(CheckpointManager.Instance.ActiveCheckpoint.Number + 1);
         }
 
-        private bool PressedEnter()
+        private void TryToTeleportBackward()
         {
-            return Event.current.isKey && Event.current.keyCode == KeyCode.Return;
+            int minNumber = Mathf.Max(0, CheckpointManager.Instance.ActiveCheckpoint.Number - 1);
+            TryToTeleport(minNumber);
         }
 
-        private void TryToTeleport()
+        private void TryToTeleport(int index)
         {
-            if (int.TryParse(_added, out int j))
-            {
-                Object checkpointFound = System.Array.Find(_checkpoints, checkpoint => ((Checkpoint)checkpoint).Number == j);
-
-                if (System.Array.Find(_checkpoints, checkpoint => ((Checkpoint)checkpoint).Number == j))
-                {
-                    GeneralData.Instance.Player.transform.position = ((Checkpoint)checkpointFound).SpawnPoint;
-                }
-            }
+            CheckpointManager.Instance.SetNewCheckpointByIndex(index);
+            GeneralData.Instance.Player.Kill(Enum.DeathType.Reset, 0f);
         }
     }
 }

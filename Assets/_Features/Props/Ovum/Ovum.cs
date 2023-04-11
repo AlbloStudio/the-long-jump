@@ -1,5 +1,7 @@
+using Assets.Scripts.being;
 using Assets.Scripts.managers;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 
 public class Ovum : MonoBehaviour
 {
@@ -7,7 +9,11 @@ public class Ovum : MonoBehaviour
     {
         if (collided.transform.Equals(GeneralData.Instance.Player.transform))
         {
-            GeneralData.Instance.Player.gameObject.SetActive(false);
+            GameObject player = GeneralData.Instance.Player.gameObject;
+            player.GetComponent<Renderer>().enabled = false;
+            player.GetComponent<CharacterMover>().enabled = false;
+            player.GetComponentInChildren<Light2D>().enabled = false;
+            player.GetComponent<Rigidbody2D>().simulated = false;
         }
     }
 }

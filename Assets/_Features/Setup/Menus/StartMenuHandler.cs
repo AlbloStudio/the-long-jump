@@ -9,6 +9,7 @@ public class StartMenuHandler : MenuHandler
 {
     [SerializeField] private Vector3 _initialCharPosition = new(2, 20, 0);
     [SerializeField] private Button _startButton;
+    [SerializeField] private Button _loadButton;
     [SerializeField] private CinemachineVirtualCamera _startCamera;
 
     private CharacterMover _char;
@@ -60,14 +61,23 @@ public class StartMenuHandler : MenuHandler
     public void OnPressStart()
     {
         _startButton.onClick.RemoveAllListeners();
+        _loadButton.onClick.RemoveAllListeners();
+
         _charBody.simulated = true;
 
         DeactivateMenu();
     }
 
+    public void OnLoadPress()
+    {
+        OnPressStart();
+        SaveSystem.Instance.Load();
+    }
+
     private void StartButtonProps()
     {
         _startButton.onClick.AddListener(OnPressStart);
+        _loadButton.onClick.AddListener(OnLoadPress);
     }
 
     private void StartCharProps()

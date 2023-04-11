@@ -27,25 +27,8 @@ namespace Assets.Scripts.managers
         {
             _filePath = Application.persistentDataPath + "/save.json";
 
-            ReadFile();
-
-            if (_save != null)
-            {
-                _startMenu.enabled = false;
-                _startMenu.gameObject.SetActive(false);
-            }
-        }
-
-        private void Start()
-        {
             _checkpointManager = CheckpointManager.Instance;
             _checkpointManager.CheckpointSet.AddListener(SaveNewCheckpoint);
-
-            if (_save != null)
-            {
-                _checkpointManager.SetNewCheckpointByIndex(_save.CheckpointIndex);
-                GeneralData.Instance.Player.transform.position = _checkpointManager.ActiveCheckpoint.SpawnPoint;
-            }
         }
 
         private void SaveNewCheckpoint(Checkpoint newCheckPoint)
@@ -65,6 +48,17 @@ namespace Assets.Scripts.managers
                 _save = JsonUtility.FromJson<Save>(json);
 
                 print("Loaded game at checkpoint " + _save.CheckpointIndex);
+            }
+        }
+
+        public void Load()
+        {
+            ReadFile();
+
+            if (_save != null)
+            {
+                _checkpointManager.SetNewCheckpointByIndex(_save.CheckpointIndex);
+                GeneralData.Instance.Player.transform.position = _checkpointManager.ActiveCheckpoint.SpawnPoint;
             }
         }
     }

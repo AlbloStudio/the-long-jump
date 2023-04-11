@@ -81,5 +81,10 @@ namespace Assets.Scripts.utils
             result *= 0.5f;
             return result.magnitude;
         }
+
+        public static bool HasMeshSurface(Mesh mesh)
+        {
+            return CalculateFacingArea(mesh) > 0;
+        }
     }
 }

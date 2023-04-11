@@ -26,6 +26,9 @@ public class TeleportRay : MonoBehaviour
     private bool _isFarAway = false;
     private bool _isObstructed = false;
     private float _initialLifeTime;
+    private bool _wasFarAway = false;
+    private bool _wasObstructed = false;
+    private bool _wasTrazable = false;
 
     private void Awake()
     {
@@ -42,6 +45,11 @@ public class TeleportRay : MonoBehaviour
     {
         transform.SetPositionAndRotation(teleport.transform.position, Rotation.LookAt2D(transform.position, teleport.TargetPoint.transform.position));
 
+        bool isTrazable = teleport.IsRayTrazable();
+        teleport.transform.hasChanged = teleport.transform.hasChanged || (isTrazable && !_wasTrazable);
+        teleport.TargetPoint.transform.hasChanged = teleport.TargetPoint.transform.hasChanged || (isTrazable && !_wasTrazable);
+        _wasTrazable = isTrazable;
+
         if (teleport.transform.hasChanged || teleport.TargetPoint.transform.hasChanged)
         {
             teleport.transform.hasChanged = false;
@@ -55,7 +63,10 @@ public class TeleportRay : MonoBehaviour
     {
         ParticleSystem.EmissionModule emission = _particles.emission;
 
-        if (!teleport.IsRayTrazable())
+        bool isTrazable = teleport.IsRayTrazable();
+        _wasTrazable = isTrazable;
+
+        if (!isTrazable)
         {
             emission.enabled = false;
         }
@@ -92,8 +103,17 @@ public class TeleportRay : MonoBehaviour
 
     private void CalculateParticles()
     {
+
         ParticleSystem.MainModule mainParticles = _particles.main;
         ParticleSystem.EmissionModule emission = _particles.emission;
+
+        bool isFarAway = teleport.IsFarAway();
+        bool isObstructed = teleport.IsObstructed();
+
+        teleport.transform.hasChanged = teleport.transform.hasChanged || isFarAway != _wasFarAway || isObstructed != _wasObstructed;
+        teleport.TargetPoint.transform.hasChanged = teleport.TargetPoint.transform.hasChanged || isFarAway != _wasFarAway || isObstructed != _wasObstructed;
+        _wasFarAway = isFarAway;
+        _wasObstructed = isObstructed;
 
         _isFarAway = teleport.IsFarAway();
         _isObstructed = teleport.IsObstructed();

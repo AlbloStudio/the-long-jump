@@ -19,8 +19,6 @@ namespace Assets.Scripts.utils
                 mesh = new();
             }
 
-            mesh.Clear();
-
             int resolution = Mathf.Clamp(planeResolution, 1, 50);
 
             GenerateVertices(resolution, planeSize, offset, zPos, ref mesh);
