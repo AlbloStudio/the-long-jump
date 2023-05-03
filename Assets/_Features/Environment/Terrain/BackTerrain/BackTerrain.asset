@@ -49,15 +49,15 @@ MonoBehaviour:
     - {fileID: 21300000, guid: cfb4e5dea0824c046a286fde365df7d2, type: 3}
   - m_CornerType: 4
     m_Sprites:
-    - {fileID: 21300000, guid: 85d58c765e4310a40b48e9267f88dc65, type: 3}
+    - {fileID: 21300000, guid: 4d240aaba9a405f4facccb40b71e4db9, type: 3}
   - m_CornerType: 5
     m_Sprites:
-    - {fileID: 21300000, guid: 52c66d698992458498e35e241e18d083, type: 3}
+    - {fileID: 21300000, guid: 4d240aaba9a405f4facccb40b71e4db9, type: 3}
   - m_CornerType: 6
     m_Sprites:
-    - {fileID: 21300000, guid: 9c282d470c105df429f983d7d9eb197e, type: 3}
+    - {fileID: 21300000, guid: 4d240aaba9a405f4facccb40b71e4db9, type: 3}
   - m_CornerType: 7
     m_Sprites:
-    - {fileID: 21300000, guid: 403cde3b8af7174438f5dd3ce711abf0, type: 3}
+    - {fileID: 21300000, guid: 4d240aaba9a405f4facccb40b71e4db9, type: 3}
   m_FillOffset: 0.5
   m_UseSpriteBorders: 1
