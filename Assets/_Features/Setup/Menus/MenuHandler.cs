@@ -12,6 +12,7 @@ public class MenuHandler : MonoBehaviour
     [SerializeField] protected Vector2 _fadeTimes = new(3f, 1.5f);
     [SerializeField] private string _activationButton;
     [SerializeField] private CanvasGroup _canvasGroup;
+    [SerializeField] private bool _activateOnlyOnce = false;
 
     protected readonly StateMachine<StartState> _state = new(StartState.FadedOut);
     protected float _fadeTimeCount = 0;
@@ -19,6 +20,7 @@ public class MenuHandler : MonoBehaviour
     private DepthOfField _depthOfField;
     private ClampedFloatParameter _minFloatParameter;
     private Collider2D _activationTriggerCollider;
+    private bool _alreadyActivated = false;
 
     protected virtual void Awake()
     {
@@ -138,24 +140,29 @@ public class MenuHandler : MonoBehaviour
 
     public IEnumerator ActivateMenu()
     {
-        if (
+        bool canActivate = !(_activateOnlyOnce && _alreadyActivated);
+
+        bool isMenuHandlerFreeOfUse = !(
             MenuManager.Instance.CurrentMenuHandler != null &&
             MenuManager.Instance.CurrentMenuHandler != this
-           )
+           );
+
+        if (canActivate && isMenuHandlerFreeOfUse)
         {
-            yield return null;
+
+            yield return new WaitForSeconds(_activateAfterTime);
+
+            MenuManager.Instance.CurrentMenuHandler = this;
+
+            _canvasGroup.gameObject.SetActive(true);
+            _canvasGroup.alpha = 0;
+
+            _state.ChangeState(StartState.FadingIn);
+
+            _alreadyActivated = true;
+
+            OnFadingIn();
         }
-
-        yield return new WaitForSeconds(_activateAfterTime);
-
-        MenuManager.Instance.CurrentMenuHandler = this;
-
-        _canvasGroup.gameObject.SetActive(true);
-        _canvasGroup.alpha = 0;
-
-        _state.ChangeState(StartState.FadingIn);
-
-        OnFadingIn();
     }
 
     public void DeactivateMenu()

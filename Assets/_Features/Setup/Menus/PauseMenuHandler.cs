@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class PauseMenuHandler : MenuHandler
 {
+    [HideInInspector]
     public bool CanPause = true;
 
     protected override void OnFadingOut()

@@ -179,6 +179,7 @@ namespace Assets.Scripts.being
 
         private void WhileJumping(bool isGrounded)
         {
+            _jumpCounter -= Time.deltaTime;
 
             if (_jumpCounter <= 0)
             {
@@ -190,9 +191,7 @@ namespace Assets.Scripts.being
 
             if (!isGrounded)
             {
-
                 _body.gravityScale = _body.velocity.y > 0 ? _upwardsGravityScale : _downwardsGravityScale;
-                _jumpCounter -= Time.deltaTime;
                 _fallDamageFirstPosition = Mathf.Max(transform.position.y, _fallDamageFirstPosition);
             }
         }
