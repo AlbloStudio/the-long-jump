@@ -22,8 +22,12 @@ namespace Assets.Scripts.managers
                 _checkpoints.Add(checkPoint);
                 checkPoint.CheckPointPassedEvent.AddListener(SetNewCheckpoint);
             }
+        }
 
-            ActiveCheckpoint = (Checkpoint)checkpoints[0];
+        private void Start()
+        {
+            SetNewCheckpointByIndex(0);
+
         }
 
         private void SetNewCheckpoint(Checkpoint newCheckPoint, Collider2D collided)

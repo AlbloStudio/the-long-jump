@@ -51,6 +51,9 @@ public class Water : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        _audios.PlayRandomSound();
+        if (_audios)
+        {
+            _audios.PlayRandomSound();
+        }
     }
 }

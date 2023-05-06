@@ -9,8 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1628140910198007521}
-  - component: {fileID: 1628140910198007522}
   - component: {fileID: 1628140910198007523}
+  - component: {fileID: 6433641369078833452}
   m_Layer: 0
   m_Name: LogoMenu
   m_TagString: Untagged
@@ -33,23 +33,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1628140910198007522
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1628140910198007520}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b264889d09d6d244488abb3ec5b2e1e8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _dofRange: {x: 1, y: 12}
-  _fadeTimes: {x: 0.3, y: 1}
-  _activationButton: 
-  _canvasGroup: {fileID: 0}
-  _logoTime: 2
 --- !u!68 &1628140910198007523
 EdgeCollider2D:
   m_ObjectHideFlags: 0
@@ -72,3 +55,23 @@ EdgeCollider2D:
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0
   m_UseAdjacentEndPoint: 0
+--- !u!114 &6433641369078833452
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1628140910198007520}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e201a4401286f346b32393d08c29ea5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _activateAfterTime: 0
+  _dofRange: {x: 1, y: 25}
+  _fadeTimes: {x: 0.2, y: 1}
+  _activationButton: 
+  _canvasGroup: {fileID: 0}
+  _activateOnlyOnce: 0
+  _logoTime: 3
+  pauseMenuHandler: {fileID: 0}

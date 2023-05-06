@@ -84,6 +84,8 @@ namespace Assets.Scripts.being
             _jumpCounter = _jumpTime;
             _fallDamageFirstPosition = transform.position.y;
 
+            _body.sharedMaterial = _airPhysicsMaterial;
+
             state.StateChanged.AddListener(StateChanged);
         }
 
@@ -415,7 +417,8 @@ namespace Assets.Scripts.being
 
             burst?.Invoke();
 
-            AddTeleportCommand(transform.position, null, animationName != -1, deathTime); ;
+            AddTeleportCommand(transform.position, null, animationName != -1, deathTime);
+            print(CheckpointManager.Instance.ActiveCheckpoint.SpawnPoint);
             AddTeleportCommand(CheckpointManager.Instance.ActiveCheckpoint.SpawnPoint, () => _isDead = false);
         }
 

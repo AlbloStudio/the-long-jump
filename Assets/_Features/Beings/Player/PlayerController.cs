@@ -45,7 +45,7 @@ namespace Assets.Scripts.being
 
         private void HandlePlayerReset()
         {
-            if (Input.GetButtonUp("Reset"))
+            if (Input.GetButtonUp("Reset") && !MenuManager.Instance.CurrentMenuHandler)
             {
                 bool isNotResettingObjects = _resetObjectsCount <= 0.2f;
                 if (isNotResettingObjects)
@@ -59,7 +59,7 @@ namespace Assets.Scripts.being
 
         private void HandleResetObjects()
         {
-            if (Input.GetButton("Reset"))
+            if (Input.GetButton("Reset") && !MenuManager.Instance.CurrentMenuHandler)
             {
                 bool didNotResetYet = _resetObjectsCount <= _timeToResetObjects;
                 if (didNotResetYet)
