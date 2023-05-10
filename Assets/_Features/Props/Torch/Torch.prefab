@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2902748272574146557}
   - component: {fileID: 2902748272574146555}
   - component: {fileID: 1447898411693984760}
+  - component: {fileID: 4204270164168608011}
   m_Layer: 0
   m_Name: light
   m_TagString: Untagged
@@ -53,7 +54,7 @@ MonoBehaviour:
   m_Intensity: 1.23
   m_LightVolumeIntensity: 0
   m_LightVolumeIntensityEnabled: 1
-  m_ApplyToSortingLayers: b7eefe23a739fdb1ed940b2901e406579d7bbb602b4a0de839e1235b332bc21d000000008bd4df6efb5703cb4f3c40592d1e446323091b9da9521a43c9972b98
+  m_ApplyToSortingLayers: b7eefe23a739fdb1ed940b2901e406579d7bbb602b4a0de839e1235b332bc21d000000008bd4df6efb5703cb4f3c40592d1e446323091b9da9521a43c9972b9893e0f73e
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0
@@ -127,6 +128,17 @@ MonoBehaviour:
   _frequencyOfChange: 0.1
   _minLight: 0.3
   _maxLight: 1
+--- !u!210 &4204270164168608011
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2902748272574146558}
+  m_Enabled: 1
+  m_SortingLayerID: 1056432275
+  m_SortingLayer: -4
+  m_SortingOrder: 0
 --- !u!1 &2902748273042547476
 GameObject:
   m_ObjectHideFlags: 0
